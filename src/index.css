@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #080A09;
+    color: #FFFFFF;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom glow and charging cable effects matching Stitch reference */
+.glow-accent {
+  box-shadow: 0 0 25px rgba(140, 240, 107, 0.4);
+}
+
+.glow-cable {
+  filter: drop-shadow(0 0 8px rgba(140, 240, 107, 0.85));
+}
+
+.glow-pulse {
+  animation: pulse-slow 3s infinite ease-in-out;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 8px rgba(140, 240, 107, 0.7));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(140, 240, 107, 1));
+  }
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.energy-flow-cable {
+  stroke-dasharray: 6, 6;
+  animation: flow-dash 1s linear infinite;
+}
+
+/* Hide scrollbar for touch device carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Seamless infinite horizontal marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Seamless flicker-free rolling word animation */
+@keyframes rollWord {
+  0%, 42% {
+    transform: translateY(0%);
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  50%, 92% {
+    transform: translateY(-33.333333%);
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  100% {
+    transform: translateY(-66.666667%);
+  }
+}
+
+.animate-roll-word {
+  animation: rollWord 6s infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Strict geometric clipping to prevent text remnants from leaking at edges */
+.rolling-word-mask {
+  overflow: hidden;
+  contain: paint;
+  isolation: isolate;
+  clip-path: inset(0 0 0 0);
+  -webkit-clip-path: inset(0 0 0 0);
+}

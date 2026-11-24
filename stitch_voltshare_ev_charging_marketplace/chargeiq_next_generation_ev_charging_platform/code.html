@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GreenIQ - Next-Generation EV Charging Stations</title>
+<!-- Tailwind CSS v3 CDN with forms & container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              lime: '#87F265',
+              limeHover: '#9af57d',
+              dark: '#050706',
+              surface: '#0B0F0C',
+              card: '#111613',
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderActive: 'rgba(135, 242, 101, 0.25)',
+              muted: '#7E8B83'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Font: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Custom Styles for Ambient Glows & Effects -->
+<style data-purpose="custom-effects">
+    body {
+      background-color: #030403;
+      color: #ECEEEB;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Neon battery glow simulation */
+    .glow-lime {
+      box-shadow: 0 0 25px rgba(135, 242, 101, 0.45);
+    }
+    
+    .glow-cable {
+      filter: drop-shadow(0 0 7px rgba(135, 242, 101, 0.8));
+    }
+    
+    .glow-pulse {
+      animation: pulse-slow 3s infinite ease-in-out;
+    }
+    
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 8px rgba(135, 242, 101, 0.7)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 16px rgba(135, 242, 101, 1)); }
+    }
+  </style>
+</head>
+<body class="bg-[#030403] text-[#ECEEEB] antialiased selection:bg-[#87F265] selection:text-black">
+<!-- BEGIN: MainHeader -->
+<header class="w-full fixed top-0 left-0 z-50 bg-[#030403]/80 backdrop-blur-md border-b border-white/[0.04] transition-all">
+<div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-10 h-10 rounded-full bg-[#87F265] flex items-center justify-center text-black font-extrabold text-xl shadow-[0_0_15px_rgba(135,242,101,0.35)] transition-transform group-hover:scale-105">
+<span>g</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-white">Green<span class="text-white font-medium">IQ</span></span>
+</a>
+<!-- Center Navigation Links -->
+<nav class="hidden md:flex items-center space-x-10 text-[14px]">
+<a class="text-white font-medium tracking-wide transition-colors" href="#hero">Home</a>
+<a class="text-zinc-400 hover:text-white font-medium tracking-wide transition-colors" href="#product">Product</a>
+<a class="text-zinc-400 hover:text-white font-medium tracking-wide transition-colors" href="#solutions">Solutions</a>
+<a class="text-zinc-400 hover:text-white font-medium tracking-wide transition-colors" href="#charging">Charging</a>
+<a class="text-zinc-400 hover:text-white font-medium tracking-wide transition-colors" href="#contact">Contact</a>
+</nav>
+<!-- Right Utility Actions -->
+<div class="flex items-center gap-3">
+<!-- Cart / Bag Button -->
+<button aria-label="Cart" class="w-10 h-10 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] flex items-center justify-center text-zinc-300 hover:text-white transition">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Search Button -->
+<button aria-label="Search" class="w-10 h-10 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] flex items-center justify-center text-zinc-300 hover:text-white transition">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Profile Button -->
+<button aria-label="Profile" class="w-10 h-10 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] flex items-center justify-center text-zinc-300 hover:text-white transition">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative min-h-[920px] pt-32 lg:pt-36 flex flex-col justify-between overflow-hidden" id="hero">
+<!-- Top Text & Hero Headline Area -->
+<div class="max-w-[1300px] mx-auto px-6 lg:px-12 w-full text-center relative z-20">
+<!-- Pill Subtitle -->
+<div class="inline-flex items-center gap-2 mb-4 px-1 py-1 rounded-full">
+<!-- Sprout Icon -->
+<svg class="w-4 h-4 text-[#87F265]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C8 2 4 5 4 10c0 4.5 3.5 7.5 7 8v4h2v-4c3.5-.5 7-3.5 7-8 0-5-4-8-8-8zm-1 14.9V11h2v5.9c-2 .2-2 .2 0 0zm0-8V4c3 0 5 2 5 5 0 1.5-.5 2.8-1.5 3.7C13.5 12.3 12 10.5 11 8.9z"></path>
+</svg>
+<span class="text-sm font-medium tracking-wide text-zinc-300">
+          Power Stations for <strong class="text-white font-semibold">a Green Planet</strong>
+</span>
+</div>
+<!-- Main Headline -->
+<h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-semibold tracking-tight leading-[1.08] text-white">
+<span class="text-zinc-400 font-normal">Next-</span>Generation EV<br/>
+        Charging <span class="font-normal text-zinc-200">Stations.</span>
+</h1>
+<!-- CTA Buttons Row -->
+<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+<!-- Direction Primary CTA -->
+<a class="px-6 py-3.5 rounded-full bg-[#87F265] hover:bg-[#97f877] text-black font-semibold text-sm flex items-center gap-2.5 shadow-[0_0_22px_rgba(135,242,101,0.4)] transition-all hover:scale-[1.02]" href="#stations">
+<!-- Direction Compass / Turn Icon -->
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+<span>Direction</span>
+</a>
+<!-- Browse Secondary CTA -->
+<a class="px-6 py-3.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-zinc-200 hover:text-white font-medium text-sm transition-all hover:border-white/20" href="#grid">
+          Browse Electric Grid
+        </a>
+</div>
+</div>
+<!-- Center Interactive Hero Graphic Composition (Car + Charger Column + Floating UI) -->
+<div class="relative w-full max-w-[1400px] mx-auto h-[550px] lg:h-[620px] mt-2 flex items-end">
+<!-- Background Ground Reflection & Radial Vignette -->
+<div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#030403] via-[#030403]/90 to-transparent z-10 pointer-events-none"></div>
+<div class="absolute left-1/2 -bottom-20 -translate-x-1/2 w-[900px] h-[350px] bg-[#87F265]/[0.035] rounded-full blur-[140px] pointer-events-none"></div>
+<!-- Left Floating Location Info Badge -->
+<div class="absolute left-6 lg:left-14 top-24 sm:top-28 z-20 flex items-start gap-3.5 max-w-xs">
+<div class="w-9 h-9 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center flex-shrink-0 text-zinc-300">
+<svg class="w-4 h-4 -rotate-45 ml-0.5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="text-[13px] leading-relaxed">
+<p class="text-zinc-400">123 Organic Street, <span class="text-white font-medium">Green Town,</span></p>
+<p class="text-zinc-400">New York, <span class="text-zinc-500 text-xs">USA</span></p>
+<a class="inline-block mt-2 font-medium text-[#87F265] border-b border-[#87F265]/40 hover:border-[#87F265] pb-0.5 transition-colors" href="#">
+            Closest <span class="text-zinc-300 font-normal">Shop to You</span>
+</a>
+</div>
+</div>
+<!-- Car & Charger Visualization Container -->
+<div class="relative w-full h-full flex items-end justify-center px-4">
+<!-- The EV Sedan Vehicle Canvas/Artwork -->
+<div class="relative z-10 w-[68%] sm:w-[58%] max-w-[720px] pb-6 -mr-16 sm:-mr-24 pointer-events-none select-none">
+<!-- Car Silhouette & Sleek Metallic Exterior -->
+<div class="relative aspect-[16/8.2] w-full flex items-end">
+<!-- Simulated Tesla/Lucid Style Luxury EV Graphic via Clean SVG / Rendering -->
+<svg class="w-full h-full drop-shadow-[0_20px_35px_rgba(0,0,0,0.9)]" fill="none" viewbox="0 0 820 420" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="bodyGrad" x1="120" x2="680" y1="90" y2="350">
+<stop offset="0%" stop-color="#2c3031"></stop>
+<stop offset="35%" stop-color="#141617"></stop>
+<stop offset="70%" stop-color="#090a0a"></stop>
+<stop offset="100%" stop-color="#020303"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="roofGlass" x1="300" x2="520" y1="90" y2="200">
+<stop offset="0%" stop-color="#3c4342" stop-opacity="0.9"></stop>
+<stop offset="60%" stop-color="#0a0c0c" stop-opacity="0.95"></stop>
+<stop offset="100%" stop-color="#000000"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="headlightGlow" x1="130" x2="260" y1="260" y2="285">
+<stop offset="0%" stop-color="#ffffff"></stop>
+<stop offset="30%" stop-color="#b6e0ff"></stop>
+<stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="rimChrome" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#555"></stop>
+<stop offset="50%" stop-color="#111"></stop>
+<stop offset="100%" stop-color="#333"></stop>
+</lineargradient>
+</defs>
+<!-- Car Ground Contact Shadow -->
+<ellipse cx="440" cy="370" fill="#000000" filter="blur(16px)" rx="340" ry="25"></ellipse>
+<ellipse cx="450" cy="365" fill="#000000" rx="280" ry="14"></ellipse>
+<!-- Vehicle Body Shell -->
+<path d="M120 280 C130 250, 160 235, 230 225 C295 210, 360 140, 430 115 C495 95, 620 125, 690 190 C735 220, 770 250, 780 285 C785 305, 775 320, 730 330 C690 340, 220 345, 140 330 C115 320, 110 300, 120 280 Z" fill="url(#bodyGrad)" stroke="#3a4042" stroke-width="1.2"></path>
+<!-- Cabin Glasshouse -->
+<path d="M260 215 C310 165, 375 125, 440 118 C505 112, 600 135, 650 195 C590 200, 390 205, 260 215 Z" fill="url(#roofGlass)" stroke="#222829" stroke-width="1.5"></path>
+<!-- Window Pillar separator -->
+<path d="M470 120 L480 200" stroke="#161819" stroke-width="6"></path>
+<!-- Headlight Blade Detail (Left Light) -->
+<path d="M135 272 Q185 270 240 256 Q190 282 145 285 Z" fill="url(#headlightGlow)" opacity="0.9"></path>
+<!-- Headlight beam projection on ground -->
+<polygon fill="url(#headlightGlow)" opacity="0.12" points="135,278 0,330 0,370 160,290"></polygon>
+<!-- Front Grille Muted Contour -->
+<path d="M135 295 Q180 320 220 315" fill="none" stroke="#252a2c" stroke-width="3"></path>
+<!-- Front Wheel Arch & Alloy Rim -->
+<g transform="translate(200, 270)">
+<circle cx="50" cy="55" fill="#080808" r="48" stroke="#1b1d1e" stroke-width="3"></circle>
+<circle cx="50" cy="55" fill="none" r="35" stroke="url(#rimChrome)" stroke-width="6"></circle>
+<circle cx="50" cy="55" fill="#141414" r="12" stroke="#444" stroke-width="2"></circle>
+<!-- Spokes -->
+<line stroke="#333" stroke-width="3" x1="50" x2="50" y1="20" y2="90"></line>
+<line stroke="#333" stroke-width="3" x1="20" x2="80" y1="55" y2="55"></line>
+</g>
+<!-- Rear Wheel Arch & Alloy Rim -->
+<g transform="translate(580, 270)">
+<circle cx="50" cy="55" fill="#080808" r="48" stroke="#1b1d1e" stroke-width="3"></circle>
+<circle cx="50" cy="55" fill="none" r="35" stroke="url(#rimChrome)" stroke-width="6"></circle>
+<circle cx="50" cy="55" fill="#141414" r="12" stroke="#444" stroke-width="2"></circle>
+<line stroke="#333" stroke-width="3" x1="50" x2="50" y1="20" y2="90"></line>
+<line stroke="#333" stroke-width="3" x1="20" x2="80" y1="55" y2="55"></line>
+</g>
+<!-- Vehicle Charging Port Door with Neon Glow Halo -->
+<circle class="glow-lime" cx="698" cy="245" fill="#111612" r="8" stroke="#87F265" stroke-width="2.5"></circle>
+<circle cx="698" cy="245" fill="#87F265" r="3"></circle>
+</svg>
+</div>
+</div>
+<!-- Charging Station Column / Pillar -->
+<div class="relative z-20 pb-4 mb-2 -ml-6 sm:-ml-4 flex flex-col items-center">
+<!-- Monolith Charger Pillar -->
+<div class="w-24 sm:w-28 h-80 sm:h-96 rounded-2xl bg-gradient-to-b from-[#181d1a] via-[#0d100e] to-[#070908] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative flex flex-col items-center justify-between p-4 py-6">
+<!-- Station Top Light/Bolt Icon -->
+<div class="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-[#87F265]">
+<svg class="w-5 h-5 fill-current text-[#87F265]" viewbox="0 0 24 24">
+<path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L15 2H13Z"></path>
+</svg>
+</div>
+<!-- Glowing Digital Battery Charge Meter Indicator -->
+<div class="w-12 h-24 sm:h-28 rounded-xl border-2 border-[#87F265] p-1.5 flex flex-col justify-end relative shadow-[0_0_20px_rgba(135,242,101,0.3)] bg-black/60">
+<!-- Battery positive terminal tip -->
+<div class="w-4 h-1.5 bg-[#87F265] rounded-t-sm absolute -top-2 left-1/2 -translate-x-1/2 shadow-[0_0_8px_#87F265]"></div>
+<!-- Battery Level Fill Bars -->
+<div class="w-full h-[78%] bg-gradient-to-t from-[#87F265] to-[#a6fcae] rounded-lg shadow-[0_0_14px_rgba(135,242,101,0.6)] flex items-center justify-center">
+<span class="text-[10px] font-bold text-black tracking-tighter">78%</span>
+</div>
+</div>
+<!-- Cable Socket Dispenser Notch -->
+<div class="w-8 h-3 rounded-full bg-zinc-900 border border-zinc-700/80"></div>
+</div>
+<!-- Pillar Base Platform -->
+<div class="w-32 sm:w-36 h-3 bg-gradient-to-b from-zinc-800 to-black rounded-full mt-[-6px] shadow-lg"></div>
+</div>
+<!-- Glowing Neon Green Cable connecting Charger to Car -->
+<svg class="absolute bottom-6 left-1/2 -translate-x-[20px] sm:-translate-x-[40px] w-[260px] sm:w-[320px] h-[190px] z-30 pointer-events-none overflow-visible">
+<!-- Ambient Green Floor Glow for cable -->
+<path d="M 235 60 C 235 120, 160 175, 120 170 C 80 165, 55 120, 15 110" fill="none" filter="blur(5px)" stroke="#87F265" stroke-opacity="0.25" stroke-width="9"></path>
+<!-- Outer Cable Body -->
+<path class="glow-cable" d="M 235 60 C 235 120, 160 175, 120 170 C 80 165, 55 120, 15 110" fill="none" stroke="#87F265" stroke-linecap="round" stroke-width="5"></path>
+<!-- Cable Highlight Stripe -->
+<path d="M 235 60 C 235 120, 160 175, 120 170 C 80 165, 55 120, 15 110" fill="none" stroke="#d3ffc4" stroke-linecap="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<!-- Floating Stats Glass Card (Bottom Right) -->
+<div class="absolute right-6 lg:right-12 bottom-8 z-30">
+<div class="backdrop-blur-xl bg-[#090d0b]/85 border border-white/[0.08] px-7 py-4 rounded-2xl flex items-center gap-8 shadow-[0_15px_35px_rgba(0,0,0,0.7)] relative overflow-hidden group">
+<!-- Subtle green ambient inside corner glow -->
+<div class="absolute -right-6 -bottom-6 w-20 h-20 bg-[#87F265]/20 rounded-full blur-xl pointer-events-none"></div>
+<!-- Metric 1 -->
+<div>
+<div class="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-baseline">
+              8k<span class="text-[#87F265] text-xl font-normal">+</span>
+</div>
+<div class="text-[12px] text-zinc-400 mt-0.5">
+              Charging <span class="text-white font-medium">Stations</span>
+</div>
+</div>
+<!-- Delicate Vertical Divider -->
+<div class="w-[1px] h-10 bg-white/10"></div>
+<!-- Metric 2 -->
+<div>
+<div class="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-baseline">
+              50K<span class="text-[#87F265] text-xl font-normal">+</span>
+</div>
+<div class="text-[12px] text-zinc-400 mt-0.5">
+              EV Drivers
+            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: PartnerStrip -->
+<section class="border-y border-white/[0.06] bg-[#050705] py-9">
+<div class="max-w-[1300px] mx-auto px-6 lg:px-12 flex flex-wrap items-center justify-between gap-8 text-zinc-500 text-sm font-medium tracking-wider">
+<span class="text-zinc-600 text-xs uppercase font-semibold tracking-widest">Compatible With All Global EV Standards</span>
+<div class="flex items-center gap-10 sm:gap-14 flex-wrap opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
+<span class="text-lg font-semibold tracking-tight text-zinc-400 hover:text-white transition">TESLA <span class="text-xs text-[#87F265]">NACS</span></span>
+<span class="text-lg font-semibold tracking-tight text-zinc-400 hover:text-white transition">CCS 2</span>
+<span class="text-lg font-semibold tracking-tight text-zinc-400 hover:text-white transition">CHADeMO</span>
+<span class="text-lg font-semibold tracking-tight text-zinc-400 hover:text-white transition">TYPE 2 AC</span>
+<span class="text-lg font-semibold tracking-tight text-zinc-400 hover:text-white transition">ISO 15118</span>
+</div>
+</div>
+</section>
+<!-- END: PartnerStrip -->
+<!-- BEGIN: TechSpecsSection -->
+<section class="py-28 relative" id="product">
+<div class="max-w-[1300px] mx-auto px-6 lg:px-12">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<span class="text-xs font-semibold uppercase tracking-widest text-[#87F265]">Hardware Architecture</span>
+<h2 class="text-3xl sm:text-5xl font-semibold tracking-tight text-white mt-2">
+            Engineered for pure speed.<br/>
+            Built for resilient grids.
+          </h2>
+</div>
+<p class="text-zinc-400 text-sm max-w-md leading-relaxed">
+          GreenIQ stations dynamically balance power across localized micro-grids, providing zero-latency peak 350kW output while protecting transformer integrity.
+        </p>
+</div>
+<!-- Feature Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-[#080b09] border border-white/[0.06] rounded-2xl p-8 hover:border-white/[0.15] transition-all group">
+<div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#87F265] mb-6 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h3 class="text-xl font-semibold text-white mb-2">350 kW Ultra-Fast DC</h3>
+<p class="text-zinc-400 text-sm leading-relaxed">
+            Gain up to 280 miles of driving range in under 12 minutes with dual liquid-cooled high amperage connectors.
+          </p>
+<div class="mt-8 pt-4 border-t border-white/[0.04] flex items-center justify-between text-xs text-zinc-400 font-mono">
+<span>VOLTAGE</span>
+<span class="text-white">200V - 1000V DC</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-[#080b09] border border-white/[0.06] rounded-2xl p-8 hover:border-[#87F265]/40 transition-all group relative overflow-hidden">
+<div class="absolute -top-12 -right-12 w-28 h-28 bg-[#87F265]/10 rounded-full blur-2xl"></div>
+<div class="w-12 h-12 rounded-xl bg-[#87F265]/10 border border-[#87F265]/30 flex items-center justify-center text-[#87F265] mb-6 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h3 class="text-xl font-semibold text-white mb-2">Autonomous Autocharge</h3>
+<p class="text-zinc-400 text-sm leading-relaxed">
+            Plug &amp; Charge with cryptographic PKI validation. No app launches, RFID swipes, or card reader failures required.
+          </p>
+<div class="mt-8 pt-4 border-t border-white/[0.04] flex items-center justify-between text-xs text-zinc-400 font-mono">
+<span>ENCRYPTION</span>
+<span class="text-[#87F265]">ISO 15118-20</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-[#080b09] border border-white/[0.06] rounded-2xl p-8 hover:border-white/[0.15] transition-all group">
+<div class="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#87F265] mb-6 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h3 class="text-xl font-semibold text-white mb-2">100% Renewable Matching</h3>
+<p class="text-zinc-400 text-sm leading-relaxed">
+            Every kilowatt dispensed is verified in real-time through blockchain-backed localized solar and wind energy tokens.
+          </p>
+<div class="mt-8 pt-4 border-t border-white/[0.04] flex items-center justify-between text-xs text-zinc-400 font-mono">
+<span>CARBON OFFSET</span>
+<span class="text-white">Net Zero Net 0.0</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: TechSpecsSection -->
+<!-- BEGIN: InteractiveGridMapSection -->
+<section class="py-24 bg-[#050705] border-t border-white/[0.06] relative overflow-hidden" id="charging">
+<div class="max-w-[1300px] mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Text Column -->
+<div class="lg:col-span-5">
+<span class="text-xs font-semibold uppercase tracking-widest text-[#87F265]">Intelligent Network</span>
+<h2 class="text-3xl sm:text-5xl font-semibold tracking-tight text-white mt-3 leading-tight">
+            Locate available stalls in real-time.
+          </h2>
+<p class="text-zinc-400 text-sm mt-5 leading-relaxed">
+            Live telemetry tracks occupancy, output wattage, and bay queues down to the exact second. Reserve your stall before turning the corner.
+          </p>
+<!-- List Indicators -->
+<div class="mt-8 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-2.5 h-2.5 rounded-full bg-[#87F265] animate-ping"></div>
+<span class="text-sm font-medium text-zinc-200">3,410 High-Power Stalls Active Now</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-600"></div>
+<span class="text-sm font-medium text-zinc-400">Zero Wait Time Predicted across 92% hubs</span>
+</div>
+</div>
+<div class="mt-10">
+<a class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#87F265] transition group" href="#">
+<span>Explore Interactive Terminal Map</span>
+<svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</div>
+<!-- Simulated Stylized Dark Map Preview Graphic -->
+<div class="lg:col-span-7">
+<div class="relative bg-[#0c100e] border border-white/[0.08] rounded-2xl p-6 sm:p-8 aspect-[16/10] overflow-hidden shadow-2xl flex flex-col justify-between">
+<!-- Map Grid Lines Background -->
+<div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image: radial-gradient(#87F265 1px, transparent 1px); background-size: 32px 32px;"></div>
+<!-- Simulated Map Roads Vector -->
+<svg class="absolute inset-0 w-full h-full stroke-white/[0.07] stroke-[2] fill-none pointer-events-none" viewbox="0 0 600 400">
+<path d="M-50 150 Q180 180 320 120 T650 200"></path>
+<path d="M100 -50 Q200 180 250 450"></path>
+<path d="M420 -50 Q360 220 500 450"></path>
+<circle cx="280" cy="190" r="140" stroke-dasharray="4 6"></circle>
+</svg>
+<!-- Map Location Hub Points (Glowing Pins) -->
+<div class="absolute top-[28%] left-[34%] z-10 flex items-center gap-2 group cursor-pointer">
+<div class="w-3.5 h-3.5 rounded-full bg-[#87F265] shadow-[0_0_12px_#87F265]"></div>
+<div class="px-2.5 py-1 rounded bg-black/90 border border-[#87F265]/40 text-[11px] font-mono text-[#87F265] shadow-lg backdrop-blur-sm">
+                Downtown Hub • 6/8 Free
+              </div>
+</div>
+<div class="absolute top-[58%] left-[64%] z-10 flex items-center gap-2 group cursor-pointer">
+<div class="w-3.5 h-3.5 rounded-full bg-[#87F265] shadow-[0_0_12px_#87F265]"></div>
+<div class="px-2.5 py-1 rounded bg-black/90 border border-white/20 text-[11px] font-mono text-zinc-300 shadow-lg backdrop-blur-sm">
+                Airport Express • 350kW
+              </div>
+</div>
+<div class="absolute top-[72%] left-[22%] z-10 flex items-center gap-2 group cursor-pointer">
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-500"></div>
+<div class="px-2 py-0.5 rounded bg-black/80 text-[10px] font-mono text-zinc-400">
+                Full
+              </div>
+</div>
+<!-- Map Top Overlay Bar -->
+<div class="relative z-20 flex items-center justify-between">
+<div class="flex items-center gap-2 text-xs font-mono bg-black/70 border border-white/10 px-3 py-1.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-[#87F265]"></span>
+<span class="text-zinc-300">Live Grid Sync: 99.98% Uptime</span>
+</div>
+<span class="text-xs text-zinc-500 font-mono">LAT: 40.7128° N, LON: 74.0060° W</span>
+</div>
+<!-- Map Bottom Card Pill Overlay -->
+<div class="relative z-20 bg-black/80 border border-white/10 backdrop-blur-md p-4 rounded-xl flex items-center justify-between max-w-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-[#87F265]/10 flex items-center justify-center text-[#87F265]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<div class="text-xs font-semibold text-white">Green Town Superstation</div>
+<div class="text-[11px] text-zinc-400">0.4 miles away • 4 Stalls Available</div>
+</div>
+</div>
+<span class="text-xs font-bold text-[#87F265]">$0.28/kWh</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: InteractiveGridMapSection -->
+<!-- BEGIN: CallToActionSection -->
+<section class="py-24 relative overflow-hidden" id="solutions">
+<div class="max-w-[1100px] mx-auto px-6 text-center">
+<div class="w-16 h-16 rounded-2xl bg-[#87F265]/10 border border-[#87F265]/30 mx-auto flex items-center justify-center text-[#87F265] mb-8">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h2 class="text-3xl sm:text-5xl font-semibold tracking-tight text-white mb-6">
+        Ready to supercharge your fleet?
+      </h2>
+<p class="text-zinc-400 max-w-xl mx-auto text-base leading-relaxed mb-10">
+        Join over 50,000 drivers and municipal commercial fleets lowering energy costs while driving 100% sustainable clean mileage.
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-4">
+<a class="px-8 py-3.5 rounded-full bg-[#87F265] hover:bg-[#97f877] text-black font-semibold text-sm transition-all shadow-[0_0_25px_rgba(135,242,101,0.35)]" href="#contact">
+          Order GreenIQ Wallbox
+        </a>
+<a class="px-8 py-3.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-white font-medium text-sm transition-all" href="#contact">
+          Host a Station on Your Land
+        </a>
+</div>
+</div>
+</section>
+<!-- END: CallToActionSection -->
+<!-- BEGIN: MainFooter -->
+<footer class="border-t border-white/[0.06] bg-[#020302] pt-16 pb-12" id="contact">
+<div class="max-w-[1300px] mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-10 pb-16">
+<!-- Brand Info -->
+<div class="md:col-span-2">
+<a class="flex items-center gap-2.5 mb-4" href="#">
+<div class="w-9 h-9 rounded-full bg-[#87F265] flex items-center justify-center text-black font-extrabold text-lg">
+<span>g</span>
+</div>
+<span class="text-lg font-bold tracking-tight text-white">GreenIQ</span>
+</a>
+<p class="text-zinc-400 text-sm max-w-sm leading-relaxed mb-6">
+            Pioneering the decentralized ultra-fast electric transit infrastructure for high density urban clusters and highways.
+          </p>
+<div class="text-xs text-zinc-500">
+            © 2026 GreenIQ Network Technologies Inc. All rights reserved.
+          </div>
+</div>
+<!-- Navigation Links 1 -->
+<div>
+<h4 class="text-xs uppercase font-semibold text-white tracking-wider mb-4">Network</h4>
+<ul class="space-y-2.5 text-sm text-zinc-400">
+<li><a class="hover:text-white transition" href="#">Fast Chargers</a></li>
+<li><a class="hover:text-white transition" href="#">Fleet Management</a></li>
+<li><a class="hover:text-white transition" href="#">Grid Reliability</a></li>
+<li><a class="hover:text-white transition" href="#">Green Tokenomics</a></li>
+</ul>
+</div>
+<!-- Navigation Links 2 -->
+<div>
+<h4 class="text-xs uppercase font-semibold text-white tracking-wider mb-4">Hardware</h4>
+<ul class="space-y-2.5 text-sm text-zinc-400">
+<li><a class="hover:text-white transition" href="#">IQ Column 350</a></li>
+<li><a class="hover:text-white transition" href="#">Home Wallbox V2</a></li>
+<li><a class="hover:text-white transition" href="#">Megawatt Commercial</a></li>
+<li><a class="hover:text-white transition" href="#">Spare Cables &amp; Parts</a></li>
+</ul>
+</div>
+<!-- Navigation Links 3 -->
+<div>
+<h4 class="text-xs uppercase font-semibold text-white tracking-wider mb-4">Legal &amp; Support</h4>
+<ul class="space-y-2.5 text-sm text-zinc-400">
+<li><a class="hover:text-white transition" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white transition" href="#">Station Security</a></li>
+<li><a class="hover:text-white transition" href="#">Contact Dispatch</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Minimal Bar -->
+<div class="pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+<div>123 Organic Street, Green Town, New York, USA</div>
+<div class="flex items-center gap-6">
+<span class="inline-flex items-center gap-1.5 text-emerald-400">
+<span class="w-1.5 h-1.5 rounded-full bg-[#87F265]"></span>
+            All 8,420 Grid Terminals Operational
+          </span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>
