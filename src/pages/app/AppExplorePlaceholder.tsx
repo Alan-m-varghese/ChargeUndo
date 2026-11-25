@@ -111,10 +111,10 @@ export const AppExplorePlaceholder: React.FC = () => {
             onClick={handleImportOsm}
             disabled={importingOsm}
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-xs text-zinc-300 hover:text-white font-medium transition disabled:opacity-50"
-            title="Import or update OpenStreetMap Kerala records"
+            title="Sync charging stations"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${importingOsm ? 'animate-spin text-[#8CF06B]' : ''}`} />
-            <span>{importingOsm ? 'Importing from OSM...' : 'Sync OSM Kerala'}</span>
+            <span>{importingOsm ? 'Syncing...' : 'Sync'}</span>
           </button>
 
           <Link
