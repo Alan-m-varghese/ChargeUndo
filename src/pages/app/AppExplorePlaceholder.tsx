@@ -100,12 +100,6 @@ export const AppExplorePlaceholder: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 font-semibold">
-              REAL DATABASE ACTIVE
-            </span>
-            <span className="text-xs text-zinc-500 font-mono">D1 SQLite &bull; Cloudflare R2</span>
-          </div>
           <h1 className="text-3xl font-bold tracking-tight text-white">Explore Charging Stations</h1>
           <p className="text-zinc-400 text-sm mt-1">
             Browse public fast corridors and neighborhood host wallboxes across Kerala.

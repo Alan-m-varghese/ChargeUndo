@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle2, Shield, Clock, MapPin, Zap, XCircle, RefreshCw } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 interface PendingListing {
   id: string;
@@ -38,8 +37,7 @@ const INITIAL_PENDING: PendingListing[] = [
 ];
 
 export const AppAdminPlaceholder: React.FC = () => {
-  const { user, switchRole } = useAuth();
-  const navigate = useNavigate();
+  const { user } = useAuth();
   const [listings, setListings] = useState<PendingListing[]>(INITIAL_PENDING);
 
   // Live Database Stats
@@ -123,11 +121,6 @@ export const AppAdminPlaceholder: React.FC = () => {
     }
   };
 
-  const handleDemoteToDriver = () => {
-    switchRole('ev_owner');
-    navigate('/app/admin');
-  };
-
   return (
     <div className="p-6 sm:p-10 max-w-6xl mx-auto w-full">
       {/* Header */}
@@ -138,7 +131,6 @@ export const AppAdminPlaceholder: React.FC = () => {
               <Shield className="w-3.5 h-3.5" />
               <span>Admin Role Active</span>
             </span>
-            <span className="text-xs font-mono text-zinc-500">Route: /app/admin</span>
           </div>
           <h1 className="text-3xl font-bold tracking-tight text-white mt-2">Administrator Console</h1>
           <p className="text-zinc-400 text-sm mt-1">
@@ -150,13 +142,6 @@ export const AppAdminPlaceholder: React.FC = () => {
           <div className="text-xs font-mono text-zinc-400 bg-white/[0.04] px-3.5 py-2 rounded-xl border border-white/10 self-start sm:self-auto">
             ADMIN: <span className="text-amber-400 font-semibold">{user?.email}</span>
           </div>
-          <button
-            onClick={handleDemoteToDriver}
-            className="text-xs font-mono px-3.5 py-2 rounded-xl bg-white/[0.05] hover:bg-red-500/15 border border-white/10 hover:border-red-500/30 text-zinc-300 hover:text-red-400 transition"
-            title="Switch back to EV Driver to test role protection"
-          >
-            Switch to EV Driver
-          </button>
         </div>
       </div>
 

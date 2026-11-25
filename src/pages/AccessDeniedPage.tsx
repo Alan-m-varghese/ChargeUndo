@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 export const AccessDeniedPage: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { user, becomeProvider, switchRole } = useAuth();
+  const { user, becomeProvider } = useAuth();
   const state = location.state as { requiredRole?: string; from?: string } | null;
 
   const requiredRole = state?.requiredRole || 'admin';
@@ -23,15 +23,6 @@ export const AccessDeniedPage: React.FC = () => {
       navigate(state.from);
     } else {
       navigate('/app/list-charger');
-    }
-  };
-
-  const handleTestAsAdmin = () => {
-    switchRole('admin');
-    if (state?.from) {
-      navigate(state.from);
-    } else {
-      navigate('/app/admin');
     }
   };
 
@@ -54,31 +45,17 @@ export const AccessDeniedPage: React.FC = () => {
           Your current account is signed in as <span className="text-[#8CF06B] font-mono text-xs px-2 py-0.5 rounded bg-[#8CF06B]/10">{user?.primaryRole || 'Guest'}</span>.
         </p>
 
-        {/* Development Quick Role Upgrade Helpers */}
-        <div className="mt-6 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-left">
-          <div className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
-            Development Quick Role Actions
-          </div>
-          {requiredRole === 'provider' && (
+        {requiredRole === 'provider' && (
+          <div className="mt-6">
             <button
               onClick={handleEnableProvider}
-              className="w-full mt-2 py-2.5 px-4 rounded-xl bg-[#8CF06B] hover:bg-[#9ef581] text-black font-semibold text-sm flex items-center justify-center gap-2 transition"
+              className="w-full py-3 px-4 rounded-xl bg-[#8CF06B] hover:bg-[#9ef581] text-black font-semibold text-sm flex items-center justify-center gap-2 transition"
             >
               <CheckCircle2 className="w-4 h-4" />
-              <span>Activate Provider Mode on this account</span>
+              <span>Activate Host Provider Mode</span>
             </button>
-          )}
-
-          {requiredRole === 'admin' && (
-            <button
-              onClick={handleTestAsAdmin}
-              className="w-full mt-2 py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-sm flex items-center justify-center gap-2 transition"
-            >
-              <CheckCircle2 className="w-4 h-4 text-[#8CF06B]" />
-              <span>Simulate Admin Role (Dev test)</span>
-            </button>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="mt-8 flex flex-col gap-3">
           <Link

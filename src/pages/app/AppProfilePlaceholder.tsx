@@ -153,50 +153,38 @@ export const AppProfilePlaceholder: React.FC = () => {
           </div>
         </div>
 
-        {/* Development Role Switcher */}
+        {/* Account Role & Mode */}
         <div className="pt-6">
           <div className="flex items-center justify-between mb-3">
             <div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
-              Role Testing Controls (Development Mode)
+              Account Role
             </div>
-            <span className="text-[11px] font-mono text-zinc-500">
-              Active: <strong className={user?.isAdmin ? 'text-amber-400' : user?.isProvider ? 'text-[#8CF06B]' : 'text-zinc-300'}>
-                {user?.isAdmin ? 'ADMINISTRATOR' : user?.isProvider ? 'PROVIDER' : 'EV DRIVER'}
+            <span className="text-xs font-mono text-zinc-400">
+              Active: <strong className={user?.isAdmin ? 'text-amber-400' : user?.isProvider ? 'text-[#8CF06B]' : 'text-zinc-200'}>
+                {user?.isAdmin ? 'ADMINISTRATOR' : user?.isProvider ? 'HOST PROVIDER' : 'EV DRIVER'}
               </strong>
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-2.5">
-            <button
-              onClick={() => handleRoleSwitch('ev_owner')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-mono transition border ${
-                !user?.isProvider && !user?.isAdmin
-                  ? 'bg-white/15 text-white border-white/40 font-semibold shadow-[0_0_15px_rgba(255,255,255,0.1)]'
-                  : 'bg-white/[0.04] text-zinc-400 border-white/[0.08] hover:text-white'
-              }`}
-            >
-              Test as EV Driver
-            </button>
-            <button
-              onClick={() => handleRoleSwitch('provider')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-mono transition border ${
-                user?.isProvider && !user?.isAdmin
-                  ? 'bg-[#8CF06B]/20 text-[#8CF06B] border-[#8CF06B]/50 font-semibold shadow-[0_0_15px_rgba(140,240,107,0.15)]'
-                  : 'bg-white/[0.04] text-zinc-400 border-white/[0.08] hover:text-white'
-              }`}
-            >
-              Test as Charger Provider
-            </button>
-            <button
-              onClick={() => handleRoleSwitch('admin')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-mono transition border ${
-                user?.isAdmin
-                  ? 'bg-amber-500/25 text-amber-400 border-amber-500/50 font-semibold shadow-[0_0_15px_rgba(245,158,11,0.2)]'
-                  : 'bg-white/[0.04] text-zinc-400 border-white/[0.08] hover:text-white'
-              }`}
-            >
-              Test as Administrator
-            </button>
+          <div className="flex items-center gap-3">
+            <div className={`px-4 py-2.5 rounded-xl text-xs font-mono border ${
+              user?.isAdmin
+                ? 'bg-amber-500/20 text-amber-400 border-amber-500/40 font-semibold'
+                : user?.isProvider
+                ? 'bg-[#8CF06B]/20 text-[#8CF06B] border-[#8CF06B]/40 font-semibold'
+                : 'bg-white/10 text-white border-white/20 font-semibold'
+            }`}>
+              {user?.isAdmin ? 'Administrator Access' : user?.isProvider ? 'Host Provider Active' : 'EV Driver Active'}
+            </div>
+
+            {!user?.isProvider && !user?.isAdmin && (
+              <button
+                onClick={() => handleRoleSwitch('provider')}
+                className="px-4 py-2.5 rounded-xl text-xs font-medium bg-[#8CF06B] hover:bg-[#9ef581] text-black font-semibold transition"
+              >
+                Become a Host Provider
+              </button>
+            )}
           </div>
 
           {/* Real-time Feedback Notification */}

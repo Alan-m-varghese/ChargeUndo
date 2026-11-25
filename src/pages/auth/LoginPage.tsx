@@ -63,13 +63,6 @@ export const LoginPage: React.FC = () => {
     }
   };
 
-  // Quick fill helper for evaluator testing
-  const quickFill = (demoEmail: string) => {
-    setEmail(demoEmail);
-    setPassword('password123');
-    setError(null);
-  };
-
   return (
     <div className="min-h-screen bg-[#080A09] text-white flex flex-col justify-between selection:bg-[#8CF06B] selection:text-black">
       {/* Top Bar with brand logo */}
@@ -214,38 +207,8 @@ export const LoginPage: React.FC = () => {
             </div>
           </form>
 
-          {/* Earlier Demo Accounts Pills */}
-          <div className="mt-8 pt-6 border-t border-white/[0.08] relative z-10">
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-2.5">
-              Development Demo Accounts
-            </div>
-            <div className="grid grid-cols-3 gap-2">
-              <button
-                type="button"
-                onClick={() => quickFill('driver@chargeundo.in')}
-                className="px-2.5 py-1.5 text-xs rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-zinc-300 hover:text-white transition text-center truncate"
-              >
-                EV Driver
-              </button>
-              <button
-                type="button"
-                onClick={() => quickFill('host@chargeundo.in')}
-                className="px-2.5 py-1.5 text-xs rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-zinc-300 hover:text-white transition text-center truncate"
-              >
-                Host Provider
-              </button>
-              <button
-                type="button"
-                onClick={() => quickFill('admin@chargeundo.in')}
-                className="px-2.5 py-1.5 text-xs rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-zinc-300 hover:text-white transition text-center truncate"
-              >
-                Admin
-              </button>
-            </div>
-          </div>
-
           {/* Sign Up Link */}
-          <div className="mt-7 text-center text-xs sm:text-sm text-[#A0A5A1] relative z-10">
+          <div className="mt-8 text-center text-xs sm:text-sm text-[#A0A5A1] relative z-10">
             Don't have an account?{' '}
             <Link
               to="/register"
