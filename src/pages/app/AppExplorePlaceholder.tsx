@@ -28,7 +28,14 @@ export const AppExplorePlaceholder: React.FC = () => {
       params.set('limit', '50');
 
       const res = await fetch(`/api/stations?${params.toString()}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}: Failed to load stations`);
+      if (!res.ok) {
+        if (res.status === 404) {
+          throw new Error(
+            'Backend API not connected (HTTP 404 on /api/stations). When hosting the frontend on Vercel, the Cloudflare Worker backend (D1 & R2) needs to be connected or deployed to Cloudflare Pages.'
+          );
+        }
+        throw new Error(`HTTP ${res.status}: Failed to load stations`);
+      }
       const data = await res.json();
       setStations(data.stations || []);
       setTotalCount(data.pagination?.total || 0);
