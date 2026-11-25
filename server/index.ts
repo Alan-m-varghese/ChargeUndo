@@ -48,6 +48,11 @@ export default {
       });
     }
 
+    // Serve static frontend assets if running with Cloudflare Workers Static Assets
+    if (!pathname.startsWith('/api') && (env as any).ASSETS) {
+      return (env as any).ASSETS.fetch(request);
+    }
+
     try {
       // ----------------------------------------------------
       // 1. Health Check
