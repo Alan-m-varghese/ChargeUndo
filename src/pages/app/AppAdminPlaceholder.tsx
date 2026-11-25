@@ -148,7 +148,7 @@ export const AppAdminPlaceholder: React.FC = () => {
       {/* Metrics Grid (Connected to real D1 stats) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 mb-8">
         <div className="bg-[#0D100E] border border-white/[0.08] rounded-2xl p-5">
-          <div className="text-xs text-zinc-500 uppercase tracking-wider font-mono">D1 Database Stations</div>
+          <div className="text-xs text-zinc-500 uppercase tracking-wider font-mono">Total Charging Stations</div>
           <div className="text-2xl font-bold text-white mt-2">{dbStats.total_stations} Stations</div>
           <div className="text-xs text-zinc-400 mt-1">
             {dbStats.unverified_stations} Unverified &bull; {dbStats.verified_stations} Verified
@@ -158,7 +158,7 @@ export const AppAdminPlaceholder: React.FC = () => {
         <div className="bg-[#0D100E] border border-white/[0.08] rounded-2xl p-5">
           <div className="text-xs text-zinc-500 uppercase tracking-wider font-mono">Pending Photo Reviews</div>
           <div className="text-2xl font-bold text-[#8CF06B] mt-2">{dbStats.pending_image_reviews}</div>
-          <div className="text-xs text-zinc-400 mt-1">Cloudflare R2 Object Storage</div>
+          <div className="text-xs text-zinc-400 mt-1">Awaiting moderation</div>
         </div>
 
         <div className="bg-[#0D100E] border border-white/[0.08] rounded-2xl p-5">

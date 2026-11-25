@@ -31,7 +31,7 @@ export const AppExplorePlaceholder: React.FC = () => {
       if (!res.ok) {
         if (res.status === 404) {
           throw new Error(
-            'Backend API not connected (HTTP 404 on /api/stations). When hosting the frontend on Vercel, the Cloudflare Worker backend (D1 & R2) needs to be connected or deployed to Cloudflare Pages.'
+            'Unable to connect to charging station network. Please check your connection or try again shortly.'
           );
         }
         throw new Error(`HTTP ${res.status}: Failed to load stations`);
@@ -78,8 +78,8 @@ export const AppExplorePlaceholder: React.FC = () => {
         const errorMsg =
           data?.error ||
           (res.status === 500
-            ? 'Internal Server Error while communicating with OpenStreetMap service.'
-            : `Import failed (HTTP ${res.status})`);
+            ? 'Internal Server Error while communicating with network data service.'
+            : `Sync failed (HTTP ${res.status})`);
         setImportResult({
           type: 'error',
           message: errorMsg,
@@ -243,7 +243,7 @@ export const AppExplorePlaceholder: React.FC = () => {
           <p className="text-zinc-400 text-sm mt-2 leading-relaxed">
             {searchQuery
               ? `No charging stations match "${searchQuery}". Try a different locality or clear filters.`
-              : 'The real charging station database is ready for records. Click below to pull verified EV stations across Kerala from OpenStreetMap.'}
+              : 'No charging stations loaded yet. Click below to synchronize verified EV stations across Kerala.'}
           </p>
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
             {searchQuery ? (
@@ -260,7 +260,7 @@ export const AppExplorePlaceholder: React.FC = () => {
                 className="px-6 py-3 rounded-full bg-[#8CF06B] hover:bg-[#9ef581] text-black text-xs font-semibold transition flex items-center gap-2"
               >
                 <RefreshCw className={`w-3.5 h-3.5 ${importingOsm ? 'animate-spin' : ''}`} />
-                <span>{importingOsm ? 'Importing from OSM...' : 'Import Kerala Stations from OSM'}</span>
+                <span>{importingOsm ? 'Syncing Stations...' : 'Sync Kerala Stations'}</span>
               </button>
             )}
           </div>
@@ -271,8 +271,7 @@ export const AppExplorePlaceholder: React.FC = () => {
       {!loading && !error && stations.length > 0 && (
         <div className="space-y-4">
           <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-zinc-400">
-            <span>{stations.length} Real Charging Stations</span>
-            <span className="text-zinc-500 font-mono">Cloudflare D1 &bull; Kerala</span>
+            <span>{stations.length} Charging Stations</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -343,7 +342,7 @@ export const AppExplorePlaceholder: React.FC = () => {
                           <span className="truncate font-medium">{station.city || 'Kerala, India'}</span>
                         </div>
                         <span className="text-[10px] font-mono text-zinc-400 bg-black/60 px-2 py-0.5 rounded border border-white/10 flex-shrink-0 ml-2">
-                          {station.source_name === 'openstreetmap' ? 'OSM' : 'HOST'}
+                          {station.source_name === 'openstreetmap' ? 'PUBLIC' : 'COMMUNITY'}
                         </span>
                       </div>
                     </div>

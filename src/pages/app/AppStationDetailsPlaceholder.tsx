@@ -154,7 +154,7 @@ export const AppStationDetailsPlaceholder: React.FC = () => {
               ) : (
                 <span className="text-xs font-mono px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30 font-semibold flex items-center gap-1">
                   <ShieldAlert className="w-3 h-3" />
-                  <span>Unverified (OSM Import)</span>
+                  <span>Pending Verification</span>
                 </span>
               )}
               <span className="text-xs text-zinc-500 font-mono">ID: {station.id}</span>
@@ -335,7 +335,7 @@ export const AppStationDetailsPlaceholder: React.FC = () => {
           <div className="bg-[#0D100E] border border-white/10 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative">
             <h3 className="text-lg font-bold text-white">Upload Station Photo</h3>
             <p className="text-xs text-zinc-400 mt-1 mb-6">
-              Photos are saved to Cloudflare R2 and published once reviewed by an administrator.
+              Photos are published once reviewed and approved by an administrator.
             </p>
 
             <form onSubmit={handleUploadPhoto} className="space-y-4">
@@ -393,7 +393,7 @@ export const AppStationDetailsPlaceholder: React.FC = () => {
                   className="px-5 py-2.5 rounded-xl bg-[#8CF06B] hover:bg-[#9ef581] text-black font-semibold text-xs transition disabled:opacity-50 flex items-center gap-1.5"
                 >
                   <Upload className="w-3.5 h-3.5" />
-                  <span>{uploading ? 'Uploading to R2...' : 'Upload Photograph'}</span>
+                  <span>{uploading ? 'Uploading...' : 'Upload Photograph'}</span>
                 </button>
               </div>
             </form>
