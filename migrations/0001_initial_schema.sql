@@ -59,6 +59,8 @@ CREATE TABLE IF NOT EXISTS station_images (
     rejection_reason TEXT,
     reviewed_by TEXT,
     reviewed_at TEXT,
+    mime_type TEXT,
+    data_base64 TEXT,
     created_at TEXT NOT NULL DEFAULT (CURRENT_TIMESTAMP)
 );
 

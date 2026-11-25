@@ -3,7 +3,7 @@
 
 export interface Env {
   DB: D1Database;
-  IMAGES: R2Bucket;
+  IMAGES?: R2Bucket;
   ENVIRONMENT?: string;
   ADMIN_API_KEY?: string;
 }
@@ -64,6 +64,8 @@ export interface StationImageRecord {
   reviewed_by: string | null;
   reviewed_at: string | null;
   created_at: string;
+  mime_type?: string | null;
+  data_base64?: string | null;
 }
 
 export interface StationDuplicateFlagRecord {

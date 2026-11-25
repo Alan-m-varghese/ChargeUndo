@@ -1,4 +1,4 @@
-name = "charge-undo-backend"
+name = "chargeundo"
 main = "server/index.ts"
 compatibility_date = "2024-11-01"
 compatibility_flags = ["nodejs_compat"]
@@ -6,13 +6,9 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB"
 database_name = "charge_undo_d1"
-database_id = "local-d1"
+database_id = "680b6d2b-499a-48fd-8928-cddf0dbcd1b1"
 migrations_dir = "migrations"
 
-[[r2_buckets]]
-binding = "IMAGES"
-bucket_name = "charge-undo-station-images"
-
 [vars]
-ENVIRONMENT = "development"
+ENVIRONMENT = "production"
 ADMIN_API_KEY = "chargeundo-admin-dev-secret"

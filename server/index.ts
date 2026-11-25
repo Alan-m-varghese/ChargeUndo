@@ -265,28 +265,43 @@ export default {
           return jsonResponse({ error: 'Image file size exceeds the 5 MB limit.' }, 400);
         }
 
-        // Generate clean unique R2 object key
+        // Generate clean unique object key
         const extension = file.type.split('/')[1] || 'jpg';
         const imageId = `img-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
         const r2Key = `stations/${stationId}/${imageId}.${extension}`;
 
-        // Save object into Cloudflare R2 bucket
-        await env.IMAGES.put(r2Key, file.stream(), {
-          httpMetadata: {
-            contentType: file.type,
-          },
-        });
+        // Save object into Cloudflare R2 bucket if configured
+        if (env.IMAGES) {
+          try {
+            await env.IMAGES.put(r2Key, file.stream(), {
+              httpMetadata: {
+                contentType: file.type,
+              },
+            });
+          } catch (r2Err) {
+            console.warn('R2 upload skipped or failed, falling back to D1 database:', r2Err);
+          }
+        }
+
+        // Convert image to base64 to store in D1 as zero-cost alternative
+        const arrayBuffer = await file.arrayBuffer();
+        const uint8 = new Uint8Array(arrayBuffer);
+        let binary = '';
+        for (let i = 0; i < uint8.byteLength; i += 8192) {
+          binary += String.fromCharCode.apply(null, uint8.subarray(i, i + 8192) as any);
+        }
+        const base64Data = btoa(binary);
 
         // The image URL served via Worker endpoint
-        const imageUrl = `/api/images/${r2Key}`;
+        const imageUrl = `/api/images/${imageId}`;
 
         // Insert record with 'pending' verification status
         await env.DB.prepare(
           `INSERT INTO station_images (
-            id, station_id, r2_key, image_url, image_source, uploaded_by, is_cover, verification_status
-          ) VALUES (?, ?, ?, ?, ?, ?, ?, 'pending')`
+            id, station_id, r2_key, image_url, image_source, uploaded_by, is_cover, verification_status, mime_type, data_base64
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, 'pending', ?, ?)`
         )
-          .bind(imageId, stationId, r2Key, imageUrl, source, uploadedBy, isCover)
+          .bind(imageId, stationId, r2Key, imageUrl, source, uploadedBy, isCover, file.type, base64Data)
           .run();
 
         return jsonResponse(
@@ -311,8 +326,8 @@ export default {
 
         // Regular users only see approved photos; admin or uploader sees all
         const query = isAdmin
-          ? 'SELECT * FROM station_images WHERE station_id = ? ORDER BY created_at DESC'
-          : "SELECT * FROM station_images WHERE station_id = ? AND verification_status = 'approved' ORDER BY is_cover DESC, created_at DESC";
+          ? 'SELECT id, station_id, r2_key, image_url, image_source, uploaded_by, is_cover, verification_status, rejection_reason, created_at FROM station_images WHERE station_id = ? ORDER BY created_at DESC'
+          : "SELECT id, station_id, r2_key, image_url, image_source, uploaded_by, is_cover, verification_status, rejection_reason, created_at FROM station_images WHERE station_id = ? AND verification_status = 'approved' ORDER BY is_cover DESC, created_at DESC";
 
         const { results: images } = await env.DB.prepare(query).bind(stationId).all<StationImageRecord>();
 
@@ -320,26 +335,54 @@ export default {
       }
 
       // ----------------------------------------------------
-      // 7. GET /api/images/* - Serve image file from Cloudflare R2
+      // 7. GET /api/images/* - Serve image file from D1 Database or R2
       // ----------------------------------------------------
       if (pathname.startsWith('/api/images/') && method === 'GET') {
-        const r2Key = pathname.replace('/api/images/', '');
-        const object = await env.IMAGES.get(r2Key);
+        const key = decodeURIComponent(pathname.replace('/api/images/', ''));
 
-        if (!object) {
-          return new Response('Photograph not found', { status: 404 });
+        // 1. Check D1 database for image blob
+        try {
+          const imageRow = await env.DB.prepare(
+            `SELECT mime_type, data_base64 FROM station_images WHERE id = ? OR r2_key = ? OR image_url LIKE ? LIMIT 1`
+          )
+            .bind(key, key, `%${key}%`)
+            .first<{ mime_type: string | null; data_base64: string | null }>();
+
+          if (imageRow && imageRow.data_base64) {
+            const binaryStr = atob(imageRow.data_base64);
+            const bytes = new Uint8Array(binaryStr.length);
+            for (let i = 0; i < binaryStr.length; i++) {
+              bytes[i] = binaryStr.charCodeAt(i);
+            }
+            return new Response(bytes, {
+              headers: {
+                'Content-Type': imageRow.mime_type || 'image/jpeg',
+                'Cache-Control': 'public, max-age=86400, stale-while-revalidate=604800',
+                'Access-Control-Allow-Origin': '*',
+              },
+            });
+          }
+        } catch (d1Err) {
+          console.warn('D1 image lookup error:', d1Err);
         }
 
-        const headers = new Headers();
-        object.writeHttpMetadata?.(headers);
-        if (object.httpMetadata?.contentType) {
-          headers.set('Content-Type', object.httpMetadata.contentType);
+        // 2. Fallback to Cloudflare R2 if configured
+        if (env.IMAGES) {
+          const object = await env.IMAGES.get(key);
+          if (object) {
+            const headers = new Headers();
+            object.writeHttpMetadata?.(headers);
+            if (object.httpMetadata?.contentType) {
+              headers.set('Content-Type', object.httpMetadata.contentType);
+            }
+            headers.set('etag', object.httpEtag || `"${key}"`);
+            headers.set('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');
+            headers.set('Access-Control-Allow-Origin', '*');
+            return new Response(object.body, { headers });
+          }
         }
-        headers.set('etag', object.httpEtag || `"${r2Key}"`);
-        headers.set('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');
-        headers.set('Access-Control-Allow-Origin', '*');
 
-        return new Response(object.body, { headers });
+        return new Response('Photograph not found', { status: 404 });
       }
 
       // ----------------------------------------------------
