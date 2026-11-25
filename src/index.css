@@ -76,26 +76,37 @@
   animation-play-state: paused;
 }
 
-/* Seamless flicker-free rolling word animation */
-@keyframes rollWord {
-  0%, 42% {
-    transform: translateY(0%);
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  50%, 92% {
-    transform: translateY(-33.333333%);
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+/* Seamless flicker-free rolling word animations */
+@keyframes rollWordIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
   }
   100% {
-    transform: translateY(-66.666667%);
+    transform: translateY(0%);
+    opacity: 1;
   }
 }
 
-.animate-roll-word {
-  animation: rollWord 6s infinite;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+@keyframes rollWordOut {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-roll-in {
+  animation: rollWordIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-roll-out {
+  animation: rollWordOut 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 }
 
 /* Strict geometric clipping to prevent text remnants from leaking at edges */
