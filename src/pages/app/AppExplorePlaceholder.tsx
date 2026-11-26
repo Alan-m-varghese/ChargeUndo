@@ -19,9 +19,7 @@ import {
 import { StationRecord, NearbyStationRecord, getStoredVehicles, Vehicle } from '../../types';
 import {
   getUserLocation,
-  resolveManualLocation,
   getGoogleMapsDirectionsUrl,
-  KERALA_CITY_CENTROIDS,
   GeolocationErrorDetails,
 } from '../../utils/geolocation';
 
@@ -39,12 +37,6 @@ export const AppExplorePlaceholder: React.FC = () => {
   const [locating, setLocating] = useState<boolean>(false);
   const [locatingStatus, setLocatingStatus] = useState<string>('');
   const [geoError, setGeoError] = useState<GeolocationErrorDetails | null>(null);
-
-  // Manual location search
-  const [showManualSearch, setShowManualSearch] = useState<boolean>(false);
-  const [manualQuery, setManualQuery] = useState<string>('');
-  const [manualLoading, setManualLoading] = useState<boolean>(false);
-  const [manualError, setManualError] = useState<string | null>(null);
 
   // Vehicle Compatibility State
   const [userVehicle, setUserVehicle] = useState<Vehicle | null>(null);
@@ -171,7 +163,6 @@ export const AppExplorePlaceholder: React.FC = () => {
         label: 'Your Current Location',
       });
       setNearbyMode(true);
-      setShowManualSearch(false);
 
       // Update URL query parameters cleanly
       setSearchParams({
@@ -204,67 +195,17 @@ export const AppExplorePlaceholder: React.FC = () => {
     }
   };
 
-  // Select a preset Kerala city
-  const handleSelectPresetCity = (cityName: string) => {
-    const city = KERALA_CITY_CENTROIDS[cityName.toLowerCase()];
-    if (!city) return;
-
-    setUserLocation({
-      latitude: city.latitude,
-      longitude: city.longitude,
-      label: city.name,
-    });
-    setNearbyMode(true);
-    setGeoError(null);
-    setShowManualSearch(false);
-
-    setSearchParams({
-      lat: city.latitude.toFixed(6),
-      lng: city.longitude.toFixed(6),
-      radius: radiusKm.toString(),
-      mode: 'nearby',
-    });
-
-    fetchNearbyStations(city.latitude, city.longitude, radiusKm);
-  };
-
-  // Execute manual city/PIN code search
-  const handleManualSearch = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!manualQuery.trim()) return;
-
-    setManualLoading(true);
-    setManualError(null);
-
-    try {
-      const result = await resolveManualLocation(manualQuery.trim());
-      if (!result) {
-        setManualError(`Could not find coordinates for "${manualQuery}". Try a major Kerala town or district name.`);
-        return;
-      }
-
-      setUserLocation({
-        latitude: result.latitude,
-        longitude: result.longitude,
-        label: result.name,
-      });
-      setNearbyMode(true);
-      setGeoError(null);
-      setShowManualSearch(false);
-      setManualQuery('');
-
-      setSearchParams({
-        lat: result.latitude.toFixed(6),
-        lng: result.longitude.toFixed(6),
-        radius: radiusKm.toString(),
-        mode: 'nearby',
-      });
-
-      fetchNearbyStations(result.latitude, result.longitude, radiusKm);
-    } catch (err: any) {
-      setManualError('Failed to resolve location. Please try selecting a city below.');
-    } finally {
-      setManualLoading(false);
+  // Quick popular city filter for the main search bar
+  const handleHubClick = (cityName: string) => {
+    if (nearbyMode) {
+      setNearbyMode(false);
+      setUserLocation(null);
+      setSearchParams({});
+    }
+    if (searchQuery.toLowerCase() === cityName.toLowerCase()) {
+      setSearchQuery('');
+    } else {
+      setSearchQuery(cityName);
     }
   };
 
@@ -369,15 +310,8 @@ export const AppExplorePlaceholder: React.FC = () => {
                   </button>
                 )}
                 <button
-                  onClick={() => setShowManualSearch(true)}
-                  className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition flex items-center gap-1.5"
-                >
-                  <Search className="w-3 h-3" />
-                  <span>Search City or PIN Code</span>
-                </button>
-                <button
                   onClick={() => setGeoError(null)}
-                  className="text-zinc-400 hover:text-white transition ml-auto"
+                  className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium transition"
                 >
                   Dismiss
                 </button>
@@ -387,196 +321,164 @@ export const AppExplorePlaceholder: React.FC = () => {
         </div>
       )}
 
-      {/* Location Control Strip (Nearby Controls, Radius Filter & Preset Cities) */}
-      <div className="mb-6 p-4 sm:p-5 rounded-3xl bg-[#0D100E] border border-white/[0.08] space-y-4">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          {/* Active Location Info & Mode Switcher */}
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-[#8CF06B]">
-              <Compass className="w-4 h-4" />
-            </div>
-            <div>
-              <div className="text-xs text-zinc-400 font-mono flex items-center gap-2">
-                <span>LOCATION FOCUS:</span>
-                {nearbyMode ? (
-                  <span className="text-white font-semibold">{userLocation?.label || 'Custom Coordinates'}</span>
-                ) : (
-                  <span className="text-zinc-300 font-medium">All Kerala Stations</span>
-                )}
+      {/* Nearby Active Banner (Only displayed when Nearby Mode is active) */}
+      {nearbyMode && userLocation && (
+        <div className="mb-6 p-4 sm:p-5 rounded-3xl bg-[#0D100E] border border-[#8CF06B]/25 shadow-lg space-y-4">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-[#8CF06B]/15 border border-[#8CF06B]/30 flex items-center justify-center text-[#8CF06B] flex-shrink-0">
+                <Compass className="w-4 h-4" />
               </div>
-              <div className="text-[11px] text-zinc-500 mt-0.5">
-                {nearbyMode
-                  ? 'Showing stations ordered by proximity and suitability'
-                  : 'Click "Find Chargers Near Me" or pick a city to discover local stations'}
+              <div>
+                <div className="text-xs text-zinc-300 font-mono flex items-center gap-2">
+                  <span>NEARBY SEARCH:</span>
+                  <span className="text-white font-semibold">{userLocation.label}</span>
+                </div>
+                <div className="text-[11px] text-zinc-400 mt-0.5">
+                  Showing stations ranked by distance, port compatibility & reliability
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Radius Selector Pills (5 km, 10 km, 25 km, 50 km) */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs text-zinc-400 font-mono mr-1">RADIUS:</span>
-            {[5, 10, 25, 50].map((r) => (
-              <button
-                key={r}
-                onClick={() => handleRadiusChange(r)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-semibold transition ${
-                  radiusKm === r && nearbyMode
-                    ? 'bg-[#8CF06B] text-black shadow-sm'
-                    : 'bg-white/[0.04] text-zinc-400 hover:text-white border border-white/[0.06]'
-                }`}
-                title={`Search within ${r} km`}
-              >
-                {r} km
-              </button>
-            ))}
+            {/* Radius Selector Pills (5 km, 10 km, 25 km, 50 km) */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-xs text-zinc-400 font-mono mr-1">RADIUS:</span>
+              {[5, 10, 25, 50].map((r) => (
+                <button
+                  key={r}
+                  onClick={() => handleRadiusChange(r)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-mono font-semibold transition ${
+                    radiusKm === r
+                      ? 'bg-[#8CF06B] text-black shadow-sm'
+                      : 'bg-white/[0.04] text-zinc-400 hover:text-white border border-white/[0.06]'
+                  }`}
+                  title={`Search within ${r} km`}
+                >
+                  {r} km
+                </button>
+              ))}
 
-            {nearbyMode && (
               <button
                 onClick={handleResetToAllStations}
-                className="px-3 py-1.5 rounded-xl text-xs font-mono text-zinc-400 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] transition ml-2 flex items-center gap-1"
+                className="px-3 py-1.5 rounded-xl text-xs font-mono text-zinc-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] transition ml-2 flex items-center gap-1.5"
                 title="Clear nearby filter and show all stations"
               >
                 <X className="w-3 h-3" />
-                <span>Show All</span>
+                <span>Show All Stations</span>
               </button>
-            )}
+            </div>
           </div>
-        </div>
 
-        {/* Quick Kerala City Hubs & Manual Search Toggle */}
-        <div className="pt-3 border-t border-white/[0.06] flex flex-wrap items-center gap-2 text-xs">
-          <span className="text-zinc-500 font-mono text-[11px] mr-1">QUICK HUBS:</span>
-          {['Kochi', 'Thiruvananthapuram', 'Kozhikode', 'Thrissur', 'Kollam', 'Kannur', 'Alappuzha', 'Kottayam'].map(
-            (city) => (
+          {/* Registered Vehicle Matching Indicator in Nearby Mode */}
+          {userVehicle && (
+            <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs">
+              <div className="flex items-center gap-2">
+                <Car className="w-3.5 h-3.5 text-[#8CF06B]" />
+                <span className="text-zinc-300">
+                  Registered EV: <strong className="text-white">{userVehicle.name}</strong> ({userVehicle.connectorType})
+                </span>
+              </div>
+
               <button
-                key={city}
-                onClick={() => handleSelectPresetCity(city)}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition ${
-                  userLocation?.label.toLowerCase().includes(city.toLowerCase())
-                    ? 'bg-white/20 text-white border border-[#8CF06B]/50'
-                    : 'bg-white/[0.03] text-zinc-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.04]'
+                onClick={() => {
+                  const nextState = !filterByVehicle;
+                  setFilterByVehicle(nextState);
+                  if (nearbyMode && userLocation) {
+                    fetchNearbyStations(userLocation.latitude, userLocation.longitude, radiusKm, nextState ? userVehicle : null);
+                  }
+                }}
+                className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition ${
+                  filterByVehicle
+                    ? 'bg-[#8CF06B]/20 text-[#8CF06B] border border-[#8CF06B]/40 font-semibold'
+                    : 'bg-white/[0.04] text-zinc-400 hover:text-white border border-white/[0.06]'
                 }`}
               >
-                {city}
+                {filterByVehicle ? 'Prioritizing Compatible Ports' : 'Match My EV Port'}
               </button>
-            )
+            </div>
           )}
-
-          {/* Collapsed Search Icon Button */}
-          <button
-            onClick={() => setShowManualSearch(!showManualSearch)}
-            className={`w-7 h-7 rounded-lg border flex items-center justify-center ml-auto transition cursor-pointer ${
-              showManualSearch
-                ? 'bg-[#8CF06B]/20 text-[#8CF06B] border-[#8CF06B]/40'
-                : 'bg-white/[0.04] text-zinc-400 hover:text-white hover:bg-white/[0.08] border-white/[0.06]'
-            }`}
-            title={showManualSearch ? 'Close manual search' : 'Search by city, area, or PIN code'}
-            aria-label="Search city or PIN code"
-          >
-            {showManualSearch ? <X className="w-3.5 h-3.5" /> : <Search className="w-3.5 h-3.5" />}
-          </button>
         </div>
+      )}
 
-        {/* Collapsible Manual City / Area / PIN Code Search Form */}
-        {showManualSearch && (
-          <form onSubmit={handleManualSearch} className="pt-3 border-t border-white/[0.06] flex flex-col sm:flex-row gap-2">
+      {/* Directory Search & Filter Tabs (Single Unified Search Interface) */}
+      {!nearbyMode && (
+        <div className="mb-6 space-y-3">
+          <div className="flex flex-col md:flex-row gap-3">
             <div className="relative flex-1">
-              <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-zinc-500 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                value={manualQuery}
-                onChange={(e) => setManualQuery(e.target.value)}
-                placeholder="Enter city, locality or 6-digit PIN code (e.g. Edappally, 682024, Aluva)..."
-                className="w-full pl-9 pr-3 py-2 rounded-xl bg-black/40 border border-white/15 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#8CF06B]"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search station name, city, landmark, or operator (e.g. Kaloor, KSEB, Kozhikode)..."
+                className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#0D100E] border border-white/[0.1] text-white text-sm focus:outline-none focus:border-[#8CF06B] transition"
               />
             </div>
-            <button
-              type="submit"
-              disabled={manualLoading || !manualQuery.trim()}
-              className="px-4 py-2 rounded-xl bg-[#8CF06B] hover:bg-[#9ef581] text-black text-xs font-semibold transition disabled:opacity-50 flex items-center justify-center gap-1.5"
-            >
-              {manualLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : <MapPin className="w-3 h-3" />}
-              <span>Find Chargers</span>
-            </button>
-            {manualError && <span className="text-[11px] text-red-400 self-center">{manualError}</span>}
-          </form>
-        )}
 
-        {/* Registered Vehicle Matching Indicator */}
-        {userVehicle && (
-          <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs">
-            <div className="flex items-center gap-2">
-              <Car className="w-3.5 h-3.5 text-[#8CF06B]" />
-              <span className="text-zinc-300">
-                Registered EV: <strong className="text-white">{userVehicle.name}</strong> ({userVehicle.connectorType})
-              </span>
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+              <button
+                onClick={() => setActiveFilter('all')}
+                className={`px-4 py-3 rounded-2xl text-xs sm:text-sm font-medium transition whitespace-nowrap ${
+                  activeFilter === 'all'
+                    ? 'bg-[#8CF06B] text-black font-semibold shadow-sm'
+                    : 'bg-[#0D100E] border border-white/[0.08] text-zinc-400 hover:text-white'
+                }`}
+              >
+                All Stations ({totalCount})
+              </button>
+              <button
+                onClick={() => setActiveFilter('fast')}
+                className={`px-4 py-3 rounded-2xl text-xs sm:text-sm font-medium transition whitespace-nowrap ${
+                  activeFilter === 'fast'
+                    ? 'bg-[#8CF06B] text-black font-semibold shadow-sm'
+                    : 'bg-[#0D100E] border border-white/[0.08] text-zinc-400 hover:text-white'
+                }`}
+              >
+                Public Corridors
+              </button>
+              <button
+                onClick={() => setActiveFilter('community')}
+                className={`px-4 py-3 rounded-2xl text-xs sm:text-sm font-medium transition whitespace-nowrap ${
+                  activeFilter === 'community'
+                    ? 'bg-[#8CF06B] text-black font-semibold shadow-sm'
+                    : 'bg-[#0D100E] border border-white/[0.08] text-zinc-400 hover:text-white'
+                }`}
+              >
+                Community Hosts
+              </button>
             </div>
-
-            <button
-              onClick={() => {
-                const nextState = !filterByVehicle;
-                setFilterByVehicle(nextState);
-                if (nearbyMode && userLocation) {
-                  fetchNearbyStations(userLocation.latitude, userLocation.longitude, radiusKm, nextState ? userVehicle : null);
-                }
-              }}
-              className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition ${
-                filterByVehicle
-                  ? 'bg-[#8CF06B]/20 text-[#8CF06B] border border-[#8CF06B]/40 font-semibold'
-                  : 'bg-white/[0.04] text-zinc-400 hover:text-white border border-white/[0.06]'
-              }`}
-            >
-              {filterByVehicle ? 'Prioritizing Compatible Ports' : 'Match My EV Port'}
-            </button>
-          </div>
-        )}
-      </div>
-
-      {/* Directory Search & Filter Tabs */}
-      {!nearbyMode && (
-        <div className="mb-6 flex flex-col md:flex-row gap-3">
-          <div className="relative flex-1">
-            <Search className="w-4 h-4 text-zinc-500 absolute left-4 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search station name, city, landmark, or operator (e.g. Kaloor, KSEB, Kozhikode)..."
-              className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#0D100E] border border-white/[0.1] text-white text-sm focus:outline-none focus:border-[#8CF06B] transition"
-            />
           </div>
 
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-            <button
-              onClick={() => setActiveFilter('all')}
-              className={`px-4 py-3 rounded-2xl text-xs sm:text-sm font-medium transition whitespace-nowrap ${
-                activeFilter === 'all'
-                  ? 'bg-[#8CF06B] text-black font-semibold shadow-sm'
-                  : 'bg-[#0D100E] border border-white/[0.08] text-zinc-400 hover:text-white'
-              }`}
-            >
-              All Stations ({totalCount})
-            </button>
-            <button
-              onClick={() => setActiveFilter('fast')}
-              className={`px-4 py-3 rounded-2xl text-xs sm:text-sm font-medium transition whitespace-nowrap ${
-                activeFilter === 'fast'
-                  ? 'bg-[#8CF06B] text-black font-semibold shadow-sm'
-                  : 'bg-[#0D100E] border border-white/[0.08] text-zinc-400 hover:text-white'
-              }`}
-            >
-              Public Corridors
-            </button>
-            <button
-              onClick={() => setActiveFilter('community')}
-              className={`px-4 py-3 rounded-2xl text-xs sm:text-sm font-medium transition whitespace-nowrap ${
-                activeFilter === 'community'
-                  ? 'bg-[#8CF06B] text-black font-semibold shadow-sm'
-                  : 'bg-[#0D100E] border border-white/[0.08] text-zinc-400 hover:text-white'
-              }`}
-            >
-              Community Hosts
-            </button>
+          {/* Quick Popular City Filter Chips */}
+          <div className="flex flex-wrap items-center gap-2 text-xs">
+            <span className="text-zinc-500 font-mono text-[11px] mr-1">POPULAR:</span>
+            {['Kochi', 'Thiruvananthapuram', 'Kozhikode', 'Thrissur', 'Kollam', 'Kannur', 'Alappuzha', 'Kottayam'].map(
+              (city) => {
+                const isSelected = searchQuery.toLowerCase() === city.toLowerCase();
+                return (
+                  <button
+                    key={city}
+                    onClick={() => handleHubClick(city)}
+                    className={`px-2.5 py-1 rounded-lg text-xs transition ${
+                      isSelected
+                        ? 'bg-[#8CF06B] text-black font-semibold'
+                        : 'bg-white/[0.03] text-zinc-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.05]'
+                    }`}
+                  >
+                    {city}
+                  </button>
+                );
+              }
+            )}
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="text-xs text-zinc-400 hover:text-white ml-2 flex items-center gap-1 underline underline-offset-2"
+              >
+                <X className="w-3 h-3" />
+                <span>Clear search</span>
+              </button>
+            )}
           </div>
         </div>
       )}
