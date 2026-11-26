@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Eye, EyeOff, ArrowRight, AlertCircle, Loader2 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { isValidEmail, isValidPhone, isValidPassword } from '../../utils/validation';
 
 export const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
@@ -29,18 +30,18 @@ export const RegisterPage: React.FC = () => {
       setError('Please enter your full name.');
       return false;
     }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.trim())) {
-      setError('Please enter a valid email address.');
+    const emailTrimmed = email.trim().toLowerCase();
+    if (!isValidEmail(emailTrimmed)) {
+      setError('Please enter a valid, original email address (e.g. yourname@domain.com).');
       return false;
     }
-    const phoneClean = phone.replace(/\D/g, '');
-    if (phoneClean.length < 10) {
+    if (!isValidPhone(phone)) {
       setError('Please enter a valid 10-digit mobile number.');
       return false;
     }
-    if (password.length < 6) {
-      setError('Password must be at least 6 characters long.');
+    const passCheck = isValidPassword(password);
+    if (!passCheck.valid) {
+      setError(passCheck.error || 'Password must be at least 8 characters long.');
       return false;
     }
     if (password !== confirmPassword) {

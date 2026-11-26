@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Eye, EyeOff, ArrowRight, AlertCircle, Loader2 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { isValidEmail } from '../../utils/validation';
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -21,21 +22,17 @@ export const LoginPage: React.FC = () => {
     '/app/explore';
 
   const validateForm = (): boolean => {
-    if (!email.trim()) {
+    const emailTrimmed = email.trim().toLowerCase();
+    if (!emailTrimmed) {
       setError('Please enter your email address.');
       return false;
     }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.trim())) {
+    if (!isValidEmail(emailTrimmed)) {
       setError('Please enter a valid email address.');
       return false;
     }
     if (!password) {
       setError('Please enter your password.');
-      return false;
-    }
-    if (password.length < 6) {
-      setError('Password must be at least 6 characters.');
       return false;
     }
     setError(null);
