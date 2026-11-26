@@ -1,0 +1,529 @@
+cpo,station_name,address,city,latitude,longitude,max_power_kw,connectors_count
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Amaravila, Kerala 695122",Thiruvananthapuram,8.389452,77.106735,3.3,1
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Bakery Jct Rd, Near Rbi, Nandavanam, Palayam, Thiruvananthapuram, Kerala695033",Thiruvananthapuram,8.50308,76.953763,3.3,1
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Sycamore Complex, Plamoodu Junction, Pattom",Thiruvananthapuram,8.514473,76.94588,3.3,2
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Opposite Infosys/Ust, On Road Opposite Infosys Main Gate, Behind Al SajArena, Poundukadavu",Thiruvananthapuram,8.533965,76.880734,3.3,1
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Kulathoor Nh Bypass Kazhakkuttam, Thiruvananthapuram, Kerala 695583",Thiruvananthapuram,8.545103,76.876892,3.3,1
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Queen Tower, Kazhakootam, Thiruvananthapuram, Kerala",Thiruvananthapuram,8.549333,76.877257,3.3,1
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram  Vazhayila - Kallayam Rd, Vazhayila, Padmanabha Nagar, Thiruvananthapuram, Kerala",Thiruvananthapuram,8.551375,76.974801,3.3,1
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Mamam, Attingal, Kerala 695104",Thiruvananthapuram,8.676922,76.828229,3.3,1
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Varkala Kallambalam Rd, Palachira, Kerala 695143",Thiruvananthapuram,8.736033,76.745662,3.3,1
+Ather,"Ather EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Kairali Junction, Janardhanapuram, Po, Varkala, Kerala 695141",Thiruvananthapuram,8.736492,76.709439,3.3,1
+Ather,"Ather EV Station, Kollam","Kollam Kollam Pallimukku, Kollam, Kerala 691021",Kollam,8.876007,76.624791,3.3,1
+Ather,"Ather EV Station, Kollam","Kollam Kollam Chinnakada, Kollam, Kerala 691001",Kollam,8.889569,76.585894,3.3,1
+Ather,"Ather EV Station, Kollam","Kollam Kollam Raj Plaza Building, Kilikkolloor P.O, Kollam",Kollam,8.899214,76.612997,3.3,2
+Ather,"Ather EV Station, Kollam","Kollam Kollam Pioneer Building, Pulamon, Kottarakkara - 691531",Kollam,9.005279,76.778656,3.3,1
+Ather,"Ather EV Station, Kollam","Kollam Kollam Near Parabrahma Hospital, Pallumikk, Oachira, Kollam - 690528",Kollam,9.121632,76.51812,3.3,1
+Ather,"Ather EV Station, Alappuzha","Alappuzha Alappuzha Thottappally, Karuvatta, Kerala 688561",Alappuzha,9.315635,76.40173,3.3,1
+Ather,"Ather EV Station, Alappuzha","Alappuzha Alappuzha Erezha, Mullakkal, Kerala 688011",Alappuzha,9.498014,76.340207,3.3,1
+Ather,"Ather EV Station, Alappuzha","Alappuzha Alappuzha Vishnu Bhavan Pathirappally Po , Poomkavu, Alappuzha. , 688521",Alappuzha,9.526362,76.327279,3.3,2
+Ather,"Ather EV Station, Kottayam","Kottayam Kottayam Near Mathrubhumi, Nagampadam, Kottayam, Kerala 686004",Kottayam,9.599412,76.531404,3.3,1
+Ather,"Ather EV Station, Kottayam","Kottayam Kottayam Pala Road, Pallickathodu, Kerala 686503",Kottayam,9.605131,76.681247,3.3,1
+Ather,"Ather EV Station, Alappuzha","Alappuzha Alappuzha Prashanthi Super Clinic, Iv-558, Ac Rd, Krishnakripa, Cherthala, Kerala688524",Alappuzha,9.676118,76.340465,3.3,1
+Ather,"Ather EV Station, Alappuzha","Alappuzha Alappuzha Near Keltron Jn, Aroor, Cherthala",Alappuzha,9.8658,76.305244,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Bypass Road, Chottanikkara, Ernakulam",Kochi,9.932146,76.388634,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi 50/698 Pushpamangalam Heritage, Petta Maradu Road Near Gandhi Square",Kochi,9.94493,76.335421,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Thykoodam Service Rd, Vyttila,  Thykoodam, Kochi,  Kerala",Kochi,9.961851,76.318848,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Subhash Chandra Bose Road,  Jawahar Nagar, Kadavanthra,  Ernakulam,Kerala",Kochi,9.972137,76.302077,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi 40/6972, Mahatma Gandhi Rd, Rajaji Junction, Kochi, Kerala",Kochi,9.977934,76.280871,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Ponnurunni-Chalikkavattom Rd, Ponnurunni East, Ponnurunni, Vyttila,Ernakulam, Kerala",Kochi,9.98014,76.317365,3.3,2
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Opposite Ksfe, Palarivattom Junction, Ernakulam, Kerala 682025",Kochi,10.001819,76.306455,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Infopark Expy, Infopark Campus, Kakkanad, Kerala 682030",Kochi,10.003016,76.361709,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Puthuppady, Muvattupuzha, Kerala 686673",Kochi,10.004396,76.603584,3.3,1
+Ather,"Ather EV Station, Kochi",Ernakulam Kochi ϳͬϱϭϲͲϭ͕Ϯ͕ϯ͕^ĞĂƉŽƌƚʹŝƌƉŽƌƚZĚ͕DĂǀĞůŝƉƵƌĂŵ͕<ĂŬŬĂŶĂĚ͕<ĞƌĂůĂ,Kochi,10.023176,76.341164,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Panvel - Kochi - Kanyakumari Hwy, Toll Junction, Edappally, Kochi, Kerala",Kochi,10.024412,76.308956,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Erumeli Junction, Kizhakambalam, Ernakulam :",Kochi,10.031967,76.407518,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Soubhagya Nagar, Thrikkakara, Ernakulam, Kerala 682021",Kochi,10.03495,76.330575,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Choornikkara, Thaikkavu, Kerala 683106",Kochi,10.069927,76.331349,3.3,1
+Ather,"Ather EV Station, Kochi","Ernakulam Kochi Near Metro Station, Ambattukavu, Choornikkara, Aluva, Kerala 683501",Kochi,10.078888,76.338379,3.3,1
+Ather,"Ather EV Station, Thrissur","Thrissur Thrissur Near Old Police Station , Nh Road, Nh544, Puthukkad, Kerala",Thrissur,10.417348,76.270158,3.3,1
+Ather,"Ather EV Station, Thrissur","Thrissur Thrissur Nattika, Triprayar, Kerala 680566",Thrissur,10.430089,76.10002,3.3,1
+Ather,"Ather EV Station, Thrissur","Thrissur Thrissur Angels Nagar, Ollur, Thrissur, Kerala 680306",Thrissur,10.476581,76.240472,3.3,1
+Ather,"Ather EV Station, Thrissur","Thrissur Thrissur Autostarke Energy Pvt Ltd, 14/3 A1, Puzhakkal",Thrissur,10.54281,76.184562,3.3,2
+Ather,"Ather EV Station, Thrissur","Thrissur Thrissur H Highway, Pattikkad Center, Thrissur, Kerala 680652",Thrissur,10.557072,76.328449,3.3,1
+Ather,"Ather EV Station, Thrissur","Thrissur Thrissur Outer Ring Road, Opp Railway Station, East Nada, Guruvayur",Thrissur,10.595565,76.044337,3.3,1
+Ather,"Ather EV Station, Thrissur","Thrissur Thrissur Kecheri Road, Pannithadam",Thrissur,10.666181,76.113533,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Nh 66, Veliancode Town, Ponnani, Kerala",Malappuram,10.729249,75.947203,3.3,1
+Ather,"Ather EV Station, Thrissur","Thrissur Thrissur Cheruthuruthi, Kerala 679531",Thrissur,10.749964,76.274664,3.3,1
+Ather,"Ather EV Station, Palakkad","Palakkad Palakkad Kvr Green Energy Pvt Ltd , Ts2 Ventures , Mercy College Junction",Palakkad,10.770167,76.637861,3.3,2
+Ather,"Ather EV Station, Palakkad","Palakkad Palakkad Palakkad - Ponnani Rd, Ottapalam",Palakkad,10.773716,76.387919,3.3,1
+Ather,"Ather EV Station, Palakkad","Palakkad Palakkad Calicut Bypass Road, Manali, Palakkad - 678001",Palakkad,10.779429,76.665131,3.3,1
+Ather,"Ather EV Station, Thrissur","Malappuram Malappuram Thrissur - Kunnamkulam Rd, Edappal, Kerala 679576",Thrissur,10.789902,76.008495,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Tirur Ashanpadi, Kootayi Road Tirur , Malappuram Dist. 676502",Malappuram,10.864356,75.899666,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Karinganad, Vilayur Po, Pattambi Taluk",Malappuram,10.8878,76.189669,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Tirur Police Lane, Tirur-Chamravattom Road, Tirur - 676105",Malappuram,10.896958,75.927197,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Tirur Pookkayil, Tirur, Kerala",Malappuram,10.923581,75.913121,3.3,2
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Puthanathani, Malappuram, Kerala",Malappuram,10.934319,75.99956,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Bypass Arena, Ponmundam, Vailathur, Malappuram, Kerala",Malappuram,10.951425,75.955169,3.3,1
+Ather,"Ather EV Station, Palakkad","Palakkad Palakkad Tippu Sulthan Rd, Pallikurup, Kerala 678593",Palakkad,10.965805,76.475281,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Xxmx+J2F, Palathara, Kerala",Malappuram,10.984132,75.997859,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram  Sh 39, Perintalmanna, Kerala 679322",Malappuram,10.985978,76.225719,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Parambilangadi, Kottakkal, Kerala 676501",Malappuram,10.990098,75.993201,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Life Gear Building, Kottakunnu Rd, Up Hill, Malappuram, Kerala 676505",Malappuram,11.045531,76.08292,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Panakkad, Malappuram, Kerala 676519",Malappuram,11.047213,76.043551,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Vengara, Kerala 676304",Malappuram,11.05163,75.990539,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Matil Mall, Vengara Road, Kizhakethala, Malappuram",Malappuram,11.05173,76.068329,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Vengara, Malappuram, Kerala 676304",Malappuram,11.051864,75.981023,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Sh 72, Kizhakkethala, Down Hill, Malappuram, Kerala 676505",Malappuram,11.052222,76.075398,3.3,2
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Anjappura, Near Nahas Hospital, Parappanangadi, Kerala 676303",Malappuram,11.054434,75.85529,3.3,1
+Ather,"Ather EV Station, Kozhikode","Malappuram Malappuram Kozhikode - Palakkad Hwy, Machingal, Down Hill, Malappuram, Kerala676505",Kozhikode,11.057586,76.082865,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Panayi, Anakkayam, Malappuram, Kerala 676509",Malappuram,11.082585,76.111279,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Calicut Rd, Thurakkal, Manjeri, Kerala 676121",Malappuram,11.120496,76.113424,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Rajiv Gandhi Bypass, Melakkam, Manjeri, Kerala 676121",Malappuram,11.124418,76.11227,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Ayanikode, Porur, Malappuram Pin : 679339",Malappuram,11.145041,76.235542,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Pazhayangadi, Kondotty P.O Malappuram, Kerala 673638",Malappuram,11.147015,75.963898,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Near Calicut Airport, Kondotty, Malappuram, Kerala 673638",Malappuram,11.160815,75.945812,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Chungam Feroke Po, Kozhikode, Feroke, Kerala",Kozhikode,11.180657,75.850678,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Chungam Feroke Po, Kozhikode, Kerala 673631",Kozhikode,11.181012,75.85063,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Kozhikode-Nilambur-Gudallur Rd, Petta, Feroke, Kerala 673633",Kozhikode,11.184601,75.840707,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Sh28, Edavanna, Kerala 676541",Malappuram,11.21046,76.139167,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Nh66,Areekkad, Nallalam, Kozhikode,Kozhikode, Kerala",Kozhikode,11.213295,75.804114,3.3,2
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut G1003, Nh 66, Kozhikode Bypass, Poovangal, Kozhikode, Kerala",Kozhikode,11.248533,75.833449,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Ground Floor Baby Arcade, Pt Usha Rd, Near Gatewayhotel, Kozhikode,Kerala",Kozhikode,11.258248,75.774777,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Rajaji Road, Calicut-  Kerala, India",Kozhikode,11.258638,75.785705,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Mcc Cross Rd, Vellayil, Kozhikode, Kerala",Kozhikode,11.264453,75.777366,3.3,2
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut 2Nd Unison Tower, Thondayad Junction Thondayad Bye Pass, Near Star CareHospital, Kozhikode, Kerala",Kozhikode,11.264847,75.810971,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Near Sabah Holidays & Online Services, Opposite Cheruvadi Post Office,Cheruvadi, Calicut Pin : 673661",Kozhikode,11.26731,75.989449,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Opp. Hdfc Bank, Chevayoor, Kozhikode, Kerala 673017",Kozhikode,11.269693,75.827504,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Near Chullikkaparamba Juma Masjid, Cheruvadi, Calicut, Kerala 673661",Kozhikode,11.269786,75.98822,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Kozhikode - Mavoor - Areacode Rd, Near Hindustan Petroleum,Velliparamba, Kozhikode, Kerala",Kozhikode,11.269806,75.843646,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Thoppayil, Vellayil, Kozhikode, Kerala 673011",Kozhikode,11.275135,75.764564,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Manalody, Nilambur, Kerala 679329",Malappuram,11.277585,76.226955,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Katcherry Village Office, Mini Bypass Rd, East Hill, Kozhikode, Kerala 673005",Kozhikode,11.289508,75.776415,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Thadampattuthazham, Karaparamba, Kozhikode, Kerala 673010",Kozhikode,11.295302,75.791411,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Moozhikkal, Kozhikode, Kerala",Kozhikode,11.296198,75.830782,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Opposite Punching Station, Chettikulam, Elathur, Kerala 673303",Kozhikode,11.332254,75.741264,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Kozhikode-Mysore-Kollegal Hwy, Vennakkad, Koduvally, Kerala 673571",Kozhikode,11.340057,75.898593,3.3,1
+Ather,"Ather EV Station, Malappuram","Malappuram Malappuram Dubai Mall, Edakkara, Kerala 679331",Malappuram,11.358187,76.30725,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Near Bus Stand, Poonoor Road, Narikkuni, Calicut",Kozhikode,11.368184,75.864438,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Nh 66, Arangadath, Kerala 673306",Kozhikode,11.426445,75.704587,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Thikkoti, Calicut, Kerala 673529",Kozhikode,11.4943,75.627756,3.3,1
+Ather,"Ather EV Station, Kozhikode","Kozhikode Calicut Vythiri -Tharuvana Rd, Vythiri, Kerala 673576",Kozhikode,11.559108,76.03499,3.3,1
+Ather,"Ather EV Station, Kozhikode","Wayanad Wayanad Kozhikode Mysore, Road, Meenangadi, Kerala 673591",Kozhikode,11.655866,76.153443,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Avk Nair Road, Pilakool, Thalassery, Kerala",Kannur,11.745544,75.49502,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Near Kannur Polytechnic, Kannur, Kerala 670007",Kannur,11.850254,75.417332,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Nikshan Arena, Bank Rd, Padanapalam, Kannur, Kerala",Kannur,11.868714,75.366022,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Nikshan Arena, Bank Rd, Padanapalam, Kannur, Kerala",Kannur,11.868745,75.366022,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Sn Park Rd, Kannur, Kerala 670001",Kannur,11.870936,75.359793,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Crux Mobility Pvt Ltd, City Tower, Near Har Cars",Kannur,11.874322,75.3872,3.3,2
+Ather,"Ather EV Station, Kochi","Kannur Kannur Near Makkani Kannur, Kochi, Kerala 670002",Kochi,11.88142,75.3738,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Payyambalam Beach Road, Chalad, Kannur, Kerala",Kannur,11.8843,75.342051,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Thalassery - Baveli Rd, Kelakam, Kerala 673101",Kannur,11.896026,75.809715,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Kannapuram, Kannur, Kerala 670301",Kannur,11.980685,75.315994,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Padikkunnu, Mayyil, Kerala 670602",Kannur,11.987534,75.420727,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Kasaragod - Kannur Rd, Trichambaram, Taliparamba, Kerala",Kannur,12.025627,75.367177,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Near Bus Stand, Payyannur 670307",Kannur,12.102277,75.210274,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Vayattuparamba - Kavala Rd, New Naduvil, Kerala",Kannur,12.151841,75.462338,3.3,1
+Ather,"Ather EV Station, Kannur","Kannur Kannur Nh66, Cheruvathur, Kerala 671313",Kannur,12.214817,75.162448,3.3,1
+Ather,"Ather EV Station, Kasaragod","Kasaragod Kasargode 17/2A-B, Nousheen Complex, Near Shardamba Temple, Anangoor,Kasargode-",Kasaragod,12.512545,75.003777,3.3,2
+BPM,"BPM EV Station, Thiruvananthapuram","Thiruvananthapuram Trivandrum Electrical Section Kseb, Main Central Rd, Vrindavan Gardens, Pattom",Thiruvananthapuram,8.516602,76.93938,60.0,5
+BPM,"BPM EV Station, Kozhikode","Kozhikode Kozhikode Hanging Bridge, Kozhikode-Mysore-Kollegal Hwy, Vennakkad, Koduvally",Kozhikode,11.339766,75.89873,50.0,5
+BPM,"BPM EV Station, Kottayam","Kottayam Kottayam Hangout Play World, Sh 1, Near Kaithamala Muslim Church, Ettumanoor",Kottayam,9.661327,76.551258,60.0,1
+BPM,"BPM EV Station, Kozhikode","Kozhikode Kozhikode Near Govt Up School, Anthatta, Nh 66, Koyilandy",Kozhikode,11.427553,75.703106,60.0,5
+BPM,"BPM EV Station, Kochi","Alappuzha Alappuzha Near Kseb 220Kv Substation, Near Panvel - Kochi - Kanyakumari Hwy",Kochi,9.425684,76.346805,60.0,5
+BPM,"BPM EV Station, Kochi","Kollam Kollam Panvel - Kochi - Kanyakumari Hwy, T D Nagar, Olayil, High School Jn.",Kochi,8.89273,76.57897,50.0,2
+BPM,"BPM EV Station, Kannur","Kannur Kannur Pappinisseri Co-Operative Bank, Oppo. Bakkalam Bus Stand, Bakkalam",Kannur,11.997448,75.370864,30.0,2
+BPM,"BPM EV Station, Ernakulam","Ernakulam Ernakulam Saroja Complex, Chandrathil Rd, Jn, Palarivattom - Edappally Rd, Edappally",Ernakulam,10.00525,76.30495,50.0,2
+EESL,"EESL EV Station, Kozhikode","Kozhikode Karimbanappalam Aahaar Restaurant Karimbanappalam, Vatakara P.O,  Kozhikode, Kerala -673101",Kozhikode,11.58663,75.593177,50.0,1
+EESL,"EESL EV Station, Kottayam","Kottayam Perunnermangalam Autokast Premises, South East End Adjacent To Nh 66, Mararikulam NorthVillage, Perunnermangalam, M",Kottayam,9.63628,76.3352,50.0,1
+EESL,"EESL EV Station, Idukki",Idukki Idukki Dtpc Idukki Park   Nayarupara P.O.  Idukki - 685602   Kerala,Idukki,9.849202,76.977562,50.0,1
+EESL,"EESL EV Station, Thiruvananthapuram","Thiruvananthapuram Thycaud K Government Guest House, State Council For Child Welfare, Cv Raman PillaiRd, Near Kerala, Housing B",Thiruvananthapuram,8.492775,76.957296,50.0,2
+EESL,"EESL EV Station, Palakkad","Palakkad Kanjirapuzha Kanjijrapuzha Garden Kanhirapuzha Rd, Kanjirapuzha Kerala-678591",Palakkad,10.991903,76.532394,50.0,1
+EESL,"EESL EV Station, Kasaragod","Kasaragod Kasaragod Kerala Agricultural University, Padannakkad (Po) Kasaragod Kerala, 671314",Kasaragod,12.253362,75.119457,50.0,1
+EESL,"EESL EV Station, Thrissur","Thrissur Killannur Kerala Institute Of Local Administration (Kila), Shoranur Road,Mulamkunnathukavu, Killannur, Thris",Thrissur,10.60165,76.214872,50.0,1
+EESL,"EESL EV Station, Alappuzha","Alappuzha Krishnapuram Ktdc Aahar Restaurant, Nh66, Krishnapuram, Kayamkulam-690533",Alappuzha,9.149147,76.512902,50.0,1
+EESL,"EESL EV Station, Kochi","Ernakulam Kochi Ktdc Tourist Reception Centre, Shanmugham Road, Ernakulam, MarineDrive, Kochi, Kerala 682031",Kochi,9.977164,76.27777,50.0,2
+EESL,"EESL EV Station, Malappuram",Malappuram Perinthalmanna Moosakutty Memorial Bust Stand Perinthalmanna Kerala 679322,Malappuram,10.975135,76.22122,50.0,1
+EESL,"EESL EV Station, Kannur","Kannur Pinarayi Pinarayi Park, Padannakara,Pinarayi. Kannur, Kerala, 670741",Kannur,11.785595,75.48427,50.0,1
+EESL,"EESL EV Station, Thiruvananthapuram","Thiruvananthapuram Shangumukham Shankumugham Beach, Dtpc Vehicle Parking Area, Thiruvananthapuram,Kerala 695008",Thiruvananthapuram,8.481159,76.912456,50.0,2
+EESL,"EESL EV Station, Kollam","Kollam Chavara Take A Break Dtpc Restaurant, Chavara ,Panmana, Kerala, 691583",Kollam,9.004949,76.536378,50.0,1
+HPCL,"HPCL EV Station, Ernakulam","Ernakulam Ernakulam Blue Star Fuels, Hpc Dealer,Keezhillam P O, Pulluvazhi,Kunnathunadu,Perumbavoor,Ernakulam",Ernakulam,10.0585,76.5278,7.0,1
+HPCL,"HPCL EV Station, Ernakulam","Ernakulam Eranakulam Hpc Dealer Athani-Paravoor Road, Manjali Mavinchode, Mannam P O684520",Ernakulam,10.149748,76.260666,7.4,1
+HPCL,"HPCL EV Station, Alappuzha",Alappuzha Azhapuzha Hpc Dealers Opposite To Odampally Up School Arookutty - Cherthala Road688526,Alappuzha,9.818265,76.351044,7.4,1
+HPCL,"HPCL EV Station, Palakkad","Palakkad Palakkad Hpcl Dealer,Sno.169/1,Koottanad Desom On Sh39,Chalissery Village",Palakkad,10.75443,76.10977,7.0,1
+HPCL,"HPCL EV Station, Ernakulam","Ernakulam Ernakulam <ŽƌƵƚŚŽĚĞ&ƵĞůƐ͕,ƉWĞƚƌŽůWƵŵƉ͕WƵƌĂǇŝĚĂƚŚŝůƵŝůĚŝŶŐ͕<ŽƌƵƚŚŽĚĞWK͕<ŽƌƵƚŚŽĚĞ͕<ŽƚƚĂǇĂŵ",Ernakulam,9.463098,76.96037,3.0,1
+HPCL,"HPCL EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram M/S. Nagarajan &Sons Fuel Stn Hpc Dealer   Ulloor Akkulam Road ,  NearNish University, Akkulam  Thiruvananthapuram",Thiruvananthapuram,8.524132,76.903653,3.0,1
+HPCL,"HPCL EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram M/S. Thakidiyil Fuels, Hpc Dealers, Anachal P O, Kattakkada,Thiruvananthapuram",Thiruvananthapuram,8.5025,77.0748,3.0,1
+HPCL,"HPCL EV Station, Ernakulam",Ernakulam Ernakulam M/S.Srihridya Fuels Hpc Dealer Nh 85 Manamthadam Puthencruz Ernakulam,Ernakulam,9.964,76.4156,7.0,1
+IOCL,"IOCL EV Station, Wayanad",Wayanad Wayanad Aayramkolli Ambalavayal Road Ambalavayal Sulthan Bathery WayanadDistrict,Wayanad,11.630673,76.212596,3.3,1
+IOCL,"IOCL EV Station, Thrissur",Thrissur Thrissur Crown Fuels Indian Oil Dealerkurukkenpara Guruvayur Road KunnamkulamPost,Thrissur,10.635135,76.059644,7.4,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indian Oil Coco Service Provider Tc 91/268/4 Near Lulu Mall AnayaraTrivandrum,Thiruvananthapuram,8.514464,76.899432,3.3,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indian Oil Coco Service Provider Tc 91/268/4 Near Lulu Mall AnayaraTrivandrum,Thiruvananthapuram,8.514602,76.899144,30.0,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indian Oil Dealer Areecode - Koz. Road Edavannapara Malappuram Dist.,Malappuram,11.245686,75.972913,7.4,1
+IOCL,"IOCL EV Station, Kozhikode",Kozhikode Kozhikode Indian Oil Dealer Avidanallurkoorachundukoottalida Kozhikode Dist.,Kozhikode,11.500391,75.81498,7.4,1
+IOCL,"IOCL EV Station, Ernakulam",Ernakulam Ernakulam Indian Oil Dealer Chottanikkara Kottayathupara Kadungamangalam,Ernakulam,9.934251,76.375033,7.4,1
+IOCL,"IOCL EV Station, Kozhikode",Kozhikode Kozhikode Indian Oil Dealer Kuttiadi-Kallchi Road Vatayam P.O. Kozhikode District,Kozhikode,11.666408,75.73009,7.4,1
+IOCL,"IOCL EV Station, Kasaragod",Kasaragod Kasaragod Indian Oil Dealer Nh 17 Padanakkad Kasargod Dist - Tin 32130648865C,Kasaragod,12.277358,75.11021,30.0,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indian Oil Dealer Opp School Pallimukku Peyad Thiruvananthapuram,Thiruvananthapuram,8.511469,77.010836,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indian Oil Dealer Pandikad - Manjeri Road Pandikad Malappuram Dist.,Malappuram,11.095241,76.220117,7.4,1
+IOCL,"IOCL EV Station, Kozhikode",Kozhikode Kozhikode Indian Oil Dealer Sh34 Opp. Bishop House Poonoor Roadkozhikode Dist,Kozhikode,11.423261,75.931712,7.4,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indian Oil Dealer Venjaramoodu ; Nellanadu Village Nedumangadu Taluk,Thiruvananthapuram,8.683804,76.907867,30.0,1
+IOCL,"IOCL EV Station, Kasaragod",Kasaragod Kasaragod Indian Oil Dealers 208/2A2 Guru Nagar Nellikatta Kasaragod District,Kasaragod,12.547498,75.070484,7.4,1
+IOCL,"IOCL EV Station, Idukki",Idukki Idukki Indian Oil Dealers Balagram P.O. Karunapuram Third Campidukki District,Idukki,9.790944,77.20153,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indian Oil Dealers Bp Angadi-Chamravattom Road ThriprangodeMalappuram District,Malappuram,10.832051,75.948289,30.0,1
+IOCL,"IOCL EV Station, Kannur",Kannur Kannur Indian Oil Dealers Chala-Koothuparamba Rd Moweri Kottayam VillageKannur District,Kannur,11.830454,75.534645,30.0,1
+IOCL,"IOCL EV Station, Kannur",Kannur Kannur Indian Oil Dealers Cheruvathalamotta Chattukapara P.O. Kannur District,Kannur,11.955829,75.459815,7.4,1
+IOCL,"IOCL EV Station, Kozhikode",Kozhikode Kozhikode /ŶĚŝĂŶKŝůĞĂůĞƌƐǁƌĚŵZŽĂĚDĂǇĂŶĂĚW͘K͎ZWĂůĂŬŬŽƚsĂǇĂů:ĐŶ<ŽǌŚŝŬŽĚĞŝ,Kozhikode,11.285502,75.849882,7.4,1
+IOCL,"IOCL EV Station, Pathanamthitta",Pathanamthitta Pathananthitta Indian Oil Dealers Elamkulam Kaipattoor Road Kodumon Pathanamthitta,Pathanamthitta,9.191012,76.770572,3.3,1
+IOCL,"IOCL EV Station, Alappuzha",Alappuzha Alappuzha Indian Oil Dealers Kokkothamangalam P.O Cherthala Alappuzha Dist,Alappuzha,9.68052,76.372286,7.4,1
+IOCL,"IOCL EV Station, Palakkad",Palakkad Palakkad Indian Oil Dealers Kothakurussi Ottapalam - Cheruplassery Road Palakkad,Palakkad,10.83084,76.344529,3.3,1
+IOCL,"IOCL EV Station, Pathanamthitta",Pathanamthitta Pathananthitta Indian Oil Dealers Kulasekharapathy Kumbazha Road Pathanamthitta,Pathanamthitta,9.268371,76.798094,7.4,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indian Oil Dealers Kuruva Village Pand Chendi Pang (P.O) MalappuramDistrict,Malappuram,10.96591,76.08622,7.4,1
+IOCL,"IOCL EV Station, Ernakulam",Ernakulam Ernakulam Indian Oil Dealers Mannam -Kariyamthuruthu Road Ernakulam District,Ernakulam,10.124172,76.242282,7.4,1
+IOCL,"IOCL EV Station, Palakkad",Palakkad Palakkad Indian Oil Dealers Muthuthala Perumudiyoor P.O. Pattambi Palakkad,Palakkad,10.8387,76.1479,3.3,1
+IOCL,"IOCL EV Station, Ernakulam",Ernakulam Ernakulam Indian Oil Dealers Near Madambi Bus Stop Viapanayikulamkongorppilly Po,Ernakulam,10.10201,76.271914,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indian Oil Dealers Nh-66 P.O Punnathala Vettichira Malappuram Dist,Malappuram,10.928632,76.026286,30.0,1
+IOCL,"IOCL EV Station, Palakkad",Malappuram Malappuram Indian Oil Dealers Palakkad (P.O) Via Kuzhimanna Pulpatta MalappuramDistrict,Palakkad,11.164482,76.028862,7.4,1
+IOCL,"IOCL EV Station, Palakkad",Palakkad Palakkad Indian Oil Dealers Palakkayam Anamooli Mannarkad Palakkad District,Palakkad,11.0296,76.5161,7.4,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indian Oil Dealers Peroorkada-Kudappanakunnu Road Thiruvananthapuram,Thiruvananthapuram,8.547661,76.959667,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indian Oil Dealers Pulikkalody Vadapuram (Po) Malappuram District,Malappuram,11.239271,76.204974,3.3,1
+IOCL,"IOCL EV Station, Ernakulam",Ernakulam Ernakulam Indian Oil Dealers Sy.3/3-3 & 3/1-3 Pattimottom Village Kunnathunadu Taluk,Ernakulam,10.022851,76.402546,7.4,1
+IOCL,"IOCL EV Station, Palakkad",Palakkad Palakkad Indian Oil Dealers Sy.No.101/6 Ottapalam Village Palapuram OttapalamTaluk,Palakkad,10.772343,76.424903,7.4,1
+IOCL,"IOCL EV Station, Alappuzha",Alappuzha Alappuzha Indian Oil Dealers Sy.No.146/12A/2Mattathibhagam VillageArrookutty-Cherthala,Alappuzha,9.851003,76.327451,7.4,1
+IOCL,"IOCL EV Station, Ernakulam",Ernakulam Ernakulam Indian Oil Dealers Thiruvaniyur Village Kunnathunad Talukernakulam Dt,Ernakulam,9.931123,76.430074,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indian Oil Dealers Tirurkkad Post Manjeri Road Malappuram District,Malappuram,10.992985,76.181936,3.3,1
+IOCL,"IOCL EV Station, Wayanad",Wayanad Wayanad Indian Oil Dealers Valad Post Puthoor Mananthavady Wayanad District,Wayanad,11.793187,75.910474,7.4,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indian Oil Dealers Vamanapuram Karette M.C. Road Thiruvananthapuram,Thiruvananthapuram,8.729349,76.898731,30.0,1
+IOCL,"IOCL EV Station, Thrissur",Thrissur Thrissur Indian Oil Dealers Vattampadam Centre Kunnamkulam P.O. Trissur Dt.,Thrissur,10.657814,76.032574,3.3,1
+IOCL,"IOCL EV Station, Ernakulam",Ernakulam Ernakulam Indian Oil Dealers Viamalayatoor Kurishmudichurch Kalady-Malayatoor Road,Ernakulam,10.192466,76.505761,3.3,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indian Oil Ksk Dealers Kanakulam M Road Kulathur Uchakada PoNeyyatinkara Taluk,Thiruvananthapuram,8.315791,77.099676,3.3,1
+IOCL,"IOCL EV Station, Pathanamthitta",Pathanamthitta Pathananthitta Indian Oil Ksk Dealers Kumbanad - Arattupuzha Road Block No 21 KoipuramVillage Near High,Pathanamthitta,9.33715,76.6491,3.3,1
+IOCL,"IOCL EV Station, Kottayam",Kottayam Kottayam Indian Oil Ksk Dealers Ramapuram Near Palliampuram Shiva TempleRamapuram Village Meenachil,Kottayam,9.810588,76.642451,7.4,1
+IOCL,"IOCL EV Station, Kottayam",Kottayam Kottayam Indian Oil Ksk Dealers Rs No 4397 Amayannoor Po Oravakkal Kottayam TkKottayam Dist,Kottayam,9.609718,76.601738,3.3,1
+IOCL,"IOCL EV Station, Kottayam",Kottayam Kottayam Indian Oil Ksk Dealers Syno 462/7 Aymanam Village Kudamaloor KottayamTaluk,Kottayam,9.624521,76.512303,3.3,1
+IOCL,"IOCL EV Station, Pathanamthitta",Pathanamthitta Pathananthitta Indian Oil Ksk Dealers Thadiyoor P Re Sy 69/10 Ayiroor Village Near KadayarCross Jn,Pathanamthitta,9.385932,76.71788,3.3,1
+IOCL,"IOCL EV Station, Kottayam",Kottayam Kottayam Indian Oil Ksk Dealers Thengana Madapally Village Changanacherry TKottayam,Kottayam,9.479009,76.574422,7.4,1
+IOCL,"IOCL EV Station, Kottayam",Kottayam Kottayam Indian Oil Ksk Dealers Thiruvancho Ettumanoor - Manarcaud By-Pass RoadThiruvanchoor Po Kottayam Tk Kott,Kottayam,9.620556,76.574612,3.3,1
+IOCL,"IOCL EV Station, Pathanamthitta",Pathanamthitta Pathananthitta Indianoil Dealer Puthuval Pathanapuram Po Pathanamthitta District,Pathanamthitta,9.0998,76.84,3.3,1
+IOCL,"IOCL EV Station, Wayanad",Wayanad Wayanad Indianoil Dealers Cheeral P.O Cheeral Village Wayanad District - 673595,Wayanad,11.613799,76.312441,7.4,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Elankur P.O Manhappatta Malappuram Dist. - 676123,Malappuram,11.15391,76.15297,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Kanjippura Moodal Bypass Ambalaparambu MalappuramDt,Malappuram,10.8971,76.04429,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Kavanur P.O Areekode-Manjeri Road Malappuram Dist.-673639,Malappuram,11.18575,76.064537,3.3,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indianoil Dealers Kottamugal  Mannanthala P.O. Thiruvananthapuram.,Thiruvananthapuram,8.556619,76.943321,30.0,1
+IOCL,"IOCL EV Station, Kannur",Kannur Kannur Indianoil Dealers Muthalapetti Aravanchal (Po) Payyanur (Via) Kannur Dist.,Kannur,12.204619,75.275764,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Muthuvallur Post Kondotty Via Malappuram Dist. - 673638,Malappuram,11.172581,75.969055,7.4,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Naduvattom Karinkalathani Road Malappuram District,Malappuram,10.759932,75.972687,7.4,1
+IOCL,"IOCL EV Station, Kannur",Kannur Kannur Indianoil Dealers Narikode Kaively Kottila P.O Ezhome (Via) Kannur Dt.,Kannur,12.039593,75.298771,3.3,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indianoil Dealers Near Ksrtc Bus Depot Vithura Via Nedumangad-Tholicode,Thiruvananthapuram,8.67579,77.094641,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Olipuzha Via Melattur Edayattur Post Malappuram Dist. -679326,Malappuram,11.082856,76.260641,3.3,1
+IOCL,"IOCL EV Station, Kasaragod",Kasaragod Kasaragod Indianoil Dealers Open Prisons & Correctional Home Cheemeni Pettykund Po,Kasaragod,12.229856,75.267033,7.4,1
+IOCL,"IOCL EV Station, Kozhikode",Kozhikode Kozhikode Indianoil Dealers P.O Pullurampara Thiruvambadi Kozhikode District -673603,Kozhikode,11.414993,76.040813,7.4,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Paloor Pulamanthole Post Malappuram Dist. - 679323,Malappuram,10.917136,76.187838,3.3,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Rs No.229/6-7229/6-8Edayur Village MalappuramDt-676552,Malappuram,10.9026,76.090888,3.3,1
+IOCL,"IOCL EV Station, Kozhikode",Kozhikode Kozhikode Indianoil Dealers Theekunni Cherapuram P.O Kozhikode Dist. - 673507,Kozhikode,11.640303,75.70378,7.4,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Theyyalingal Po Tanur (Via) Malappuram Dist - 676320,Malappuram,10.991809,75.914709,7.4,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Indianoil Dealers Thurakkal Baputty Bypass Manjeri Malappuram Dt.-676121,Malappuram,11.113485,76.115495,7.4,1
+IOCL,"IOCL EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Indianoil Dealers Veerankavu  Near Amaripalam Kallikkadu Junction,Thiruvananthapuram,8.528996,77.122852,3.3,1
+IOCL,"IOCL EV Station, Kollam",Kollam Kollam Indianoil Delaers Bhajanamadommukku Via Parippally Kollam - 691 302.,Kollam,8.813123,76.727562,7.4,1
+IOCL,"IOCL EV Station, Malappuram",Malappuram Malappuram Ioc Dealer Muttikadavu Jn Chungathara Post Cng Road Malappuram District,Malappuram,11.31997,76.269,3.3,1
+IOCL,"IOCL EV Station, Kannur",Kannur Kannur Ioc Dealer Purakkalam Pazhayanirthau Jn Koothuparamba Kannur District,Kannur,11.834592,75.560682,3.3,1
+IOCL,"IOCL EV Station, Thrissur",Thrissur Thrissur Kuthiran Petro Park Indian Oil Dealerpattikka To Vaniy Pananchery PostThrissur District,Thrissur,10.5643,76.367315,7.4,1
+IOCL,"IOCL EV Station, Palakkad",Palakkad Palakkad Ms Fuels Indian Oil Dealeranjumoorthy Post Mangalam PalamVadakkanchery Pala,Palakkad,10.5959,76.465,7.4,1
+IOCL,"IOCL EV Station, Palakkad",Palakkad Palakkad Shree Sharavana Fuels Karimpuzha Karimpuzha  Post Palakkad Dsitrict-679513,Palakkad,10.925458,76.419601,7.4,1
+IOCL,"IOCL EV Station, Palakkad",Palakkad Palakkad Star Fuels Indian Oil Dealerpandalampadam Panniyankara Post  PalakkadDistri,Palakkad,10.5834,76.4293,7.4,1
+KSEB,"KSEB EV Station, Malappuram","Malappuram Malappuram 110Kv Sub Station Compound, Ponnani",Malappuram,10.77275,75.947306,50.0,1
+KSEB,"KSEB EV Station, Kannur","Kannur Kannur 33Kv Sub Station Compound,Kannur",Kannur,11.878556,75.36012,50.0,1
+KSEB,"KSEB EV Station, Ernakulam","Ernakulam Vytilla Appellate Authority Compound, Vytilla",Ernakulam,9.962919,76.319187,50.0,1
+KSEB,"KSEB EV Station, Ernakulam","Ernakulam Ernakulam Cgrf, Kalamassery",Ernakulam,10.053644,76.330874,50.0,1
+KSEB,"KSEB EV Station, Kollam","Kollam Kollam Electrical Division, Kundara",Kollam,8.957142,76.671092,50.0,1
+KSEB,"KSEB EV Station, Thiruvananthapuram","Thiruvananthapuram Thirivananthapuram Electrical Section, Avanavanchery",Thiruvananthapuram,8.691106,76.84849,50.0,1
+KSEB,"KSEB EV Station, Kollam","Kollam Kollam Electrical Section, Kottiyam",Kollam,8.866767,76.668867,50.0,1
+KSEB,"KSEB EV Station, Thrissur","Thrissur Trissur Electrical Section, Ollur",Thrissur,10.466835,76.245464,50.0,1
+KSEB,"KSEB EV Station, Kannur","Kannur Kannur Electrical Section, Valapattanam",Kannur,11.918487,75.35132,50.0,1
+KSEB,"KSEB EV Station, Kollam","Alappuzha Mavelikkara Infront Of Section Office, Kollam - Theni Hwy, Charummoodu, Kerala 690505",Kollam,9.171139,76.608639,3.3,1
+KSEB,"KSEB EV Station, Alappuzha","Alappuzha Mavelikkara Infront Of Section Office, Krishnapuram - Mavelikkara Rd, Old Mavelikkara,Mavelikara, Kerala 690101",Alappuzha,9.238778,76.538639,3.3,1
+KSEB,"KSEB EV Station, Thiruvananthapuram",Thiruvananthapuram Thiruvananthapuram Kowdiar (Near The Salvation Army Higher Secondary School Ground Gate),Thiruvananthapuram,8.522222,76.959917,3.3,1
+KSEB,"KSEB EV Station, Ernakulam","Ernakulam Ernakulam Plot Near To Electrical Section, Girinagar",Ernakulam,9.97418,76.29374,50.0,1
+KSEB,"KSEB EV Station, Ernakulam","Ernakulam Ernakulam Sub Station Compound, Angamaly",Ernakulam,10.171923,76.37327,50.0,1
+KSEB,"KSEB EV Station, Thrissur","Thrissur Trissur Sub Station Compound, Chalakudy",Thrissur,10.31123,76.34026,50.0,1
+KSEB,"KSEB EV Station, Kozhikode","Kozhikode Kozhikode Sub Station Compound, Gandhi Road, Kozhikode",Kozhikode,11.262815,75.768214,50.0,1
+KSEB,"KSEB EV Station, Thrissur","Thrissur Trissur Sub Station Compound, Irinjalakuda",Thrissur,10.331412,76.215325,50.0,1
+KSEB,"KSEB EV Station, Ernakulam","Ernakulam Ernakulam Sub Station Compound, Kaloor",Ernakulam,10.000358,76.299016,50.0,1
+KSEB,"KSEB EV Station, Thrissur","Thrissur Thrissur Sub Station Compound, Kodungallur",Thrissur,10.227542,76.21216,50.0,1
+KSEB,"KSEB EV Station, Thrissur","Thrissur Trissur Sub Station Compound, Kunnamkulam",Thrissur,10.632886,76.085748,50.0,1
+KSEB,"KSEB EV Station, Thrissur","Thrissur Trissur Sub Station Compound, Madakkathara",Thrissur,10.56062,76.27007,50.0,1
+KSEB,"KSEB EV Station, Kozhikode","Kozhikode Kozhikode Sub Station Compound, Pavangad(West Hill)",Kozhikode,11.31119,75.75877,50.0,1
+KSEB,"KSEB EV Station, Thrissur","Thrissur Trissur Sub Station Compound, Valappad",Thrissur,10.401237,76.118994,50.0,1
+KSEB,"KSEB EV Station, Malappuram","Malappuram Malapuram Sub Station Compound,Malapuram",Malappuram,11.054167,76.091944,50.0,1
+KSEB,"KSEB EV Station, Ernakulam","Ernakulam Ernakulam Sub Station Compound,North Paravoor",Ernakulam,10.145736,76.256842,50.0,1
+KSEB,"KSEB EV Station, Kozhikode","Kozhikode Kozhikode Sub Station Compound,Ramanattukara",Kozhikode,11.178496,75.863119,50.0,1
+KSEB,"KSEB EV Station, Kozhikode","Kozhikode Kozhikode Sub Station Compound,Thamarassery",Kozhikode,11.444,75.9558,50.0,1
+KSEB,"KSEB EV Station, Thrissur","Thrissur Trissur Vydyuthi Bhavanam, Trissur",Thrissur,10.52818,76.20517,50.0,1
+OLA,"OLA EV Station, Kozhikode","Kozhikode Calicut 11/224,Cherootty Road,Kozhikode",Kozhikode,11.25162,75.77659,7.0,1
+OLA,"OLA EV Station, Ernakulam","Ernakulam Cochin 35/22 Ernakulam,Alwaye Road,Ernakulum",Ernakulam,10.00377,76.30522,7.0,3
+OLA,"OLA EV Station, Thiruvananthapuram",Thiruvananthapuram Trivandrum Bharat Petroleum Dealerstrivandrum,Thiruvananthapuram,8.50046,76.95377,7.0,3
+OLA,"OLA EV Station, Malappuram","Malappuram Pokkotur Pilakkal, Pokkotur. P.O,Nh-213,Malappuram",Malappuram,11.09188,76.06574,7.0,3
+OLA,"OLA EV Station, Thrissur",Thrissur Thrissur Tc/629 Karunakaran Nambiar Rdthrissur,Thrissur,10.53517,76.21554,7.0,3
+Tata,"Tata EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram ŵďŝŬĂsŝůĂƐ͕:ĂŐĂƚǇ͕ŵďŝŬĂsŝůĂƐ͕,ŽƵƐĞEŽͲϭϱͬϭϰϴϵʹϵϬ͕<ĂŶŝƌƵĚŚĂŶZŽĂĚ͕:ĂŐĂƚǇdŚŝƌƵǀĂŶĂŶƚŚĂƉƵƌĂŵͲϲϵϱϬϭϰ",Thiruvananthapuram,8.496799,76.960731,7.4,1
+Tata,"Tata EV Station, Kochi","Ernakulam Kochi Amritara The Poovath Heritage, Fort Kochi, 1, 246, Dutch Cemetery Rd, FortKochi, Kochi, Kerala 682001",Kochi,9.964565,76.238661,25.0,2
+Tata,"Tata EV Station, Thrissur","Thrissur Kodungallur Centro Mall, Kodungallur, Centro Mall, Near Private Bus Stand, Chandapura -Kottapuram Bypass Rd, Kodungallur, Kerala 680664",Thrissur,10.232697,76.195794,30.0,1
+Tata,"Tata EV Station, Kozhikode","Kozhikode Kozhikode Coastline Garages, Kannur Road, Opposite West Hill Post Office, KannurRoad , West Hill P.O , Kozhikode-673005",Kozhikode,11.282287,75.770054,25.0,2
+Tata,"Tata EV Station, Kochi","Ernakulam Kochi Coastline Garages, Nh 47 Muttom, Opposite Metro Pillar No 155 , Nh 47,Muttom , Near Aluva , Cochin-683106",Kochi,10.077281,76.337656,25.0,2
+Tata,"Tata EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Gokulam Grand, Kovalam, Tc 63, 512 To 523, Beach Rd, Kovalam, Kerala695527",Thiruvananthapuram,8.390198,76.976356,25.0,2
+Tata,"Tata EV Station, Idukki","Idukki Munnar Gokulam Park Munnar, Power House Road, South Chithirapuram, PowerHouse Road, Munnar - 685565",Idukki,10.029793,77.045859,25.0,3
+Tata,"Tata EV Station, Malappuram","Malappuram Malappuram Gokulam Relax Park, Karuvambram, Industrial Estate Rd, Karuvambram,Manjeri, Kerala 676121",Malappuram,11.118874,76.118545,25.0,2
+Tata,"Tata EV Station, Thrissur","Thrissur Thrissur Hyson Motors, Punkunnam, Guruvayur Rd, Puzhakkal, Punkunnam, Thrissur,Kerala 680002",Thrissur,10.540817,76.189423,25.0,1
+Tata,"Tata EV Station, Thrissur","Thrissur Kizhakkummuri Iocl - Jro Pongam, Thrissur, Jubilee Retail Outlet Koratty South Post ThrissurDistrict-680308",Thrissur,10.245487,76.369589,30.0,1
+Tata,"Tata EV Station, Thrissur","Thrissur Thrissur Iocl - Jyothi Agencies, Aswani Hospital Jn, Indian Oil Dealer Aswani HospitalJn Thrissur Thrissur District-680008",Thrissur,10.539266,76.215215,30.0,1
+Tata,"Tata EV Station, Kozhikode",Kozhikode Kozhikode /ŽĐůͲ>ĂŬƐŚŵŝ^ĂůĞƐΘ^ĞƌǀŝĐĞƐ͕DĂŶŬĂǀ͕/ŶĚŝĂŶKŝůĞĂůĞƌ͕DŝŶŝǇƉĂƐƐZŽĂĚ͕DĂŶŬĂǀ͕<ŽǌŚŝŬŽĚĞͲϲϳϯϬϮϵ,Kozhikode,11.233592,75.803242,30.0,1
+Tata,"Tata EV Station, Kottayam","Kottayam Kottayam Iocl - Malayalam Fuels, Kodimatha, Kodimatha, Kottayam, Kerala 686004",Kottayam,9.573858,76.519282,30.0,1
+Tata,"Tata EV Station, Kannur","Kannur Kannur Iocl - Mk Petroleum, Thazhe Chovva, Indian Oil Dealer, Bypass Road, ThazheChovva, Kannur - 670018",Kannur,11.860265,75.414409,30.0,1
+Tata,"Tata EV Station, Palakkad","Palakkad Palakkad Kvr Automotive Pvt Ltd, Koppam Junction, Sukumar Arcade, KoppamJunction, Calicut Bypass Road,Palakkad, 678001",Palakkad,10.782377,76.658305,30.0,1
+Tata,"Tata EV Station, Malappuram","Malappuram Perinthal Manna Kvr Automotive Pvt Ltd, Perinthalmanna, Chola Tower,Opp Itc, Thirurkkad,Perinthalmanna, Malappuram- 679321",Malappuram,10.984542,76.188012,30.0,1
+Tata,"Tata EV Station, Kannur","Kannur Kannur Kvr Dream Vehicles, Nadal, Ground Floor, Kizhunna - Kadappuram Rd,Chirakku Thazhe, Nadal, Kerala 670007",Kannur,11.83301,75.42643,25.0,1
+Tata,"Tata EV Station, Kasaragod","Kasaragod Kasargod Kvr Dream Vehicles, Vidya Nagar, Panalam Nayamar Moola, AlampadyManya Road, Vidya Nagar, Po, Kasaragod, Kerala 671123",Kasaragod,12.513823,75.027132,30.0,1
+Tata,"Tata EV Station, Ernakulam","Ernakulam Aluva Malayalam Vehicles, Aluva, Building No 18/615/1, 615/2 Sy No 176/2, 176/3,Aluva West, Near Pulichode Signal, Kerala 683101",Ernakulam,10.099967,76.347684,30.0,1
+Tata,"Tata EV Station, Kochi","Ernakulam Kochi Malayalam Vehicles, Vytila, Sharon Tower, No 52/3171, 3172, OppositeSalafi Masjid, Vyttila, Ernakulam, Kerala 682019",Kochi,9.964435,76.318496,30.0,1
+Tata,"Tata EV Station, Wayanad","Wayanad Kalpetta Marina Motors Pvt Ltd, Kalpetta, Marina Motors India Pvt Ltd, KalpettaNorth Po, Kalpetta Wayanad, Kerala 673122",Wayanad,11.637432,76.094698,30.0,1
+Tata,"Tata EV Station, Kozhikode","Kozhikode Kozhikode Marina Motors, Pantheerankavu, Bye Pass Road, Pantheerankavu,Kozhikode-673019",Kozhikode,11.217,75.85801,25.0,1
+Tata,"Tata EV Station, Kottayam","Kottayam Kottayam Misty Mountain Teyla, Mundakayam, Mundakayam Glenrock Office,Mundakayam, Kottayam, 686512",Kottayam,9.544748,76.877561,30.0,2
+Tata,"Tata EV Station, Idukki","Idukki Kuttikkanam Misty Mountain Teyla, Peermade, Hxjc+526, Peermade, Kuttikkanam, Kerala685531",Idukki,9.58028,76.970186,30.0,2
+Tata,"Tata EV Station, Pathanamthitta","Pathanamthitta Pathanamthitta Mk Motors, Churulikkodu Pathanamthitta, Milan Plaza, Churulikkodu,Pathanamthitta, Kerala 689668",Pathanamthitta,9.274402,76.763741,25.0,1
+Tata,"Tata EV Station, Malappuram","Malappuram Wandoor Moto Town Auto Hub,Ootty Road, Moochikkal Ootty Road, Naduvath -Vellambram Rd, Wandoor, Kerala 679328",Malappuram,11.223268,76.216961,30.0,1
+Tata,"Tata EV Station, Idukki","Idukki Kumily Muthoot Leisure Cardamom County, Thekkady, Kumily Thekkady Rd,Thekkady, Kumily, Kerala 685509",Idukki,9.60359,77.168902,30.0,2
+Tata,"Tata EV Station, Kochi","Ernakulam Kochi Sree Gokulam Motors, Edapally, Skyline Gateway Apartments, Pathadipalam,Edappally, Ernakulam, Kerala 682033",Kochi,9.926113,76.317879,30.0,1
+Tata,"Tata EV Station, Kochi","Ernakulam Kochi Sree Gokulam Motors, Nettoor, No. 10, 256/C, Survey No 1562/1, Nh47, ByePass Road, Nettoor, Kochi-682040",Kochi,10.039145,76.315574,30.0,1
+Tata,"Tata EV Station, Kasaragod","Kasaragod Bekal Taj Bekal, Thekkekara, Kappil Beach, Thekkekara, Bekal, Kerala 671319",Kasaragod,12.423968,75.014405,7.4,2
+Tata,"Tata EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Taj Greencove Resort And Spa , Taj Greencove Resort And Spa,Kovalam.Trivandrum.Kerala-695527",Thiruvananthapuram,8.404036,76.974099,7.4,2
+Retreat,"Retreat EV Station, Kottayam","Hotels And Resorts Ltd, Kumarakom,Kottayam 686001",Kottayam,9.626518,76.42836,,2
+Tata,"Tata EV Station, Kochi",Ernakulam Kochi dĂũDĂůĂďĂƌZĞƐŽƌƚΘ^ƉĂ͕tŝůůŝŶŐĚŽŶ/ƐůĂŶĚ͕tŝůůŝŶŐĚŽŶ/ƐůĂŶĚ͕ŽĐŚŝŶ͕<ĞƌĂůĂʹϲϴϮϬϬϵ,Kochi,9.968886,76.25825,30.0,1
+Tata,"Tata EV Station, Kochi","Ernakulam Kochi Tata Communication, Kakkanad, VSB, VSNL Road, Kakkanad, ThrikkakkaraPO, Kochi 682030",Kochi,10.013698,76.345567,7.4,1
+Tata,"Tata EV Station, Kozhikode","Kozhikode Kozhikode The Gateway Hotel Pt Usha Rd, Vellayil, Kozhikode, Kerala 673032",Kozhikode,11.25899,75.773681,7.4,2
+Tata,"Tata EV Station, Kozhikode","Kozhikode Kozhikode The Gateway Hotel, The Gateway Hotel Pt Usha Rd, Vellayil, Kozhikode,Kerala 673032",Kozhikode,11.258784,75.773934,30.0,2
+Tata,"Tata EV Station, Thiruvananthapuram","Thiruvananthapuram Thiruvananthapuram Vivanta Thiruvananthapuram, Extra Police Rd, Extra Police Rd, Nandavanam,Palayam, Thiruvananthapuram, Kerala 695033",Thiruvananthapuram,8.504661,76.953295,7.4,2
+Tata,"Tata EV Station, Alappuzha","Alappuzha Mararikulam Xandari Pearl Beach, Mararikulam, Beach Road, Arattukulam Jn,Mararikulam N, Po, S.L.Puram, Mararikulam, Kerala 688523",Alappuzha,9.606054,76.301828,30.0,2
+Private,"Private EV Station, Ernakulam","Ernakulam Pookad ŶŶĂƉŽŽƌŶĂĂĨĠ͕ϲϵ&Őнϱϲ,͕<ĂƌƵŬƵƚƚǇ͕<ĞƌĂůĂϲϴϯϱϳϮ",Ernakulam,10.223044,76.375526,25.0,1
+Private,"Private EV Station, Thrissur","Thrissur Changanassery Bypass Road, Near Akm School, Changanassery, Kerala 686101",Thrissur,9.455175,76.542559,25.0,1
+Private,"Private EV Station, Ernakulam","Ernakulam Edappally Gokul Oottupura, Nh Bypass, Near Modern Lights, Padivattom, Edappally,Ernakulam, Kerala 682024",Ernakulam,10.011133,76.312371,25.0,1
+Private,"Private EV Station, Kochi","Ernakulam Kunnackal Grand Mall, Panvel - Kochi - Kanyakumari Hwy, Toll Junction, Edappally,Kochi, Kerala 682024",Kochi,10.024373,76.308868,50.0,2
+Private,"Private EV Station, Kozhikode","Kozhikode Kozhikode Hilite Mall, G1003, Nh 66, Kozhikode Bypass, Poovangal, Kozhikode, Kerala673014",Kozhikode,11.248474,75.833512,50.0,2
+Private,"Private EV Station, Thrissur","Thrissur Guruvayur Hotel Devaragam,Outer Ring Road, Opp Railway Station, East Nada,Guruvayur, Kerala 680101",Thrissur,10.595513,76.044332,25.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR KANNUR 1, 4/211, CLAY HOUSE, PAYANGADIROAD, PAPPINISSERI, KANNUR, KERALA, ,City=KANNUR, District=KANNUR, State=Kerala",Kannur,11.9428,75.35,60.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE ULLIYERI 1/51-AA, ULLIYERI, , City=ULLIYERI, District=KOZHIKODE, State=Kerala",Kozhikode,11.453703,75.77044,60.0,2
+BPCL,"BPCL EV Station, Kannur","KANNUR ULLIKKAL 11, KOKKAD ROAD, ULLIKKAL, , City=ULLIKKAL, District=KANNUR,State=Kerala",Kannur,12.037713,75.671075,60.0,2
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA MANKOMPU 11/160 APPY-CHANGNACHERRY RD., AC ROAD, , City=MANKOMPU,District=ALAPPUZHA, State=Kerala",Alappuzha,9.435664,76.420894,60.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CALICUT 11/224, CHEROOTTY ROAD, , City=CALICUT, District=KOZHIKODE,State=Kerala",Kozhikode,11.251624,75.776585,7.0,2
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM CHANGANACHERY 111/481 STATE HIGHWAY 1, M.C.ROAD, , City=CHANGANACHERY,District=KOTTAYAM, State=Kerala",Kottayam,9.453689,76.536427,60.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA CHENGANNUR 1192 M C ROAD, CHENGANNUR, , City=CHENGANNUR, District=ALAPPUZHA,State=Kerala",Alappuzha,9.320617,76.610156,60.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM MANJERI 135/A, 8086547581, , City=MANJERI, District=MALAPPURAM, State=Kerala",Malappuram,11.124311,76.122337,3.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PALGHAT 14-117, KALMANDAPAM, , City=PALGHAT, District=PALAKKAD, State=Kerala",Palakkad,10.772733,76.672881,3.0,1
+BPCL,"BPCL EV Station, Pathanamthitta","Pathanamthitta PATHANAMTHITTA 16 T.K.ROAD, TIRUVALLA KOZHENCERYY ROAD, , City=PATHANAMTHITTA,District=PATHNAMTHITA, State=Kerala",Pathanamthitta,9.383014,76.6387,60.0,1
+BPCL,"BPCL EV Station, Idukki","IDUKKI IDUKKI 16/149 K.K.ROAD, KUMILY, , City=IDUKKI, District=IDUKKI, State=Kerala",Idukki,9.612847,77.156675,60.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD NEMMARA 2/355, NEMMARA, , City=NEMMARA, District=PALAKKAD, State=Kerala",Palakkad,10.594176,76.599933,60.0,1
+BPCL,"BPCL EV Station, Kasaragod","KASARAGOD UPPALA 2/748, NH17, UPPALA, UPPALA, , City=UPPALA, District=KASARAGOD,State=Kerala",Kasaragod,12.679376,74.905008,60.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam NORTH PARAVUR 21/268 KADAVATH ROAD, KARROTTUPUTHANPURA HOUSE, , City=NORTHPARAVUR, District=ERNAKULUM, State=Kerala",Ernakulam,10.142408,76.228896,30.0,1
+BPCL,"BPCL EV Station, Kochi","Ernakulam KOCHI 27/3767, MG ROAD, , City=KOCHI, District=ERNAKULUM, State=Kerala",Kochi,9.948571,76.291442,60.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM KOTTAYAM 281, KODIMATHA, , City=KOTTAYAM, District=KOTTAYAM, State=Kerala",Kottayam,9.575455,76.519822,60.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM KIDANGOOR 36914, KIDANGOOR VILLAGE, , City=KIDANGOOR, District=KOTTAYAM,State=Kerala",Kottayam,9.678256,76.601753,3.0,1
+BPCL,"BPCL EV Station, Pathanamthitta","Pathanamthitta ENADIMANAGALAM 394/15, ENADIMANGALAM VILLAGE, , City=ENADIMANAGALAM,District=PATHNAMTHITA, State=Kerala",Pathanamthitta,9.117483,76.823219,3.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM PONKUNNAM 422/7 ,ELAMKULAM VILLAGE, SH 8, PALA - PONKUNNAM ROAD, ,City=PONKUNNAM, District=KOTTAYAM, State=Kerala",Kottayam,9.585358,76.740854,3.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CALICUT 6/246 YMCA CROSS ROAD, BANK ROAD, OPPOSITE TO VETERNARYHOSPITAL, , City=CALICUT, District=KOZHIKODE, State=Kerala",Kozhikode,11.261116,75.780078,60.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam MUVATTUPUZHA 662 M.C.ROAD, MANNOOR, , City=MUVATTUPUZHA, District=ERNAKULUM,State=Kerala",Ernakulam,10.043531,76.536204,60.0,2
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE NOCHAD 67/2, NOCHAD VILLAGE, KALAPATHUR TALUK, , City=NOCHAD,District=KOZHIKODE, State=Kerala",Kozhikode,11.5,75.73,3.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM EDAPPAL 7/796, EDAPPAL, , City=EDAPPAL, District=MALAPPURAM, State=Kerala",Malappuram,10.783251,76.008075,60.0,3
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE FERROKE 8/4 CHUNGAM, FEROKE P O, , City=FERROKE, District=KOZHIKODE,State=Kerala",Kozhikode,11.179506,75.853474,7.0,2
+BPCL,"BPCL EV Station, Thrissur","THRISSUR THRISSUR 82/3-1,2 MINALOOR VILLAGE ATHANI, THALAPILY TALUK THRISSUR DIST, ,City=THRISSUR, District=THRISSUR, State=Kerala",Thrissur,10.62645,76.224614,60.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA ALAPPUZHA A C ROAD, EAST OF PAKKY JN, SANTHANAPURAM-P.O, , City=ALAPPUZHA,District=ALAPPUZHA, State=Kerala",Alappuzha,9.470263,76.349817,60.0,2
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA PATHIRAPALLY AGP.IX-177/A, NH 66, , City=PATHIRAPALLY, District=ALAPPUZHA,State=Kerala",Alappuzha,9.533642,76.327612,60.0,1
+BPCL,"BPCL EV Station, Idukki","IDUKKI THODUPUZHA AMBALAM BYEPASS ROAD, #, , City=THODUPUZHA, District=IDUKKI,State=Kerala",Idukki,9.900148,76.712341,3.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR PAZHAYANNUR AMBALANADA, PAZHAYANNUR, , City=PAZHAYANNUR, District=THRISSUR,State=Kerala",Thrissur,10.685351,76.419442,3.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE MUKKOM AREACODE ROAD,, MUKKOM, , City=MUKKOM, District=KOZHIKODE,State=Kerala",Kozhikode,11.316818,75.997409,60.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA AROOR AROOR P.O, AROOR, , City=AROOR, District=ALAPPUZHA, State=Kerala",Alappuzha,9.881665,76.302431,3.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam NEDUMBASSERY ATHANI- CIAL APPROACH ROAD, ATHANI- CIAL APPROACH ROAD, ,City=NEDUMBASSERY, District=ERNAKULUM, State=Kerala",Ernakulam,10.152864,76.355932,3.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM AREACODE B.31/RE.SE.NO.343/710/11, PUTHALAM DESAM,, , City=AREACODE,District=MALAPPURAM, State=Kerala",Malappuram,11.230251,76.054498,30.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA KATTANAM BHARANIKAVU, MOONNAMKUTTY JN, KATTANAM, , City=KATTANAM,District=ALAPPUZHA, KERALA, State=Kerala",Alappuzha,9.178161,76.543761,60.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR VELLANGALLOR BHARAT PETROLEUM DEALER, TRICHUR, , City=VELLANGALLOR,District=THRISSUR, State=Kerala",Thrissur,10.29425,76.217326,3.0,1
+BPCL,"BPCL EV Station, Kollam","KOLLAM SOORANAD BPCL DEALER, KANNAMAM, KUNNATHOOR TALUK, , City=SOORANAD,District=KOLLAM, State=Kerala",Kollam,9.111807,76.633824,60.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA MAVELIKARA BPCL DEALER, THIRUVALLA-KAYAMKULAM, THATTARAMBALAM, ,City=MAVELIKARA, District=ALAPPUZHA, State=Kerala",Alappuzha,9.242897,76.519501,3.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA MANNAR BUDHANOOR P.O., MANNAR-PULIYOR ROAD, #, , City=MANNAR,District=ALAPPUZHA, State=Kerala",Alappuzha,9.307743,76.560447,3.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE KUNNAMANGALAM C.DEVADASAN BROTHERS, BHARAT PETROLEUM DEALERS,, ,City=KARANTHUR P.O,CALICUT, District=KOZHIKODE, State=Kerala",Kozhikode,11.291159,75.862641,7.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM PONKUNNAM C.P.V.27, CHIRAKADAVU VILLAGE, , City=PONKUNNAM, District=KOTTAYAM,State=Kerala",Kottayam,9.563718,76.758426,3.0,1
+BPCL,"BPCL EV Station, Palakkad","MALAPPURAM PERINTHALMANNA CALICUT PALAKKAD ROAD, NH966, , City=PERINTHALMANNA,District=MALAPPURAM, State=Kerala",Palakkad,10.976427,76.223899,3.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR PERUMBILAVU CALICUT ROAD, #, , City=PERUMBILAVU, District=THRISSUR, State=Kerala",Thrissur,10.712542,76.088063,60.0,2
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM PATHANAPURAM CALICUT ROAD, AREACODE. P.O, , City=PATHANAPURAM,District=MALAPPURAM, State=Kerala",Malappuram,11.252056,76.046181,60.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM THIRURANGADI CALICUT ROAD, THIRURANGADY P.O, , City=THIRURANGADI,District=MALAPPURAM, State=Kerala",Malappuram,11.046777,75.911156,7.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CALICUT CHELAVOOR, WAYANAD ROAD, , City=CALICUT, District=KOZHIKODE,State=Kerala",Kozhikode,11.29694,75.845596,60.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CHEMANCHERRY CHEMANCHERRY, CHEMANCHERRY, , City=CHEMANCHERRY,District=KOZHIKODE, State=Kerala",Kozhikode,11.394,75.711,3.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam CHEMBARAKKY CHEMBARACKY,-ALUVA MUNNAR ROAD, SOUTH VAZHAKULAM, ,City=CHEMBARAKKY, District=ERNAKULUM, State=Kerala",Ernakulam,10.085445,76.429095,60.0,1
+BPCL,"BPCL EV Station, Kasaragod","KASARAGOD KASARGOD CHENGALA VILLAGE, CHERKALA, , City=KASARGOD, District=KASARAGOD,State=Kerala",Kasaragod,12.509548,75.050758,60.0,1
+BPCL,"BPCL EV Station, Kasaragod","KASARAGOD KASARGODE CHERUPUZHA ODAYANCHAL ROAD, CHERUPUZHA ODAYANCHAL ROAD, ,City=KASARGODE, District=KASARAGOD, State=Kerala",Kasaragod,12.321756,75.358775,3.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR CHERPU CHEVOOR, 4872340310, , City=CHERPU, District=THRISSUR, State=Kerala",Thrissur,10.458612,76.208677,60.0,2
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD CHITHALI CHITHALI, NH-544, PALAKKAD-COCHIN, , City=CHITHALI, District=PALAKKAD,State=Kerala",Palakkad,10.691421,76.584637,30.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR KUNNAMKULAM CHOWALLOORPADI,CHOONDAL-, GURUVAYOOR ROAD,POST KAN, ,City=KUNNAMKULAM, District=THRISSUR, State=Kerala",Thrissur,10.60255,76.064984,60.0,2
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam ERANAKULAM COLLECTORS SQUIRE, MARINE DRIVE, , City=ERANAKULAM,District=ERNAKULUM, State=Kerala",Ernakulam,9.990406,76.27121,30.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM SASTHAMAN EDAPAZHANJI, EDAPAZHANJI, , City=TRIVANDRUM,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.503796,76.968957,3.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM EDAVA EDAVA, EDAVA, , City=EDAVA, District=THIRUVANANTHAPURAM,State=Kerala",Thiruvananthapuram,8.754068,76.708446,3.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR ERUMAPETTY ERUMAPETTY, #, , City=ERUMAPETTY, District=THRISSUR, State=Kerala",Thrissur,10.677,76.158,3.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM ERUMELI ERUMELI POST,, ERUMELI, , City=ERUMELI, District=KOTTAYAM,State=Kerala",Kottayam,9.476654,76.844636,60.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM EDAKKARA GUDALUR ROAD, EDAKKARA P.O, , City=EDAKKARA, District=MALAPPURAM,State=Kerala",Malappuram,11.352319,76.297734,30.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR THRISSUR GURUVAYOOR ROAD, MUNDOOR SH69, , City=THRISSUR, District=THRISSUR,State=Kerala",Thrissur,10.588536,76.157366,60.0,1
+BPCL,"BPCL EV Station, Kollam","KOLLAM KUNDARA HOSPITAL JUNCTION, KUNDARA, , City=KUNDARA, District=KOLLAM,State=Kerala",Kollam,8.961653,76.683434,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR IRITTY IRITTY TOWN, TC ROAD, , City=IRITTY, District=KANNUR, State=Kerala",Kannur,11.980869,75.67252,3.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM PERUMPADAPPU IV 275 A, PERUMPADAPPU P O, , City=PERUMPADAPPU,District=MALAPPURAM, State=Kerala",Malappuram,10.702668,75.982346,60.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM KOTTAYAM IV/223, MUNDAKAYAM, , City=KOTTAYAM, District=KOTTAYAM,State=Kerala",Kottayam,9.537833,76.884456,60.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR THRISSUR IX/373, OPP TO SAKTHAN STAND, , City=THRISSUR, District=THRISSUR,State=Kerala",Thrissur,10.514493,76.216059,3.0,1
+BPCL,"BPCL EV Station, Pathanamthitta","Pathanamthitta KADAMBANAD KADAMBANAD P.O,, SASTHAMKOTA - ADOOR ROAD, , City=KADAMBANAD,District=PATHNAMTHITA, State=Kerala",Pathanamthitta,9.106985,76.692819,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR KADANNAPALLI KADANAPALLI VILLAGE, RHS ON PARIYARAM TO PILATHRA, ,City=KADANNAPALLI, District=KANNUR, State=Kerala",Kannur,12.071063,75.28828,30.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA KAICHUNDI KAICHOONDIMUKKU, THATHAMPALLY .P.O., , City=KAICHUNDI,District=ALAPPUZHA, State=Kerala",Alappuzha,9.514764,76.33838,60.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM KARUVARAKUNDU KALIKAVU ROAD, KARUVARAKUNDU, , City=KARUVARAKUNDU,District=MALAPPURAM, State=Kerala",Malappuram,11.131467,76.344535,3.0,1
+BPCL,"BPCL EV Station, Wayanad","WAYANAD WAYANAD KALPETTA-MANANTHAVADI ROAD, KAVUMANNAM, , City=WAYANAD,District=WAYANAD, State=Kerala",Wayanad,11.640289,76.006489,3.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM KANAKKARY KANAKKARI PO, EKM-ETTUMANOOR ROAD, , City=KANAKKARY,District=KOTTAYAM, State=Kerala",Kottayam,9.706957,76.539035,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR PAYYANUR KANDOTH PO, ON NH 17, KANDOTH,, , City=PAYYANUR, District=KANNUR,State=Kerala",Kannur,12.120788,75.216918,60.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD KALLADIKODE KANJIKULAM PO, NH-213, KALLADIKODE, , City=KALLADIKODE,District=PALAKKAD, State=Kerala",Palakkad,10.877632,76.548755,30.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR CHALODE KANNUR ROAD, CHALODE, , City=CHALODE, District=KANNUR, State=Kerala",Kannur,11.926253,75.5102,3.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CALICUT KANNUR ROAD, KANNUR ROAD, , City=CALICUT, District=KOZHIKODE,State=Kerala",Kozhikode,11.261708,75.777195,60.0,3
+BPCL,"BPCL EV Station, Kannur","KANNUR KANNUR KANNUR TELLICHERRY ROAD, KANNUR, , City=KANNUR, District=KANNUR,State=Kerala",Kannur,11.872795,75.391396,30.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM KARAKKUNU KARAKUNNU JUNCTION, MANJERI, , City=KARAKKUNU,District=MALAPPURAM, State=Kerala",Malappuram,11.140914,76.120158,60.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM KALLARA KARETTE PALODE ROAD, OPP. GOLDA HOTEL, KALLARA., , City=KALLARA,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.750551,76.935168,3.0,1
+"City=NEYYATTINKARA,","City=NEYYATTINKARA, EV Station, Thiruvananthapuram","City=NEYYATTINKARA, District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.502738,77.078865,,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CHATHAMANGALAM KATTANGAL, CHATHAMANGALAM, , City=KATTANGAL, District=KOZHIKODE,KERALA, State=Kerala",Kozhikode,11.318104,75.943574,3.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM KILLIPALAM KILLIPALAM, KILLIPALAM, , City=TRIVANDRUM,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.481334,76.962064,60.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR THRISSUR KOKKALAI, KOKKALAI, , City=THRISSUR, District=THRISSUR, State=Kerala",Thrissur,10.512062,76.211066,3.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM KOLIYACODE KOLIYACODE, KOLIYACODE, , City=KOLIYACODE,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.652395,76.907463,60.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR KOMBIDINJAMAKKAL KOMBODINJAMAKKAL, THAZHEKKAD POST, , City=KOMBIDINJAMAKKAL,District=THRISSUR, State=Kerala",Thrissur,10.309659,76.277605,3.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam ANGAMALI KOTHAKULANGARA, NH 47, , City=ANGAMALI, District=ERNAKULUM,State=Kerala",Ernakulam,10.201027,76.383733,60.0,1
+"District=THIRUVANANTHAPURAM,","District=THIRUVANANTHAPURAM, EV Station, Thiruvananthapuram","District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.551321,76.942258,,1
+BPCL,"BPCL EV Station, Kollam","KOLLAM MYLOM KOTTARAKARA-KOTTAYAM ROAD, MYLOM, KOTTARAKARA, , City=MYLOM,District=KOLLAM, State=Kerala",Kollam,9.032882,76.778312,60.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE PERAMBRA KOZHIKODE ROAD, #, , City=PERAMBRA, District=KOZHIKODE, State=Kerala",Kozhikode,11.554227,75.763536,60.0,2
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA MAVELIKARA KRISHNAPURAM, MAVELIKKARA, , City=MAVELIKARA, District=ALAPPUZHA,State=Kerala",Alappuzha,9.194251,76.532433,3.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA MANKAMKUZY KUNNAM P.O, MAVELIKKARA, , City=MANKAMKUZY, District=ALAPPUZHA,State=Kerala",Alappuzha,9.253535,76.566941,3.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PALAKKAD KUNNUKAD, THENKURUSSI, , City=PALAKKAD, District=PALAKKAD,State=Kerala",Palakkad,10.6454,76.5458,3.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam COCHIN KUSUMAGIRI PO, KAKKANAD, , City=COCHIN, District=ERNAKULUM,State=Kerala",Ernakulam,10.01543,76.355359,3.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam KOTHAMANGALAM KUTHUKUZHI P O, AYYANKAVU, N H 49, , City=KOTHAMANGALAM,District=ERNAKULUM, State=Kerala",Ernakulam,10.058673,76.646697,60.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR KUTTANALL KUTTANALLOOR ROAD, THRISSUR PUTHOOR ROAD, , City=KUTTANALL,District=THRISSUR, State=Kerala",Thrissur,10.501347,76.249929,3.0,1
+"City=THONNAKKAL,","City=THONNAKKAL, EV Station, Thiruvananthapuram","City=THONNAKKAL, District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.641259,76.843518,,1
+BPCL,"BPCL EV Station, Pathanamthitta","Pathanamthitta PANTHALAM M C ROAD, PANTHALAM, #, , City=PANTHALAM, District=PATHNAMTHITA,State=Kerala",Pathanamthitta,9.197152,76.698244,60.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA MULAKUZHA M C ROAD, SY 252 9, , City=MULAKUZHA, District=ALAPPUZHA, State=Kerala",Alappuzha,9.27988,76.655106,60.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM VENJARAMUDU M.C. ROAD, NELLANAD VILLAGE, , City=VENJARAMUDU,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.712059,76.900919,120.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM VENJARAMOOD M.C.ROAD, NELLANAD VILLAGE, #, , City=VENJARAMOODE,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.664562,76.911365,60.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM KADAMPUZHA M.P 12/486, KADAMPUZHA, , City=KADAMPUZHA, District=MALAPPURAM,State=Kerala",Malappuram,10.939267,76.038841,3.0,1
+BPCL,"BPCL EV Station, Pathanamthitta","Pathanamthitta KONNI MAIN ROAD, KONNI, , City=KONNI, District=PATHNAMTHITA, State=Kerala",Pathanamthitta,9.231265,76.848083,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR MALAPATTAM MALAPPATTAM, P.O. MALAPPATTAM, , City=MALAPATTAM,District=KANNUR, State=Kerala",Kannur,12.017302,75.491247,3.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM TRIVANDRUM MALAYANKEEZHIL PO, MALAYANKEEZHIL PO, , City=TRIVANDRUM,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.500854,77.028686,3.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA NOORANAD MAMOOD, NOORANAD, , City=NOORANAD, District=ALAPPUZHA,State=Kerala",Alappuzha,9.168032,76.657002,60.0,2
+BPCL,"BPCL EV Station, Wayanad","WAYANAD MANANTHAWADY MANANTHAVADY, MYSORE ROAD, CHETTAPALLAM, ,City=MANANTHAWADY, District=WAYANAD, State=Kerala",Wayanad,11.8014,76.0044,3.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM MANARCAD MANARCAD POST, K. K. ROAD, , City=MANARCAD, District=KOTTAYAM,State=Kerala",Kottayam,9.589991,76.578871,60.0,2
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM PUTHUPALLY MANARCADU - PUTHUPALLY ROAD, PUTHUPALLY, , City=PUTHUPALLY,District=KOTTAYAM, State=Kerala",Kottayam,9.567277,76.57825,3.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM NAVAIKULAM MANGATTUMOOLA, NH-47, NAVAIKULAM, , City=NAVAIKULAM,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.782986,76.780061,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR MANGATUPARAMBA MANGATTUPARAMBA, KANNUR UNIVERSITY CAMPUS P.O, ,City=MANGATUPARAMBA, District=KANNUR, State=Kerala",Kannur,11.984258,75.366208,3.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM KAVANNUR MANJERI-ARECODE ROAD, KAVANNUR- P O, , City=KAVANNUR,District=MALAPPURAM, State=Kerala",Malappuram,11.188708,76.064598,3.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam KOTHAMANGALAM MATHIRAPPILLY, NEAR SERVICE CO-OPERATIVE BANK, ,City=KOTHAMANGALAM, District=ERNAKULUM, State=Kerala",Ernakulam,10.042226,76.615422,60.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CALICUT MAVOOR ROAD, POOVATTUPARAMBU P O, , City=CALICUT,District=KOZHIKODE, State=Kerala",Kozhikode,11.264118,75.889257,3.0,1
+BPCL,"BPCL EV Station, Kasaragod","KASARAGOD MAUNGAL MAVUNGAL, KANHANGAD, , City=MAUNGAL, District=KASARAGOD,State=Kerala",Kasaragod,12.323064,75.086129,60.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA CHENGANNOR MC ROAD, #, , City=CHENGANNOR, District=ALAPPUZHA, State=Kerala",Alappuzha,9.32284,76.61006,60.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam MEEMPARA MEENPARA PO, PUTHENKURISH, , City=MEEMPARA, District=ERNAKULUM,State=Kerala",Ernakulam,9.956912,76.446938,3.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA CHARUMOOD MEKKUMMURI,, THAMARAKULAM PO,, , City=CHARUMOOD,District=ALAPPUZHA, State=Kerala",Alappuzha,9.144564,76.623942,3.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CALICUT MINI BYE-PASS, THIRUVANNUR PO, , City=CALICUT, District=KOZHIKODE,State=Kerala",Kozhikode,11.224828,75.801544,30.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA MAVELIKARA MMC.333, MMC.333, , City=MAVELIKARA, District=ALAPPUZHA,State=Kerala",Alappuzha,9.250338,76.539503,60.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM MAMPAD MP 12/187A, MANJERI-NILAMBUR ROAD, , City=MAMPAD,District=MALAPPURAM, State=Kerala",Malappuram,11.241689,76.17711,60.0,2
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam ERNAKULAM MULANTHURUTHY VILLAGE, ERNAKULAM, , City=ERNAKULAM,District=ERNAKULUM, State=Kerala",Ernakulam,9.888837,76.419856,3.0,1
+"City=ERNAKULAM,","City=ERNAKULAM, EV Station, Ernakulam","City=ERNAKULAM, District=ERNAKULUM, State=Kerala",Ernakulam,9.994757,76.26306,,2
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PALAKKAD MUTTIKALUNGARA, ON NH-966, MUNDUR VILLAGE, , City=PALAKKAD,District=PALAKKAD, State=Kerala",Palakkad,10.822333,76.595701,60.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam MUVATTUPUZHA MUVATUPUZHA-THODUPUZHA, VAZHAKULAM P.O, , City=MUVATTUPUZHA,District=ERNAKULUM, State=Kerala",Ernakulam,9.947454,76.632452,60.0,2
+BPCL,"BPCL EV Station, Wayanad","WAYANAD SULTAN BATHERY MYSORE ROAD, SULTAN BATHERY, , City=SULTAN BATHERY,District=WAYANAD, State=Kerala",Wayanad,11.66784,76.26655,60.0,1
+"District=THIRUVANANTHAPURAM,","District=THIRUVANANTHAPURAM, EV Station, Thiruvananthapuram","District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.370339,77.131215,,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR TRIPRAYAR N.H.17, NATTIKA, , City=TRIPRAYAR, District=THRISSUR, State=Kerala",Thrissur,10.414526,76.107209,60.0,1
+"City=EDAVANNA,","City=EDAVANNA, EV Station, Malappuram","City=EDAVANNA, District=MALAPPURAM, State=Kerala",Malappuram,11.213925,76.139395,,1
+BPCL,"BPCL EV Station, Kasaragod","KASARAGOD KASARGOD NEAR CPCRI, KUDLU, , City=KASARGOD, District=KASARAGOD, State=Kerala",Kasaragod,12.530619,74.968943,60.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA NEDUMUDI NEAR KALLAMPALLY TEMPLE, CHAMPAKULAM P O, , City=NEDUMUDI,District=ALAPPUZHA, State=Kerala",Alappuzha,9.24142,76.2436,3.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam MUVATTUPUZHA NEAR KSRTC BUS STAND, M C ROAD, , City=MUVATTUPUZHA,District=ERNAKULUM, State=Kerala",Ernakulam,9.981967,76.579569,3.0,1
+BPCL,"BPCL EV Station, Kasaragod","KASARAGOD KANHANGAD NEAR LATEST DAILY, KOVVALPALLY, , City=KANHANGAD,District=KASARAGOD, State=Kerala",Kasaragod,12.300773,75.099806,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR TALIPARMABA NEAR MADRASA, NEAR MADRASA, , City=TALIPARMABA, District=KANNUR,State=Kerala",Kannur,12.04209,75.36213,60.0,2
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM MALAPPURAM NEAR THIRUNAVAYA KADAVU, THIRUNAVAYA P.O, , City=MALAPPURAM,District=MALAPPURAM, State=Kerala",Malappuram,10.863453,75.978808,3.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA ALAPPUZHA NEERATUPURAM, THALAVADY VILLAGE, , City=ALAPPUZHA,District=ALAPPUZHA, State=Kerala",Alappuzha,9.369112,76.511056,3.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR NADUVILA NEW NADUVIL, NADUVIL MANDALAM, OPP NADUVIL CHURCH, ,City=NADUVILA, District=KANNUR, State=Kerala",Kannur,12.12479,75.47948,60.0,2
+BPCL,"BPCL EV Station, Thrissur","THRISSUR MOONNUPEEDIKA NH 17, MOONUPEEDIKA, KAIPAMANGALAM PO, , City=MOONNUPEEDIKA,District=THRISSUR, State=Kerala",Thrissur,10.328134,76.141838,60.0,1
+BPCL,"BPCL EV Station, Kasaragod","KASARAGOD CHERUVATHUR NH 17, NH 17, , City=CHERUVATHUR, District=KASARAGOD, State=Kerala",Kasaragod,12.213588,75.162792,30.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR THALIKKULAM NH 17, THALIKKULAM, , City=THALIKKULAM, District=THRISSUR,State=Kerala",Thrissur,10.448969,76.090214,30.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM PAMPADY NH 183, K K ROAD, , City=PAMPADY, District=KOTTAYAM, State=Kerala",Kottayam,9.570726,76.629772,3.0,1
+BPCL,"BPCL EV Station, Wayanad","WAYANAD KALPETTA NH 212, PO KALPETTA, , City=KALPETTA, District=WAYANAD, State=Kerala",Wayanad,11.595661,76.077657,30.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD ALATHUR NH 47, ERATTAKULAM, ALATHUR, , City=ALATHUR, District=PALAKKAD,State=Kerala",Palakkad,10.634767,76.516977,60.0,1
+"(VADAKKANCHERY),","(VADAKKANCHERY), EV Station, Palakkad","(VADAKKANCHERY), District=PALAKKAD, State=Kerala",Palakkad,10.590969,76.47046,,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE KOZHIKODE NH-212, ADIVARAM, , City=KOZHIKODE, District=KOZHIKODE, State=Kerala",Kozhikode,11.357322,76.005233,30.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA KAYAMKULAM NH-47, KUNNATHALUMOODU, KAYAMKULAM, , City=KAYAMKULAM,District=ALAPPUZHA, State=Kerala",Alappuzha,9.157159,76.509389,30.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA NANGIARKULANGARA NH-47, NANGIARKULANGARA, NANGIARKULANGARA, ,City=NANGIARKULANGARA, District=ALAPPUZHA, State=Kerala",Alappuzha,9.2536,76.465892,60.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM TRIVANDRUM NH-47, NH 66, , City=MAMOM, District=THIRUVANANTHAPURAM,State=Kerala",Thiruvananthapuram,8.678479,76.825208,60.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PUTHUSERRY,PALAKKAD NH-47, PUTHUSSERY P.O., KANJIKODE, , City=PUTHUSERRY, PALAKKAD,District=PALAKKAD, State=Kerala",Palakkad,10.775965,76.706325,60.0,1
+",",", EV Station, Thiruvananthapuram",", City=TRIVANDRUM, District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.74975,76.797923,,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR CHALAKKUDY NORTH CHALAKUDY, CHALAKUDY, , City=CHALAKKUDY, District=THRISSUR,State=Kerala",Thrissur,10.31647,76.329642,3.0,1
+BPCL,"BPCL EV Station, Wayanad","WAYANAD MEENANGADI NR. PBM HOSPITAL, NH766, , City=MEENANGADI, District=WAYANAD,State=Kerala",Wayanad,11.655998,76.158993,60.0,1
+BPCL,"BPCL EV Station, Kasaragod","KASARAGOD ODYANCHAL ODAYANCHAL, ODAYANCHAL, , City=ODYANCHAL, District=KASARAGOD,State=Kerala",Kasaragod,12.393397,75.191792,3.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PALAKKAD OPP KANIKKAMATHA SCHOOL, PUDOOR ROAD, , City=PALAKKAD,District=PALAKKAD, State=Kerala",Palakkad,10.770782,76.632514,60.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PALAKKAD OPP NILGIRI PUBLIC SCOOL, SH 52, ELAPPULLYPARA,PALAKKAD-POLLACHIRD, , City=PALAKKAD, District=PALAKKAD, State=Kerala",Palakkad,10.758048,76.763681,120.0,2
+BPCL,"BPCL EV Station, Thrissur","THRISSUR TALAPILLY OPP. UNITY HOSPITAL, KANIPAYOOR PO,  KUNNAMKULAM, , City=TALAPILLY,District=THRISSUR, State=Kerala",Thrissur,10.635379,76.08114,60.0,2
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PALAKKAD PALAKKAD TOWN, BOC ROAD PALAKKAD, , City=PALAKKAD,District=PALAKKAD, State=Kerala",Palakkad,10.7744,76.6563,7.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam PALLIKKARA PALLIKKARAN JN, KUMARAPURAN P O, PALLIKKARA, , City=PALLIKKARA,District=ERNAKULUM, State=Kerala",Ernakulam,10.031414,76.336297,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR KANNUR PALLIKULAM, PALLIKULAM, , City=KANNUR, District=KANNUR, State=Kerala",Kannur,11.908189,75.367448,60.0,1
+BPCL,"BPCL EV Station, Kollam","KOLLAM MADATHARA PALODE MADATHARA ROAD, MADATHARA, , City=MADATHARA,District=KOLLAM, State=Kerala",Kollam,8.815003,77.009347,60.0,1
+BPCL,"BPCL EV Station, Wayanad","WAYANAD MANANTHAVADY PANAMARAM VILLAGE, KALPETTA TO MANATHAVADY ROAD, ,City=MANANTHAVADY, District=WAYANAD, State=Kerala",Wayanad,11.7381,76.074,3.0,1
+BPCL,"BPCL EV Station, Pathanamthitta","Pathanamthitta ADOOR PANDALAM THEKKEKARA VILLAGE, ANANDAPALLY - KAIPATOOR ROAD, ,City=ADOOR, District=PATHNAMTHITA, State=Kerala",Pathanamthitta,9.198407,76.74481,60.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE KOZHIKODE PARORATH VILLAGE, THAMARASSERY P.O, , City=KOZHIKODE,District=KOZHIKODE, State=Kerala",Kozhikode,11.407277,75.932085,60.0,1
+BPCL,"BPCL EV Station, Pathanamthitta","Pathanamthitta PATHANAMTHITTA PATHANAMTHITTA RING ROAD, #, , City=PATHANAMTHITTA,District=PATHNAMTHITA, State=Kerala",Pathanamthitta,9.259069,76.784721,3.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR TRISSUR PATTIKAD, NH 544 PANANCHERRY, , City=TRISSUR, District=THRISSUR,State=Kerala",Thrissur,10.559256,76.343479,120.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam ERNAKULAM PATTIMATTOM, ERNAKULAM, , City=ERNAKULAM, District=ERNAKULUM,State=Kerala",Ernakulam,10.029611,76.442088,3.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM ANAMANGAD PERINTHALMANNA ROAD, ANAMANGAD .P .O, , City=ANAMANGAD,District=MALAPPURAM, State=Kerala",Malappuram,10.943912,76.254651,3.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM TIRURKAD PERINTHALMANNA ROAD,, TIRURKAD .P.O, , City=TIRURKAD,District=MALAPPURAM, State=Kerala",Malappuram,10.984261,76.188069,30.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam PERUMBAVOOR PMC.XVII.938 ALWAYE-MUNNAR ROAD, #, , City=PERUMBAVOOR,District=ERNAKULUM, State=Kerala",Ernakulam,10.1149,76.473665,3.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR EACHUR PO EACHUR, EACHUR, , City=EACHUR, District=KANNUR, State=Kerala",Kannur,11.901724,75.443495,60.0,1
+"City=POTHENCODE,","City=POTHENCODE, EV Station, Thiruvananthapuram","City=POTHENCODE, District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.620915,76.892245,,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CHEVAYUR POTTAMMAL ROAD, PALAZHI TOWN, , City=CALICUT, District=KOZHIKODE,State=Kerala",Kozhikode,11.250373,75.841325,7.0,2
+"District=THIRUVANANTHAPURAM,","District=THIRUVANANTHAPURAM, EV Station, Thiruvananthapuram","District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.540124,77.01811,,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA MAVELIKARA PUNNAMOOD P.O., MAVELIKKARA, , City=MAVELIKARA,District=ALAPPUZHA, State=Kerala",Alappuzha,9.231589,76.537405,3.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE PURAMERY PURAMERY VILLAGE, KOZHIKODE DISTRICT, , City=PURAMERY,District=KOZHIKODE, State=Kerala",Kozhikode,11.669642,75.61597,3.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD MANNARKKAD RO AT THACHAMPARA, RO AT THACHAMPARA, , City=MANNARKKAD,District=PALAKKAD, State=Kerala",Palakkad,10.9576,76.5055,60.0,1
+",",", EV Station, Palakkad",", City=MELACODE VILLAGE, NEMMARA, District=PALAKKAD, State=Kerala",Palakkad,10.592556,76.563035,,2
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM PALA SH 08 , PALA-THODUPUZHA ROAD, KIZHATHADIYOOR P O, , City=PALA,District=KOTTAYAM, State=Kerala",Kottayam,9.78383,76.722108,3.0,1
+BPCL,"BPCL EV Station, Pathanamthitta","Pathanamthitta MALLAPPALLY SH 9, KOZHENCERY ROAD, , City=MALLAPPALLY, District=PATHNAMTHITA,State=Kerala",Pathanamthitta,9.446972,76.65396,3.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM NILAMBUR SH28, NILAMBUR, , City=NILAMBUR, District=MALAPPURAM, State=Kerala",Malappuram,11.26918,76.215483,30.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM AYANIKODE SH73, WANDOOR-PANDIKKAD ROAD, , City=AYANIKODE,District=MALAPPURAM, State=Kerala",Malappuram,11.14969,76.233732,3.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR KOLAZHY SHORNOOR ROAD,, #, , City=KOLAZHY, District=THRISSUR, State=Kerala",Thrissur,10.579939,76.217493,60.0,2
+BPCL,"BPCL EV Station, Kollam","KOLLAM SAKTHIKULANGARA SP.776, NH66, , City=SAKTHIKULANGARA, District=KOLLAM, State=Kerala",Kollam,8.929987,76.548987,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR IRIKKUR SREEKANDAPURAM- IRITTY ROAD, IRIKKUR, , City=IRIKKUR,District=KANNUR, State=Kerala",Kannur,11.991272,75.548639,30.0,1
+BPCL,"BPCL EV Station, Kasaragod","KASARAGOD KASARGOD STATION ROAD, STATION ROAD, , City=KASARGOD, District=KASARAGOD,State=Kerala",Kasaragod,12.515299,75.007863,60.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM TEEKOY SURVEY NO 109/1, ERATTUPETA - WAGAMON ROAD, , City=TEEKOY,District=KOTTAYAM, State=Kerala",Kottayam,9.699233,76.816097,120.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PALAKKAD SURVEY NO 151/15, 150/16, PALAKKAD-PONNANI ROAD, MANKARA, ,City=PALAKKAD, District=PALAKKAD, State=Kerala",Palakkad,10.7918,76.4997,30.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam ERNAKULAM SURVEY NO 185/28,THIRUVAMKULAM, VILLAGE,KANAYANNUR TALUK, ,City=ERNAKULAM, District=ERNAKULUM, State=Kerala",Ernakulam,9.967678,76.356719,3.0,1
+"City=UZHAMALAKKAL,","City=UZHAMALAKKAL, EV Station, Thiruvananthapuram","City=UZHAMALAKKAL, District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.595946,77.031148,,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR KODUNGALLUR SY NO 119/1 METHALA VILLAGE, KODUNGALLUR BYE PASS ON NH 17, ,City=KODUNGALLUR, District=THRISSUR, State=Kerala",Thrissur,10.208812,76.197026,30.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR ASHTAMICHARA SY NO 425 VADAMA VILLAGE, ASHTAMICHARA THRISSUR 680732, ,City=ASHTAMICHARA, District=THRISSUR, State=Kerala",Thrissur,10.256072,76.27011,3.0,1
+"680302,","680302, EV Station, Thrissur","680302, , City=AMBALLUR, District=THRISSUR, State=Kerala",Thrissur,10.430925,76.281293,,1
+"ARAKKAPADY,","ARAKKAPADY, EV Charging Station","ARAKKAPADY, , City=PONJASSERY, District=ERNAKULUM, State=Kerala",Kerala,10.091208,76.443733,,2
+BPCL,"BPCL EV Station, Pathanamthitta","Pathanamthitta MALLAPUZHASSERY SY NO171/13 THEKKEMALA JN, KOZHENCHERRY TK ARANMULA PO, ,City=MALLAPUZHASSERY, District=PATHNAMTHITA, State=Kerala",Pathanamthitta,9.327406,76.698872,60.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE PERUMANNA SY. NO. 57/15, PATHEERAMKAVU-PERUMANNA ROAD, , City=PERUMANNA,District=KOZHIKODE, State=Kerala",Kozhikode,11.2451,75.8849,7.0,3
+BPCL,"BPCL EV Station, Idukki","IDUKKI KARINKUNNAM SY.NO.64/4, SY.NO.64/4, , City=KARINKUNNAM, District=IDUKKI,State=Kerala",Idukki,9.854072,76.70479,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR KUTHUPARAMBA T C ROAD, KUTHUPARAMBA, , City=KUTHUPARAMBA, District=KANNUR,State=Kerala",Kannur,11.83554,75.568512,60.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM PARAPPANAGADI TANUR ROAD,, PARAPPANANGADY .P.O., , City=PARAPPANAGADI,District=MALAPPURAM, State=Kerala",Malappuram,11.050165,75.857449,60.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM THALAPPARA THALAPPARA, NH-17,THALAPPARA, , City=THALAPPARA,District=MALAPPURAM, State=Kerala",Malappuram,11.077494,75.903286,120.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam KALADY THANNIPUZHA, M C ROAD, OKKAL PO, , City=KALADY, District=ERNAKULUM,State=Kerala",Ernakulam,10.158724,76.443737,60.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD THATHAMANGALAM THATHAMANGLAM TOWN, THATHAMANGLAM IN SH27, ,City=THATHAMANGALAM, District=PALAKKAD, State=Kerala",Palakkad,10.676741,76.70479,60.0,2
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM THALAYOLAPARAMBU THENETH HOUSE, #, , City=THALAYOLAPARAMBU, District=KOTTAYAM,State=Kerala",Kottayam,9.786556,76.453575,60.0,2
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE PAYYOLI THIKKODI VILLAGE, PAYYOLI, , City=PAYYOLI, District=KOZHIKODE,State=Kerala",Kozhikode,11.494047,75.614,60.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM THOLICODE THOLICODE, THOLICODE, , City=THOLICODE,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.646099,77.058841,3.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM MANGALAPURAM THONAKKAL, NH-47, #, , City=TRIVANDRUM,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.629989,76.847605,30.0,1
+BPCL,"BPCL EV Station, Wayanad","WAYANAD SULTHAN BATHERY THOTTAPPAN KULAM, MYSORE ROAD, , City=SULTHAN BATHERY,District=WAYANAD, State=Kerala",Wayanad,11.659002,76.245955,30.0,1
+BPCL,"BPCL EV Station, Alappuzha","ALAPPUZHA KARTHIKAPALLY THRIKUNNAPUZHA-KARTHIKAPALLY ROAD, MAHADEVIKADU P.O., ,City=KARTHIKAPALLY, District=ALAPPUZHA, State=Kerala",Alappuzha,9.258033,76.426296,3.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM TANUR TIRUR ROAD, K PURAM PO, , City=TANUR, District=MALAPPURAM,State=Kerala",Malappuram,10.967504,75.884974,3.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM KAKKAD TP/08/036, NH 17, CALICUT ROAD, , City=KAKKAD, District=MALAPPURAM,State=Kerala",Malappuram,11.038542,75.937751,3.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR TALIPARMABA TRICHAMBARAM, NH-17, , City=TALIPARMABA, District=KANNUR,State=Kerala",Kannur,12.028212,75.365395,60.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD SHORANUR TRICHUR-SHORNUR ROAD, KOLAPULLY, , City=SHORANUR,District=PALAKKAD, State=Kerala",Palakkad,10.779444,76.278968,60.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam TRIPUNITHURA TRIPUNITHURA, VAIKOM ROAD, , City=TRIPUNITHURA,District=ERNAKULUM, State=Kerala",Ernakulam,9.88645,76.374289,3.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM PARASSALA TRIVANDRUM - NAGERCOIL ROAD, TRIVANDRUM, , City=PARASSALA,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.342489,77.15408,60.0,1
+BPCL,"BPCL EV Station, Kannur","KANNUR URUVACHAL URUVACHAL, MATTANUR PO, URUVACHAL KOTHUPARAMBHA ROAD, ,City=URUVACHAL, District=KANNUR, State=Kerala",Kannur,11.898197,75.582763,60.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD KANNADI VADAKKUMURI KANNADI, VILLAGE KANNADI 2, , City=KANNADI,District=PALAKKAD, State=Kerala",Palakkad,10.73823,76.6333,30.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam ERNAKULAM VAIKOM ROAD,, UDAYAMPEROOR,, , City=ERNAKULAM,District=ERNAKULUM, State=Kerala",Ernakulam,9.882268,76.375279,60.0,2
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD KOZHINJAMPARA VANAMMADA, VANAMADA, CHITUR MANDAL, , City=KOZHINJAMPARA,District=PALAKKAD, State=Kerala",Palakkad,10.6942,76.8548,60.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR VANIAMPARA VAZHUKKUMPARA, LHS ON NH 47, , City=VANIAMPARA, District=THRISSUR,State=Kerala",Thrissur,10.599846,76.328994,30.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PALAKKAD VELANTHAVALAM VILLAGE, VELANTHAVALAM VILLAGE, , City=PALAKKAD,District=PALAKKAD, State=Kerala",Palakkad,10.814581,76.831733,3.0,1
+BPCL,"BPCL EV Station, Thiruvananthapuram","THIRUVANANTHAPURAM TRIVANDRUM VELLAYAMBALAM, ALTHARA, , City=TRIVANDRUM,District=THIRUVANANTHAPURAM, State=Kerala",Thiruvananthapuram,8.50737,76.962188,3.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam KALADY VENGOOR, M.C. ROAD, KALADY, PIRAROOR-P.O., , City=KALADY,District=ERNAKULUM, State=Kerala",Ernakulam,10.179755,76.415398,60.0,2
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam MARADU VI/419 A NH 49, KUNDANNOOR, , City=MARADU, District=ERNAKULUM,State=Kerala",Ernakulam,9.937527,76.321289,60.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam THIRUVANKULAM VII, 412.A, , City=THIRUVANKULAM, District=ERNAKULUM, State=Kerala",Ernakulam,9.944947,76.372132,60.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR KODUNGALLOR VII/ 349 THRISSUR ROAD, #, , City=KODUNGALLOR, District=THRISSUR,State=Kerala",Thrissur,10.227496,76.200017,60.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam ERNAKULAM VILLAGE KOTTUVALLY, PANCHAYATH KOTTUVALLY, , City=ERNAKULAM,District=ERNAKULUM, State=Kerala",Ernakulam,10.120174,76.25565,120.0,1
+BPCL,"BPCL EV Station, Malappuram","MALAPPURAM MALAPPURAM W.NO-19/177, PERINTHALMANNA ROAD, UP HILL, , City=MALAPPURAM,District=MALAPPURAM, State=Kerala",Malappuram,11.04083,76.085858,60.0,1
+BPCL,"BPCL EV Station, Palakkad","PALAKKAD PATTAMBI WARD.3/1091, PERINTHELMANNA ROAD, , City=PATTAMBI,District=PALAKKAD, State=Kerala",Palakkad,10.807691,76.187463,60.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE CALICUT WESTHILL, KANNUR ROAD, , City=CALICUT, District=KOZHIKODE,State=Kerala",Kozhikode,11.284804,75.768671,60.0,1
+BPCL,"BPCL EV Station, Kozhikode","KOZHIKODE ELEVENTH MILE WYNAD ROAD, KUNNAMANGALAM .P.O., , City=ELEVENTH MILE,District=KOZHIKODE, State=Kerala",Kozhikode,11.32815,75.886268,30.0,1
+BPCL,"BPCL EV Station, Thrissur","THRISSUR GURUVAYOOR X-237, GURUVAYUR-TRICHUR ROAD, , City=GURUVAYOOR,District=THRISSUR, State=Kerala",Thrissur,10.594516,76.04538,3.0,1
+BPCL,"BPCL EV Station, Kottayam","KOTTAYAM KOTTAYAM XI/252, MUTTAMBALAM, , City=KOTTAYAM, District=KOTTAYAM,State=Kerala",Kottayam,9.588466,76.53914,60.0,1
+BPCL,"BPCL EV Station, Ernakulam","Ernakulam ALUVA XVII - 70, ALUVA-ERNAKULAM ROAD, , City=ALUVA, District=ERNAKULUM,State=Kerala",Ernakulam,10.102725,76.350111,3.0,1

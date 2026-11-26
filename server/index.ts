@@ -2,8 +2,18 @@
 // Cloudflare Worker API Layer for CHARGE undo
 // Handles Station Retrieval, OSM Data Ingestion, R2 Image Management & Admin Moderation
 
-import type { Env, StationRecord, ConnectorRecord, StationImageRecord } from './types.ts';
+import type { Env, StationRecord, ConnectorRecord, StationImageRecord, ImportRunRecord } from './types.ts';
 import { runOsmImport } from './osm-importer.ts';
+import { runBeeImport } from './bee-importer.ts';
+import { runOcmImport } from './ocm-importer.ts';
+
+// Schema migration safety helper: Ensures new columns exist across local and remote D1
+async function ensureSchemaColumns(db: D1Database): Promise<void> {
+  try { await db.prepare("ALTER TABLE stations ADD COLUMN source_record_url TEXT").run(); } catch {}
+  try { await db.prepare("ALTER TABLE stations ADD COLUMN source_updated_at TEXT").run(); } catch {}
+  try { await db.prepare("ALTER TABLE stations ADD COLUMN imported_at TEXT DEFAULT (CURRENT_TIMESTAMP)").run(); } catch {}
+  try { await db.prepare("ALTER TABLE import_runs ADD COLUMN records_rejected INTEGER DEFAULT 0").run(); } catch {}
+}
 
 // Helper for standardized JSON responses
 function jsonResponse(data: any, status = 200, headers: Record<string, string> = {}): Response {
@@ -199,6 +209,11 @@ export default {
       // 4. POST /api/import/osm - Trigger OpenStreetMap Kerala import
       // ----------------------------------------------------
       if (pathname === '/api/import/osm' && method === 'POST') {
+        if (!checkAdminAuth(request, env)) {
+          return jsonResponse({ error: 'Unauthorized. Admin authorization required for dataset imports.' }, 401);
+        }
+
+        await ensureSchemaColumns(env.DB);
         let manualElements: any[] | undefined = undefined;
         try {
           const body: any = await request.json();
@@ -213,6 +228,7 @@ export default {
           const result = await runOsmImport(env, manualElements);
           return jsonResponse({
             success: true,
+            source: 'openstreetmap',
             message: result.isFallback
               ? 'Import completed using verified Kerala OpenStreetMap dataset (Live Overpass API unreachable).'
               : 'Live OpenStreetMap Kerala data import completed successfully.',
@@ -226,6 +242,92 @@ export default {
             {
               success: false,
               error: `Import failed: ${err.message || 'Unknown error during OSM import'}`,
+            },
+            500
+          );
+        }
+      }
+
+      // ----------------------------------------------------
+      // 4b. POST /api/import/bee - Trigger BEE Government Dataset import
+      // ----------------------------------------------------
+      if (pathname === '/api/import/bee' && method === 'POST') {
+        if (!checkAdminAuth(request, env)) {
+          return jsonResponse({ error: 'Unauthorized. Admin authorization required for dataset imports.' }, 401);
+        }
+
+        await ensureSchemaColumns(env.DB);
+        let customStations: any[] | undefined = undefined;
+        try {
+          const body: any = await request.json();
+          if (Array.isArray(body?.stations)) {
+            customStations = body.stations;
+          }
+        } catch {
+          // No custom stations provided, import official extracted dataset
+        }
+
+        try {
+          const result = await runBeeImport(env, customStations);
+          return jsonResponse({
+            success: true,
+            source: 'bee_india',
+            document: result.sourceDoc,
+            publication_date: result.publicationDate,
+            message: `Official BEE Government dataset import completed successfully (${result.stats.inserted} inserted, ${result.stats.updated} updated, ${result.stats.duplicatesFlagged} duplicates flagged, ${result.stats.rejected} rejected).`,
+            run_id: result.runId,
+            stats: result.stats,
+          });
+        } catch (err: any) {
+          console.error('BEE import error:', err);
+          return jsonResponse(
+            {
+              success: false,
+              error: `BEE import failed: ${err.message || 'Unknown error during BEE import'}`,
+            },
+            500
+          );
+        }
+      }
+
+      // ----------------------------------------------------
+      // 4c. POST /api/import/ocm - Trigger OpenChargeMap API import
+      // ----------------------------------------------------
+      if (pathname === '/api/import/ocm' && method === 'POST') {
+        if (!checkAdminAuth(request, env)) {
+          return jsonResponse({ error: 'Unauthorized. Admin authorization required for dataset imports.' }, 401);
+        }
+
+        await ensureSchemaColumns(env.DB);
+        let region: 'kerala' | 'india' = 'kerala';
+        try {
+          const body: any = await request.json();
+          if (body?.region === 'india' || body?.region === 'kerala') {
+            region = body.region;
+          }
+        } catch {
+          // Default to kerala
+        }
+
+        try {
+          const result = await runOcmImport(env, region);
+          return jsonResponse({
+            success: true,
+            source: 'openchargemap',
+            region: result.region,
+            is_fallback: result.isFallback,
+            message: result.isFallback
+              ? `OpenChargeMap import completed using verified open-data cache (${result.stats.inserted} inserted, ${result.stats.duplicatesFlagged} duplicates flagged).`
+              : `Live OpenChargeMap API import completed successfully (${result.stats.inserted} inserted, ${result.stats.duplicatesFlagged} duplicates flagged).`,
+            run_id: result.runId,
+            stats: result.stats,
+          });
+        } catch (err: any) {
+          console.error('OCM import error:', err);
+          return jsonResponse(
+            {
+              success: false,
+              error: `OpenChargeMap import failed: ${err.message || 'Unknown error during OCM import'}`,
             },
             500
           );
@@ -490,6 +592,85 @@ export default {
           verified_stations: verifiedRow?.count || 0,
           pending_image_reviews: pendingImagesRow?.count || 0,
           pending_duplicate_flags: duplicateFlagsRow?.count || 0,
+        });
+      }
+
+      // ----------------------------------------------------
+      // 11. GET /api/admin/import-runs - List past and active import runs
+      // ----------------------------------------------------
+      if (pathname === '/api/admin/import-runs' && method === 'GET') {
+        if (!checkAdminAuth(request, env)) {
+          return jsonResponse({ error: 'Unauthorized' }, 401);
+        }
+
+        const { results: runs } = await env.DB.prepare(
+          `SELECT id, source_name, records_fetched, records_inserted, records_updated, duplicates_flagged, records_rejected, status, error_message, started_at, completed_at
+           FROM import_runs 
+           ORDER BY started_at DESC 
+           LIMIT 30`
+        ).all<ImportRunRecord>();
+
+        return jsonResponse({ runs });
+      }
+
+      // ----------------------------------------------------
+      // 12. GET /api/admin/duplicate-flags - Audit list of flagged duplicates
+      // ----------------------------------------------------
+      if (pathname === '/api/admin/duplicate-flags' && method === 'GET') {
+        if (!checkAdminAuth(request, env)) {
+          return jsonResponse({ error: 'Unauthorized' }, 401);
+        }
+
+        const statusFilter = url.searchParams.get('status') || 'pending';
+        const { results: flags } = await env.DB.prepare(
+          `SELECT f.*, 
+                  s1.station_name as new_station_name, s1.source_name as new_station_source, s1.city as new_station_city,
+                  s2.station_name as existing_station_name, s2.source_name as existing_station_source, s2.city as existing_station_city
+           FROM station_duplicate_flags f
+           LEFT JOIN stations s1 ON f.new_station_id = s1.id
+           LEFT JOIN stations s2 ON f.existing_station_id = s2.id
+           WHERE f.resolution_status = ?
+           ORDER BY f.flagged_at DESC
+           LIMIT 50`
+        )
+          .bind(statusFilter)
+          .all();
+
+        return jsonResponse({ flags });
+      }
+
+      // ----------------------------------------------------
+      // 13. POST /api/admin/duplicate-flags/:id/resolve - Resolve duplicate flag
+      // ----------------------------------------------------
+      const dupFlagResolveMatch = pathname.match(/^\/api\/admin\/duplicate-flags\/([a-zA-Z0-9_\-]+)\/resolve$/);
+      if (dupFlagResolveMatch && method === 'POST') {
+        if (!checkAdminAuth(request, env)) {
+          return jsonResponse({ error: 'Unauthorized' }, 401);
+        }
+
+        const flagId = dupFlagResolveMatch[1];
+        const body: any = await request.json();
+        const resolution = body?.resolution; // 'confirmed_unique' | 'merged' | 'dismissed'
+
+        if (!['confirmed_unique', 'merged', 'dismissed'].includes(resolution)) {
+          return jsonResponse({ error: "Invalid resolution. Must be 'confirmed_unique', 'merged', or 'dismissed'." }, 400);
+        }
+
+        const res = await env.DB.prepare(
+          `UPDATE station_duplicate_flags SET resolution_status = ?, resolved_at = CURRENT_TIMESTAMP, resolved_by = 'admin' WHERE id = ?`
+        )
+          .bind(resolution, flagId)
+          .run();
+
+        if (res.meta.changes === 0) {
+          return jsonResponse({ error: 'Duplicate flag record not found' }, 404);
+        }
+
+        return jsonResponse({
+          success: true,
+          message: `Duplicate flag resolved as '${resolution}'.`,
+          flag_id: flagId,
+          resolution_status: resolution,
         });
       }
 

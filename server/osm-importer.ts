@@ -382,8 +382,8 @@ export async function runOsmImport(
         id, station_name, provider_name, address, city, state, country,
         latitude, longitude, description, charging_power_kw, pricing_type,
         price, operating_hours, listing_type, source_name, source_id,
-        verification_status, availability_status, created_at, last_updated_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'unverified', 'unknown', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`
+        source_record_url, verification_status, availability_status, created_at, last_updated_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'unverified', 'unknown', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`
     )
       .bind(
         station.id,
@@ -402,7 +402,8 @@ export async function runOsmImport(
         station.operating_hours || '24/7',
         station.listing_type || 'official',
         station.source_name || 'openstreetmap',
-        station.source_id || null
+        station.source_id || null,
+        `https://www.openstreetmap.org/${station.source_id}`
       )
       .run();
 

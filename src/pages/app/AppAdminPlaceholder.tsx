@@ -1,5 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle2, Shield, Clock, MapPin, Zap, XCircle, RefreshCw } from 'lucide-react';
+import {
+  CheckCircle2,
+  Shield,
+  Clock,
+  Zap,
+  XCircle,
+  RefreshCw,
+  Database,
+  Globe,
+  FileText,
+  AlertTriangle,
+  ExternalLink,
+} from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 interface PendingListing {
@@ -11,6 +23,36 @@ interface PendingListing {
   rate: string;
   photoUrl: string;
   status: 'pending' | 'approved' | 'rejected';
+}
+
+interface ImportRun {
+  id: string;
+  source_name: string;
+  records_fetched: number;
+  records_inserted: number;
+  records_updated: number;
+  duplicates_flagged: number;
+  records_rejected?: number;
+  status: 'in_progress' | 'completed' | 'failed';
+  error_message: string | null;
+  started_at: string;
+  completed_at: string | null;
+}
+
+interface DuplicateFlag {
+  id: string;
+  new_station_id: string;
+  existing_station_id: string;
+  similarity_score: number;
+  reason: string;
+  resolution_status: 'pending' | 'merged' | 'dismissed' | 'confirmed_unique';
+  flagged_at: string;
+  new_station_name?: string;
+  new_station_source?: string;
+  new_station_city?: string;
+  existing_station_name?: string;
+  existing_station_source?: string;
+  existing_station_city?: string;
 }
 
 const INITIAL_PENDING: PendingListing[] = [
@@ -56,15 +98,15 @@ export const AppAdminPlaceholder: React.FC = () => {
   });
 
   // Importer state
-  const [importing, setImporting] = useState<boolean>(false);
+  const [activeSource, setActiveSource] = useState<'osm' | 'bee' | 'ocm' | null>(null);
   const [importLog, setImportLog] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [importRuns, setImportRuns] = useState<ImportRun[]>([]);
+  const [duplicateFlags, setDuplicateFlags] = useState<DuplicateFlag[]>([]);
 
   const fetchAdminStats = async () => {
     try {
       const res = await fetch('/api/admin/stats', {
-        headers: {
-          'X-Admin-Key': 'chargeundo-admin-dev-secret',
-        },
+        headers: { 'X-Admin-Key': 'chargeundo-admin-dev-secret' },
       });
       if (res.ok) {
         const data = await res.json();
@@ -75,8 +117,38 @@ export const AppAdminPlaceholder: React.FC = () => {
     }
   };
 
+  const fetchImportRuns = async () => {
+    try {
+      const res = await fetch('/api/admin/import-runs', {
+        headers: { 'X-Admin-Key': 'chargeundo-admin-dev-secret' },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setImportRuns(data.runs || []);
+      }
+    } catch (err) {
+      console.error('Failed to fetch import runs:', err);
+    }
+  };
+
+  const fetchDuplicateFlags = async () => {
+    try {
+      const res = await fetch('/api/admin/duplicate-flags?status=pending', {
+        headers: { 'X-Admin-Key': 'chargeundo-admin-dev-secret' },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setDuplicateFlags(data.flags || []);
+      }
+    } catch (err) {
+      console.error('Failed to fetch duplicate flags:', err);
+    }
+  };
+
   useEffect(() => {
     fetchAdminStats();
+    fetchImportRuns();
+    fetchDuplicateFlags();
   }, []);
 
   const handleApprove = (id: string) => {
@@ -91,33 +163,68 @@ export const AppAdminPlaceholder: React.FC = () => {
     );
   };
 
-  const handleRunOsmImport = async () => {
-    setImporting(true);
+  // Run Specific Source Importer
+  const handleTriggerImport = async (source: 'osm' | 'bee' | 'ocm') => {
+    setActiveSource(source);
     setImportLog(null);
+    const endpoint = `/api/import/${source}`;
+
     try {
-      const res = await fetch('/api/import/osm', { method: 'POST' });
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Admin-Key': 'chargeundo-admin-dev-secret',
+        },
+        body: JSON.stringify(source === 'ocm' ? { region: 'kerala' } : {}),
+      });
+
       const data = await res.json().catch(() => null);
       if (res.ok && data?.success) {
         setImportLog({
           type: 'success',
-          message: `OSM Ingestion Completed (Run: ${data.run_id}). Fetched: ${data.stats.fetched}, Inserted: ${data.stats.inserted}, Updated: ${data.stats.updated}, Flagged Duplicates: ${data.stats.duplicatesFlagged}.${
-            data.is_fallback ? ' (Verified offline Kerala cache used)' : ''
-          }`,
+          message: data.message || `Successfully completed ${source.toUpperCase()} data ingestion.`,
         });
         fetchAdminStats();
+        fetchImportRuns();
+        fetchDuplicateFlags();
       } else {
         setImportLog({
           type: 'error',
-          message: data?.error || (res.status === 500 ? 'Internal Server Error while running OSM ingestion' : `Import failed (HTTP ${res.status})`),
+          message: data?.error || `Import failed for ${source.toUpperCase()} (HTTP ${res.status}).`,
         });
       }
     } catch (err: any) {
       setImportLog({
         type: 'error',
-        message: `Error running importer: ${err.message}`,
+        message: `Network error running ${source.toUpperCase()} importer: ${err.message}`,
       });
     } finally {
-      setImporting(false);
+      setActiveSource(null);
+    }
+  };
+
+  // Resolve Duplicate Flag
+  const handleResolveFlag = async (
+    flagId: string,
+    resolution: 'confirmed_unique' | 'merged' | 'dismissed'
+  ) => {
+    try {
+      const res = await fetch(`/api/admin/duplicate-flags/${flagId}/resolve`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Admin-Key': 'chargeundo-admin-dev-secret',
+        },
+        body: JSON.stringify({ resolution }),
+      });
+
+      if (res.ok) {
+        setDuplicateFlags((prev) => prev.filter((f) => f.id !== flagId));
+        fetchAdminStats();
+      }
+    } catch (err) {
+      console.error('Failed to resolve flag:', err);
     }
   };
 
@@ -134,7 +241,7 @@ export const AppAdminPlaceholder: React.FC = () => {
           </div>
           <h1 className="text-3xl font-bold tracking-tight text-white mt-2">Administrator Console</h1>
           <p className="text-zinc-400 text-sm mt-1">
-            Data pipeline oversight, OpenStreetMap sync, duplicate audit, and station photo moderation.
+            Data pipeline oversight, multi-source EV station synchronization, and cross-source duplicate resolution.
           </p>
         </div>
 
@@ -145,7 +252,7 @@ export const AppAdminPlaceholder: React.FC = () => {
         </div>
       </div>
 
-      {/* Metrics Grid (Connected to real D1 stats) */}
+      {/* Metrics Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 mb-8">
         <div className="bg-[#0D100E] border border-white/[0.08] rounded-2xl p-5">
           <div className="text-xs text-zinc-500 uppercase tracking-wider font-mono">Total Charging Stations</div>
@@ -176,32 +283,97 @@ export const AppAdminPlaceholder: React.FC = () => {
         </div>
       </div>
 
-      {/* OpenStreetMap Ingestion Control Panel */}
+      {/* Multi-Source Import Management Controls */}
       <div className="bg-[#0D100E] border border-white/[0.08] rounded-3xl p-6 sm:p-8 mb-8">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-          <div>
-            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <RefreshCw className="w-5 h-5 text-[#8CF06B]" />
-              <span>OpenStreetMap Data Ingestion (Kerala)</span>
-            </h3>
-            <p className="text-xs text-zinc-400 mt-1">
-              Extracts public EV charging nodes and ways via Overpass API within Kerala bounds. Automatically parses connectors and flags duplicates.
-            </p>
-          </div>
-
-          <button
-            onClick={handleRunOsmImport}
-            disabled={importing}
-            className="px-5 py-2.5 rounded-full bg-[#8CF06B] hover:bg-[#9ef581] text-black font-semibold text-xs transition flex items-center gap-2 flex-shrink-0 disabled:opacity-50"
-          >
-            <RefreshCw className={`w-3.5 h-3.5 ${importing ? 'animate-spin' : ''}`} />
-            <span>{importing ? 'Querying Overpass API...' : 'Run Kerala Ingestion Now'}</span>
-          </button>
+        <div className="mb-6">
+          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+            <Database className="w-5 h-5 text-[#8CF06B]" />
+            <span>Multi-Source EV Data Ingestion Pipeline</span>
+          </h3>
+          <p className="text-xs text-zinc-400 mt-1">
+            Independently sync legitimate EV charging records into the CHARGE undo unified database. All sources are normalized, cross-checked for duplicates, and marked unverified until inspected.
+          </p>
         </div>
 
+        {/* 3 Source Control Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* 1. OpenStreetMap */}
+          <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between hover:border-white/15 transition">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-mono font-bold text-[#8CF06B] bg-[#8CF06B]/10 px-2.5 py-1 rounded-full border border-[#8CF06B]/20">
+                  OpenStreetMap
+                </span>
+                <Globe className="w-4 h-4 text-zinc-500" />
+              </div>
+              <h4 className="text-sm font-semibold text-white">OSM Kerala Overpass</h4>
+              <p className="text-xs text-zinc-400 mt-1.5 leading-relaxed">
+                Extracts community-mapped public charging nodes and ways within Kerala bounds. Parses CCS2, Type 2, and 16A Indian plugs.
+              </p>
+            </div>
+            <button
+              onClick={() => handleTriggerImport('osm')}
+              disabled={activeSource !== null}
+              className="mt-5 w-full py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs transition flex items-center justify-center gap-2 disabled:opacity-50"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${activeSource === 'osm' ? 'animate-spin' : ''}`} />
+              <span>{activeSource === 'osm' ? 'Syncing OSM...' : 'Sync OSM Kerala'}</span>
+            </button>
+          </div>
+
+          {/* 2. BEE Government Dataset */}
+          <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between hover:border-white/15 transition">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-mono font-bold text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
+                  BEE Gov. Dataset
+                </span>
+                <FileText className="w-4 h-4 text-zinc-500" />
+              </div>
+              <h4 className="text-sm font-semibold text-white">Bureau of Energy Efficiency</h4>
+              <p className="text-xs text-zinc-400 mt-1.5 leading-relaxed">
+                Official document: <em>EV Public Charging Stations Data till 26th October 2025</em>. Validated Kerala CPOs (IOCL, BPCL, HPCL, Ather, Tata Power).
+              </p>
+            </div>
+            <button
+              onClick={() => handleTriggerImport('bee')}
+              disabled={activeSource !== null}
+              className="mt-5 w-full py-2.5 px-4 rounded-xl bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 border border-blue-500/30 font-semibold text-xs transition flex items-center justify-center gap-2 disabled:opacity-50"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${activeSource === 'bee' ? 'animate-spin' : ''}`} />
+              <span>{activeSource === 'bee' ? 'Importing BEE...' : 'Import BEE Dataset'}</span>
+            </button>
+          </div>
+
+          {/* 3. OpenChargeMap */}
+          <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between hover:border-white/15 transition">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-mono font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-full border border-purple-500/20">
+                  OpenChargeMap
+                </span>
+                <ExternalLink className="w-4 h-4 text-zinc-500" />
+              </div>
+              <h4 className="text-sm font-semibold text-white">OCM Global Open Data</h4>
+              <p className="text-xs text-zinc-400 mt-1.5 leading-relaxed">
+                Enforces open-data eligibility (<code>opendata=true</code>). Secured with Cloudflare Worker secret.
+              </p>
+            </div>
+            <button
+              onClick={() => handleTriggerImport('ocm')}
+              disabled={activeSource !== null}
+              className="mt-5 w-full py-2.5 px-4 rounded-xl bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/30 font-semibold text-xs transition flex items-center justify-center gap-2 disabled:opacity-50"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${activeSource === 'ocm' ? 'animate-spin' : ''}`} />
+              <span>{activeSource === 'ocm' ? 'Syncing OCM...' : 'Sync OpenChargeMap'}</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Import Status Alert */}
         {importLog && (
           <div
-            className={`mt-4 p-4 rounded-2xl text-xs font-mono flex items-center justify-between gap-3 ${
+            className={`mt-6 p-4 rounded-2xl text-xs font-mono flex items-center justify-between gap-3 ${
               importLog.type === 'success'
                 ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300'
                 : 'bg-red-500/10 border border-red-500/30 text-red-300'
@@ -215,12 +387,149 @@ export const AppAdminPlaceholder: React.FC = () => {
               )}
               <span>{importLog.message}</span>
             </div>
-            <button
-              onClick={() => setImportLog(null)}
-              className="text-zinc-500 hover:text-white transition"
-            >
+            <button onClick={() => setImportLog(null)} className="text-zinc-500 hover:text-white transition">
               &times;
             </button>
+          </div>
+        )}
+      </div>
+
+      {/* Duplicate Detection & Proximity Review Queue */}
+      {duplicateFlags.length > 0 && (
+        <div className="bg-[#0D100E] border border-amber-500/20 rounded-3xl p-6 sm:p-8 mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <AlertTriangle className="w-5 h-5 text-amber-400" />
+                <span>Cross-Source Duplicate Review Queue</span>
+                <span className="text-xs font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">
+                  {duplicateFlags.length} Pending
+                </span>
+              </h3>
+              <p className="text-xs text-zinc-400 mt-1">
+                Candidate duplicates flagged by spatial proximity and bigram string similarity. Original community records are never automatically deleted.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-3 mt-4">
+            {duplicateFlags.map((flag) => (
+              <div
+                key={flag.id}
+                className="p-4 rounded-2xl bg-black/40 border border-white/[0.08] flex flex-col md:flex-row md:items-center justify-between gap-4"
+              >
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="font-mono text-zinc-400">Score: {(flag.similarity_score * 100).toFixed(0)}%</span>
+                    <span className="text-zinc-600">&bull;</span>
+                    <span className="text-amber-400 font-medium">{flag.reason}</span>
+                  </div>
+                  <div className="text-sm font-semibold text-white">
+                    {flag.new_station_name || 'Candidate Station'}
+                    <span className="ml-2 text-xs font-mono text-zinc-500 uppercase">
+                      ({flag.new_station_source})
+                    </span>
+                  </div>
+                  <div className="text-xs text-zinc-400">
+                    Matches with: <span className="text-zinc-200">{flag.existing_station_name}</span> ({flag.existing_station_source})
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 self-end md:self-center">
+                  <button
+                    onClick={() => handleResolveFlag(flag.id, 'confirmed_unique')}
+                    className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition"
+                  >
+                    Confirm Unique
+                  </button>
+                  <button
+                    onClick={() => handleResolveFlag(flag.id, 'merged')}
+                    className="px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 text-xs font-medium transition"
+                  >
+                    Merge Records
+                  </button>
+                  <button
+                    onClick={() => handleResolveFlag(flag.id, 'dismissed')}
+                    className="px-3 py-1.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-400 text-xs font-medium transition"
+                  >
+                    Dismiss
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Import Runs Audit History Table */}
+      <div className="bg-[#0D100E] border border-white/[0.08] rounded-3xl p-6 sm:p-8 mb-8">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <Clock className="w-5 h-5 text-[#8CF06B]" />
+              <span>Import Run Audit History</span>
+            </h3>
+            <p className="text-xs text-zinc-400 mt-1">
+              Traceable execution log of discovered, inserted, updated, flagged, and rejected records across all datasets.
+            </p>
+          </div>
+          <button
+            onClick={fetchImportRuns}
+            className="text-xs font-mono text-zinc-400 hover:text-white transition flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10"
+          >
+            <RefreshCw className="w-3 h-3" />
+            <span>Refresh</span>
+          </button>
+        </div>
+
+        {importRuns.length === 0 ? (
+          <div className="text-center py-8 text-xs text-zinc-500 font-mono">
+            No historical import runs recorded yet.
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs font-mono">
+              <thead className="text-zinc-500 border-b border-white/[0.08] uppercase">
+                <tr>
+                  <th className="py-3 px-3">Source</th>
+                  <th className="py-3 px-3">Date</th>
+                  <th className="py-3 px-3">Discovered</th>
+                  <th className="py-3 px-3">Inserted</th>
+                  <th className="py-3 px-3">Updated</th>
+                  <th className="py-3 px-3">Duplicates</th>
+                  <th className="py-3 px-3">Rejected</th>
+                  <th className="py-3 px-3">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.04] text-zinc-300">
+                {importRuns.map((run) => (
+                  <tr key={run.id} className="hover:bg-white/[0.02] transition">
+                    <td className="py-3 px-3 font-semibold text-white">{run.source_name}</td>
+                    <td className="py-3 px-3 text-zinc-400">
+                      {new Date(run.started_at).toLocaleDateString()} {new Date(run.started_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    </td>
+                    <td className="py-3 px-3">{run.records_fetched}</td>
+                    <td className="py-3 px-3 text-[#8CF06B] font-bold">+{run.records_inserted}</td>
+                    <td className="py-3 px-3 text-blue-400">{run.records_updated}</td>
+                    <td className="py-3 px-3 text-amber-400">{run.duplicates_flagged}</td>
+                    <td className="py-3 px-3 text-red-400">{run.records_rejected || 0}</td>
+                    <td className="py-3 px-3">
+                      <span
+                        className={`px-2 py-0.5 rounded text-[10px] font-semibold ${
+                          run.status === 'completed'
+                            ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30'
+                            : run.status === 'failed'
+                            ? 'bg-red-500/15 text-red-300 border border-red-500/30'
+                            : 'bg-amber-500/15 text-amber-300 border border-amber-500/30'
+                        }`}
+                      >
+                        {run.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
       </div>
@@ -236,83 +545,66 @@ export const AppAdminPlaceholder: React.FC = () => {
               </span>
             </h3>
             <p className="text-xs text-zinc-400 mt-1">
-              Verify submitted photos, address details, and electrical specifications before publishing to map.
+              Verify community wallbox specifications, electrical tariffs, and host premises before publishing to the live driver map.
             </p>
           </div>
-          <span className="text-xs font-mono text-zinc-500">
-            {listings.filter((l) => l.status === 'pending').length} pending review
-          </span>
         </div>
 
         <div className="space-y-4">
           {listings.map((item) => (
             <div
               key={item.id}
-              className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition hover:border-white/10"
+              className="p-5 sm:p-6 rounded-2xl bg-black/40 border border-white/[0.08] flex flex-col md:flex-row gap-5 items-start md:items-center justify-between"
             >
-              <div className="flex items-start sm:items-center gap-4">
+              <div className="flex gap-4 items-center">
                 <img
                   src={item.photoUrl}
-                  alt={item.hostName}
+                  alt={item.location}
                   className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover border border-white/10 flex-shrink-0"
                 />
                 <div>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-semibold text-white text-sm sm:text-base">{item.hostName}</span>
-                    <span className="text-xs font-mono text-zinc-400">({item.hostEmail})</span>
-                    {item.status === 'approved' && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-semibold">
-                        APPROVED & LIVE
-                      </span>
-                    )}
-                    {item.status === 'rejected' && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30 font-semibold">
-                        REJECTED
-                      </span>
-                    )}
-                    {item.status === 'pending' && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30 font-semibold flex items-center gap-1">
-                        <Clock className="w-2.5 h-2.5" />
-                        <span>PENDING AUDIT</span>
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-xs text-zinc-400 mt-1 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-zinc-500 flex-shrink-0" />
-                    <span>{item.location}</span>
-                  </div>
-                  <div className="flex items-center gap-3 mt-2 text-xs font-mono">
+                  <h4 className="font-semibold text-white text-base">{item.location}</h4>
+                  <p className="text-xs text-zinc-400 mt-0.5">
+                    Host: <span className="text-zinc-300">{item.hostName}</span> &bull; {item.hostEmail}
+                  </p>
+                  <div className="flex items-center gap-3 mt-2 font-mono text-xs">
                     <span className="text-[#8CF06B] flex items-center gap-1">
-                      <Zap className="w-3 h-3" />
-                      {item.power}
+                      <Zap className="w-3.5 h-3.5" /> {item.power}
                     </span>
-                    <span className="text-zinc-400">{item.rate}</span>
+                    <span className="text-zinc-400">&bull;</span>
+                    <span className="text-zinc-300 font-semibold">{item.rate}</span>
                   </div>
                 </div>
               </div>
 
-              {item.status === 'pending' ? (
-                <div className="flex items-center gap-2 w-full md:w-auto self-end md:self-center">
-                  <button
-                    onClick={() => handleReject(item.id)}
-                    className="flex-1 md:flex-none px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-red-500/10 border border-white/10 hover:border-red-500/30 text-zinc-300 hover:text-red-400 text-xs font-medium transition flex items-center justify-center gap-1.5"
+              <div className="flex items-center gap-2 self-end md:self-center">
+                {item.status === 'pending' ? (
+                  <>
+                    <button
+                      onClick={() => handleReject(item.id)}
+                      className="px-4 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-medium transition"
+                    >
+                      Reject
+                    </button>
+                    <button
+                      onClick={() => handleApprove(item.id)}
+                      className="px-4 py-2 rounded-xl bg-[#8CF06B] hover:bg-[#9ef581] text-black text-xs font-semibold transition"
+                    >
+                      Approve Listing
+                    </button>
+                  </>
+                ) : (
+                  <span
+                    className={`text-xs font-mono font-medium px-3 py-1.5 rounded-xl border ${
+                      item.status === 'approved'
+                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                        : 'bg-red-500/10 text-red-400 border-red-500/20'
+                    }`}
                   >
-                    <XCircle className="w-3.5 h-3.5" />
-                    <span>Reject</span>
-                  </button>
-                  <button
-                    onClick={() => handleApprove(item.id)}
-                    className="flex-1 md:flex-none px-4 py-2 rounded-xl bg-[#8CF06B] hover:bg-[#9ef581] text-black text-xs font-semibold transition flex items-center justify-center gap-1.5"
-                  >
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Approve Listing</span>
-                  </button>
-                </div>
-              ) : (
-                <div className="text-xs font-mono text-zinc-500">
-                  Audit action completed
-                </div>
-              )}
+                    {item.status.toUpperCase()}
+                  </span>
+                )}
+              </div>
             </div>
           ))}
         </div>

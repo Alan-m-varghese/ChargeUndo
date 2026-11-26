@@ -23,14 +23,21 @@ export function getLocalEnv(): Env {
     localR2 = new LocalR2Bucket(r2Path);
   }
 
-  // Ensure migration is applied once
+  // Ensure migrations are applied
   if (!schemaInitialized) {
-    const migrationFile = path.resolve(process.cwd(), 'migrations/0001_initial_schema.sql');
-    if (fs.existsSync(migrationFile)) {
-      const sql = fs.readFileSync(migrationFile, 'utf-8');
-      localDb.exec(sql);
-      schemaInitialized = true;
+    const migration1 = path.resolve(process.cwd(), 'migrations/0001_initial_schema.sql');
+    if (fs.existsSync(migration1)) {
+      localDb.exec(fs.readFileSync(migration1, 'utf-8'));
     }
+    const migration2 = path.resolve(process.cwd(), 'migrations/0002_multi_source_traceability.sql');
+    if (fs.existsSync(migration2)) {
+      try {
+        localDb.exec(fs.readFileSync(migration2, 'utf-8'));
+      } catch {
+        // columns already exist
+      }
+    }
+    schemaInitialized = true;
   }
 
   return {
