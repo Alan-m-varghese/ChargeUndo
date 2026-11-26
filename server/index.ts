@@ -6,6 +6,7 @@ import type { Env, StationRecord, ConnectorRecord, StationImageRecord, ImportRun
 import { runOsmImport } from './osm-importer.ts';
 import { runBeeImport } from './bee-importer.ts';
 import { runOcmImport } from './ocm-importer.ts';
+import { handleNearbyStations } from './nearby.ts';
 
 // Schema migration safety helper: Ensures new columns exist across local and remote D1
 async function ensureSchemaColumns(db: D1Database): Promise<void> {
@@ -60,7 +61,12 @@ export default {
 
     // Serve static frontend assets if running with Cloudflare Workers Static Assets
     if (!pathname.startsWith('/api') && (env as any).ASSETS) {
-      return (env as any).ASSETS.fetch(request);
+      const assetRes = await (env as any).ASSETS.fetch(request);
+      if (assetRes.status === 404 && !pathname.includes('.')) {
+        const spaUrl = new URL('/index.html', request.url);
+        return (env as any).ASSETS.fetch(new Request(spaUrl.toString(), request));
+      }
+      return assetRes;
     }
 
     try {
@@ -79,7 +85,14 @@ export default {
       }
 
       // ----------------------------------------------------
-      // 2. GET /api/stations - List charging stations
+      // 2. GET /api/stations/nearby - Nearby Charger Discovery
+      // ----------------------------------------------------
+      if (pathname === '/api/stations/nearby' && method === 'GET') {
+        return handleNearbyStations(request, env);
+      }
+
+      // ----------------------------------------------------
+      // 3. GET /api/stations - List charging stations
       // ----------------------------------------------------
       if (pathname === '/api/stations' && method === 'GET') {
         const city = url.searchParams.get('city');

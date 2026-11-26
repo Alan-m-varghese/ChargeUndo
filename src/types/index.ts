@@ -75,3 +75,14 @@ export interface ChargingStation {
   network?: string;
   rating: number;
 }
+
+export interface NearbyStationRecord extends StationRecord {
+  distance_km: number;
+  recommendation_score: number;
+  recommendation_badge: string | null;
+  recommendation_reason: string;
+  is_compatible: boolean;
+}
+
+export * from './vehicle';
+

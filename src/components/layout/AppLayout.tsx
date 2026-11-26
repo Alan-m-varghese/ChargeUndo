@@ -14,13 +14,31 @@ import {
   Shield,
   Sparkles,
   ChevronRight,
+  MapPin,
+  Loader2,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { getUserLocation } from '../../utils/geolocation';
 
 export const AppLayout: React.FC = () => {
   const { user, logout, becomeProvider } = useAuth();
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileLocating, setMobileLocating] = useState(false);
+
+  const handleMobileFindNearMe = async () => {
+    setMobileLocating(true);
+    try {
+      const coords = await getUserLocation();
+      navigate(`/app/explore?lat=${coords.latitude.toFixed(6)}&lng=${coords.longitude.toFixed(6)}&radius=10&mode=nearby`);
+      setMobileMenuOpen(false);
+    } catch (err: any) {
+      navigate('/app/explore');
+      setMobileMenuOpen(false);
+    } finally {
+      setMobileLocating(false);
+    }
+  };
 
   const handleLogout = () => {
     logout();
@@ -82,6 +100,21 @@ export const AppLayout: React.FC = () => {
         </Link>
 
         <div className="flex items-center gap-2">
+          {/* Mobile Location Detection Quick Trigger */}
+          <button
+            onClick={handleMobileFindNearMe}
+            disabled={mobileLocating}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#8CF06B]/15 hover:bg-[#8CF06B]/25 border border-[#8CF06B]/30 text-[#8CF06B] text-xs font-semibold cursor-pointer disabled:opacity-50"
+            title="Find Chargers Near Me"
+          >
+            {mobileLocating ? (
+              <Loader2 className="w-3.5 h-3.5 animate-spin text-[#8CF06B]" />
+            ) : (
+              <MapPin className="w-3.5 h-3.5 text-[#8CF06B]" />
+            )}
+            <span>{mobileLocating ? 'Locating...' : 'Near Me'}</span>
+          </button>
+
           {user?.isAdmin && (
             <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1">
               <Shield className="w-2.5 h-2.5" />
@@ -159,6 +192,23 @@ export const AppLayout: React.FC = () => {
 
         {/* Navigation Links */}
         <nav className="flex-1 p-4 space-y-1.5 overflow-y-auto no-scrollbar">
+          {/* Quick Near Me Location Trigger */}
+          <button
+            onClick={handleMobileFindNearMe}
+            disabled={mobileLocating}
+            className="w-full mb-3 px-3.5 py-2.5 rounded-xl bg-[#8CF06B]/10 hover:bg-[#8CF06B]/20 border border-[#8CF06B]/30 text-[#8CF06B] text-xs font-semibold flex items-center justify-between transition cursor-pointer disabled:opacity-50"
+          >
+            <div className="flex items-center gap-2">
+              {mobileLocating ? (
+                <Loader2 className="w-3.5 h-3.5 animate-spin text-[#8CF06B]" />
+              ) : (
+                <MapPin className="w-3.5 h-3.5 text-[#8CF06B]" />
+              )}
+              <span>Find Chargers Near Me</span>
+            </div>
+            <span className="text-[10px] font-mono bg-[#8CF06B]/20 px-1.5 py-0.5 rounded text-[#8CF06B]">GPS</span>
+          </button>
+
           <div className="px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-zinc-400">
             Navigation
           </div>

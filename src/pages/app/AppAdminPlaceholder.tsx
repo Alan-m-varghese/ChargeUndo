@@ -317,7 +317,7 @@ export const AppAdminPlaceholder: React.FC = () => {
               className="mt-5 w-full py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs transition flex items-center justify-center gap-2 disabled:opacity-50"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${activeSource === 'osm' ? 'animate-spin' : ''}`} />
-              <span>{activeSource === 'osm' ? 'Syncing OSM...' : 'Sync OSM Kerala'}</span>
+              <span>{activeSource === 'osm' ? 'Syncing...' : 'Sync'}</span>
             </button>
           </div>
 
