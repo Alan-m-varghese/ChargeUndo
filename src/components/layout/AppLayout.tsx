@@ -125,7 +125,7 @@ export const AppLayout: React.FC = () => {
             </Link>
 
             <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-white/[0.06] text-zinc-400 border border-white/[0.08]">
-              App
+              Beta
             </span>
           </div>
 
