@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, MapPin, Heart, Navigation, Camera, ExternalLink, ShieldAlert, ShieldCheck, Upload, AlertCircle, CheckCircle2, Clock } from 'lucide-react';
 import { StationRecord, StationImageRecord } from '../../types';
+import { isStationFavourite, toggleFavourite } from '../../utils/favourites';
 
 export const AppStationDetailsPlaceholder: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [station, setStation] = useState<StationRecord | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [isFavourite, setIsFavourite] = useState<boolean>(false);
 
   // Gallery State
   const [activePhoto, setActivePhoto] = useState<string | null>(null);
@@ -32,6 +34,9 @@ export const AppStationDetailsPlaceholder: React.FC = () => {
       }
       const data = await res.json();
       setStation(data.station);
+      if (data.station?.id) {
+        setIsFavourite(isStationFavourite(data.station.id));
+      }
       if (data.station?.images && data.station.images.length > 0) {
         setActivePhoto(data.station.images[0].image_url);
       }
@@ -41,6 +46,12 @@ export const AppStationDetailsPlaceholder: React.FC = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleToggleFavourite = () => {
+    if (!station) return;
+    const next = toggleFavourite(station);
+    setIsFavourite(next);
   };
 
   useEffect(() => {
@@ -181,8 +192,21 @@ export const AppStationDetailsPlaceholder: React.FC = () => {
               <span>Upload Photo</span>
             </button>
 
-            <button className="p-3 rounded-2xl bg-white/[0.05] border border-white/[0.1] hover:bg-white/[0.1] text-zinc-300 hover:text-red-400 transition">
-              <Heart className="w-5 h-5" />
+            <button
+              onClick={handleToggleFavourite}
+              className={`p-3 rounded-2xl border transition cursor-pointer flex items-center justify-center ${
+                isFavourite
+                  ? 'bg-red-500/15 border-red-500/40 text-red-500 hover:bg-red-500/25 shadow-[0_0_15px_rgba(239,68,68,0.25)]'
+                  : 'bg-white/[0.05] border-white/[0.1] hover:bg-white/[0.1] text-zinc-300 hover:text-red-400'
+              }`}
+              title={isFavourite ? 'Remove from favourites' : 'Save to favourites'}
+              aria-label={isFavourite ? 'Remove from favourites' : 'Save to favourites'}
+            >
+              <Heart
+                className={`w-5 h-5 transition-transform duration-200 active:scale-125 ${
+                  isFavourite ? 'fill-red-500 text-red-500' : ''
+                }`}
+              />
             </button>
           </div>
         </div>

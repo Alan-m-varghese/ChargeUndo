@@ -13,8 +13,10 @@ import {
   Loader2,
   X,
   Info,
+  Heart,
 } from 'lucide-react';
 import { StationRecord, NearbyStationRecord, getStoredVehicles, Vehicle } from '../../types';
+import { getStoredFavourites, toggleFavourite } from '../../utils/favourites';
 import {
   getUserLocation,
   getGoogleMapsDirectionsUrl,
@@ -47,6 +49,22 @@ export const AppExplorePlaceholder: React.FC = () => {
   const [totalCount, setTotalCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [favouriteIds, setFavouriteIds] = useState<Set<string>>(new Set());
+
+  // Load favourites on mount & sync across tabs
+  useEffect(() => {
+    const updateFavs = () => {
+      const favs = getStoredFavourites();
+      setFavouriteIds(new Set(favs.map((f) => f.id)));
+    };
+    updateFavs();
+    window.addEventListener('chargeundo_favourites_updated', updateFavs);
+    window.addEventListener('storage', updateFavs);
+    return () => {
+      window.removeEventListener('chargeundo_favourites_updated', updateFavs);
+      window.removeEventListener('storage', updateFavs);
+    };
+  }, []);
 
   // Load registered vehicle on mount
   useEffect(() => {
@@ -716,6 +734,24 @@ export const AppExplorePlaceholder: React.FC = () => {
                     </div>
 
                     <div className="flex items-center gap-2">
+                      {/* Favourite toggle button */}
+                      <button
+                        onClick={() => toggleFavourite(station)}
+                        className={`p-2 rounded-xl border transition cursor-pointer flex items-center justify-center ${
+                          favouriteIds.has(station.id)
+                            ? 'bg-red-500/15 border-red-500/40 text-red-500 shadow-sm'
+                            : 'bg-white/[0.05] border-white/[0.1] text-zinc-400 hover:text-red-400'
+                        }`}
+                        title={favouriteIds.has(station.id) ? 'Remove from favourites' : 'Save to favourites'}
+                        aria-label="Toggle favourite"
+                      >
+                        <Heart
+                          className={`w-4 h-4 ${
+                            favouriteIds.has(station.id) ? 'fill-red-500 text-red-500' : ''
+                          }`}
+                        />
+                      </button>
+
                       {/* View Details Link */}
                       <Link
                         to={`/app/stations/${station.id}`}
