@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, PlusCircle, MapPin, Loader2, AlertCircle, RefreshCw } from 'lucide-react';
+import { PlusCircle, MapPin, Loader2, AlertCircle, RefreshCw } from 'lucide-react';
 import { HeroVisual } from './HeroVisual';
 import { RollingText } from './RollingText';
 import { getUserLocation, GeolocationErrorDetails } from '../../utils/geolocation';
@@ -96,7 +96,7 @@ export const Hero: React.FC = () => {
 
         {/* CTA Buttons: Relaxed, comfortable touch targets */}
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 max-w-xs sm:max-w-none mx-auto w-full">
-          {/* Prominent "Find Chargers Near Me" Button */}
+          {/* Primary CTA: Find Chargers Near Me */}
           <button
             onClick={handleFindNearMe}
             disabled={locating}
@@ -110,21 +110,12 @@ export const Hero: React.FC = () => {
             <span>Find Chargers Near Me</span>
           </button>
 
-          {/* Secondary CTA: Explore Directory */}
-          <Link
-            to="/app/explore"
-            className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-zinc-200 hover:text-white font-medium text-sm sm:text-base transition-all hover:border-white/25 flex items-center justify-center gap-2.5"
-          >
-            <span>Browse Directory</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-
-          {/* Tertiary CTA: List Charger */}
+          {/* Secondary CTA: List Charger */}
           <Link
             to="/app/list-charger"
-            className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full bg-transparent hover:bg-white/[0.04] text-zinc-400 hover:text-zinc-200 font-medium text-sm sm:text-base transition-all flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-zinc-200 hover:text-white font-medium text-sm sm:text-base transition-all hover:border-white/25 flex items-center justify-center gap-2.5"
           >
-            <PlusCircle className="w-4 h-4 text-zinc-500" />
+            <PlusCircle className="w-4 h-4 text-zinc-400" />
             <span>List Your Charger</span>
           </Link>
         </div>
