@@ -565,7 +565,7 @@ export const AppExplorePlaceholder: React.FC = () => {
               {stations.length} {nearbyMode ? `Nearby Stations (within ${radiusKm} km)` : 'Charging Stations'}
             </span>
             {nearbyMode && (
-              <span className="text-[11px] font-mono text-zinc-500 normal-case flex items-center gap-1">
+              <span className="hidden sm:flex text-[11px] font-mono text-zinc-500 normal-case items-center gap-1">
                 <Info className="w-3 h-3 text-[#8CF06B]" />
                 <span>Ranked by distance, compatibility & power</span>
               </span>

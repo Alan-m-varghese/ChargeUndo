@@ -100,21 +100,6 @@ export const AppLayout: React.FC = () => {
         </Link>
 
         <div className="flex items-center gap-2">
-          {/* Mobile Location Detection Quick Trigger */}
-          <button
-            onClick={handleMobileFindNearMe}
-            disabled={mobileLocating}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#8CF06B]/15 hover:bg-[#8CF06B]/25 border border-[#8CF06B]/30 text-[#8CF06B] text-xs font-semibold cursor-pointer disabled:opacity-50"
-            title="Find Chargers Near Me"
-          >
-            {mobileLocating ? (
-              <Loader2 className="w-3.5 h-3.5 animate-spin text-[#8CF06B]" />
-            ) : (
-              <MapPin className="w-3.5 h-3.5 text-[#8CF06B]" />
-            )}
-            <span>{mobileLocating ? 'Locating...' : 'Near Me'}</span>
-          </button>
-
           {user?.isAdmin && (
             <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1">
               <Shield className="w-2.5 h-2.5" />
