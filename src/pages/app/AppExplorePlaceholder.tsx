@@ -462,12 +462,18 @@ export const AppExplorePlaceholder: React.FC = () => {
             )
           )}
 
+          {/* Collapsed Search Icon Button */}
           <button
             onClick={() => setShowManualSearch(!showManualSearch)}
-            className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white/[0.06] hover:bg-white/[0.12] text-zinc-300 hover:text-white border border-white/10 ml-auto flex items-center gap-1.5"
+            className={`w-7 h-7 rounded-lg border flex items-center justify-center ml-auto transition cursor-pointer ${
+              showManualSearch
+                ? 'bg-[#8CF06B]/20 text-[#8CF06B] border-[#8CF06B]/40'
+                : 'bg-white/[0.04] text-zinc-400 hover:text-white hover:bg-white/[0.08] border-white/[0.06]'
+            }`}
+            title={showManualSearch ? 'Close manual search' : 'Search by city, area, or PIN code'}
+            aria-label="Search city or PIN code"
           >
-            <Search className="w-3 h-3" />
-            <span>{showManualSearch ? 'Hide Search' : 'Manual City / PIN'}</span>
+            {showManualSearch ? <X className="w-3.5 h-3.5" /> : <Search className="w-3.5 h-3.5" />}
           </button>
         </div>
 
