@@ -11,8 +11,6 @@ import {
   AlertCircle,
   Navigation,
   Loader2,
-  Car,
-  Compass,
   X,
   Info,
 } from 'lucide-react';
@@ -323,62 +321,38 @@ export const AppExplorePlaceholder: React.FC = () => {
 
       {/* Nearby Active Banner (Only displayed when Nearby Mode is active) */}
       {nearbyMode && userLocation && (
-        <div className="mb-6 p-4 sm:p-5 rounded-3xl bg-[#0D100E] border border-[#8CF06B]/25 shadow-lg space-y-4">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-[#8CF06B]/15 border border-[#8CF06B]/30 flex items-center justify-center text-[#8CF06B] flex-shrink-0">
-                <Compass className="w-4 h-4" />
-              </div>
-              <div>
-                <div className="text-xs text-zinc-300 font-mono flex items-center gap-2">
-                  <span>NEARBY SEARCH:</span>
-                  <span className="text-white font-semibold">{userLocation.label}</span>
-                </div>
-                <div className="text-[11px] text-zinc-400 mt-0.5">
-                  Showing stations ranked by distance, port compatibility & reliability
-                </div>
-              </div>
+        <div className="mb-6 px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl bg-[#0D100E] border border-white/[0.08] flex flex-col md:flex-row md:items-center justify-between gap-3 shadow-lg">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-2.5 h-2.5 rounded-full bg-[#8CF06B] shadow-[0_0_10px_rgba(140,240,107,0.7)] animate-pulse flex-shrink-0" />
+            <div className="flex items-center gap-2 text-xs sm:text-sm truncate">
+              <span className="text-zinc-400">Near</span>
+              <span className="text-white font-semibold truncate">{userLocation.label}</span>
+              <span className="text-zinc-600 hidden sm:inline">•</span>
+              <span className="text-xs text-zinc-400 hidden sm:inline">Ranked by distance & reliability</span>
             </div>
+          </div>
 
-            {/* Radius Selector Pills (5 km, 10 km, 25 km, 50 km) */}
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-xs text-zinc-400 font-mono mr-1">RADIUS:</span>
+          <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap flex-shrink-0">
+            {/* Segmented radius controls */}
+            <div className="flex items-center bg-black/50 p-1 rounded-xl border border-white/[0.06]">
               {[5, 10, 25, 50].map((r) => (
                 <button
                   key={r}
                   onClick={() => handleRadiusChange(r)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-mono font-semibold transition ${
+                  className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
                     radiusKm === r
                       ? 'bg-[#8CF06B] text-black shadow-sm'
-                      : 'bg-white/[0.04] text-zinc-400 hover:text-white border border-white/[0.06]'
+                      : 'text-zinc-400 hover:text-white'
                   }`}
                   title={`Search within ${r} km`}
                 >
                   {r} km
                 </button>
               ))}
-
-              <button
-                onClick={handleResetToAllStations}
-                className="px-3 py-1.5 rounded-xl text-xs font-mono text-zinc-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] transition ml-2 flex items-center gap-1.5"
-                title="Clear nearby filter and show all stations"
-              >
-                <X className="w-3 h-3" />
-                <span>Show All Stations</span>
-              </button>
             </div>
-          </div>
 
-          {/* Registered Vehicle Matching Indicator in Nearby Mode */}
-          {userVehicle && (
-            <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs">
-              <div className="flex items-center gap-2">
-                <Car className="w-3.5 h-3.5 text-[#8CF06B]" />
-                <span className="text-zinc-300">
-                  Registered EV: <strong className="text-white">{userVehicle.name}</strong> ({userVehicle.connectorType})
-                </span>
-              </div>
-
+            {/* EV Vehicle Compatibility toggle */}
+            {userVehicle && (
               <button
                 onClick={() => {
                   const nextState = !filterByVehicle;
@@ -387,16 +361,29 @@ export const AppExplorePlaceholder: React.FC = () => {
                     fetchNearbyStations(userLocation.latitude, userLocation.longitude, radiusKm, nextState ? userVehicle : null);
                   }
                 }}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-medium transition flex items-center gap-1.5 whitespace-nowrap ${
                   filterByVehicle
                     ? 'bg-[#8CF06B]/20 text-[#8CF06B] border border-[#8CF06B]/40 font-semibold'
                     : 'bg-white/[0.04] text-zinc-400 hover:text-white border border-white/[0.06]'
                 }`}
+                title={`Prioritize ${userVehicle.connectorType} chargers for ${userVehicle.name}`}
               >
-                {filterByVehicle ? 'Prioritizing Compatible Ports' : 'Match My EV Port'}
+                <Zap className="w-3 h-3 text-[#8CF06B]" />
+                <span className="hidden sm:inline">{userVehicle.name}</span>
+                <span>({userVehicle.connectorType})</span>
               </button>
-            </div>
-          )}
+            )}
+
+            {/* Clear / Show All Stations button */}
+            <button
+              onClick={handleResetToAllStations}
+              className="px-3 py-1.5 rounded-xl text-xs font-medium text-zinc-400 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] transition flex items-center gap-1.5 whitespace-nowrap"
+              title="Clear nearby filter and show all stations"
+            >
+              <X className="w-3.5 h-3.5" />
+              <span>Show All</span>
+            </button>
+          </div>
         </div>
       )}
 
