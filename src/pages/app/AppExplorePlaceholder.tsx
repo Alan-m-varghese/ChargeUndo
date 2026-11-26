@@ -410,7 +410,7 @@ export const AppExplorePlaceholder: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search station name, city, PINCODE, or operator (e.g. Kaloor, KSEB, Kozhikode)..."
+                placeholder="Search station name, city, pincode, or operator (e.g. Kaloor, KSEB, Kozhikode)..."
                 className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#0D100E] border border-white/[0.1] text-white text-sm focus:outline-none focus:border-[#8CF06B] transition"
               />
             </div>
