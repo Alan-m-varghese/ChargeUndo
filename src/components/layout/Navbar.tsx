@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, LogOut, MapPin } from 'lucide-react';
+import { Menu, X, ArrowUpRight, LogOut } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 export const Navbar: React.FC = () => {
@@ -127,17 +127,8 @@ export const Navbar: React.FC = () => {
           )}
         </div>
 
-        {/* Mobile Menu Toggle Button & Quick Near Me */}
+        {/* Mobile Menu Toggle Button */}
         <div className="flex md:hidden items-center gap-2">
-          <Link
-            to="/app/explore?mode=nearby"
-            className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#8CF06B]/15 hover:bg-[#8CF06B]/25 border border-[#8CF06B]/30 text-[#8CF06B] text-xs font-semibold"
-            title="Find Chargers Near Me"
-          >
-            <MapPin className="w-3.5 h-3.5 text-[#8CF06B]" />
-            <span>Near Me</span>
-          </Link>
-
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-zinc-300 hover:text-white active:scale-95 transition"

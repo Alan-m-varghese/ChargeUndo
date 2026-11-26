@@ -230,14 +230,8 @@ export const AppExplorePlaceholder: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-2.5">
-            <span>Explore Charging Stations</span>
-            {nearbyMode && (
-              <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[#8CF06B]/20 text-[#8CF06B] border border-[#8CF06B]/30 font-semibold flex items-center gap-1">
-                <MapPin className="w-3 h-3" />
-                <span>NEARBY MODE</span>
-              </span>
-            )}
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Explore Charging Stations
           </h1>
           <p className="text-zinc-400 text-xs sm:text-sm mt-1">
             {nearbyMode && userLocation
