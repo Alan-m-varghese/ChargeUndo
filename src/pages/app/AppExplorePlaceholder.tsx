@@ -4,11 +4,11 @@ import {
   Search,
   MapPin,
   ArrowRight,
+  Plus,
   Camera,
   Zap,
   RefreshCw,
   AlertCircle,
-  CheckCircle2,
   Navigation,
   Loader2,
   Car,
@@ -57,11 +57,6 @@ export const AppExplorePlaceholder: React.FC = () => {
   const [totalCount, setTotalCount] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [importingOsm, setImportingOsm] = useState<boolean>(false);
-  const [importResult, setImportResult] = useState<{
-    type: 'success' | 'error';
-    message: string;
-  } | null>(null);
 
   // Load registered vehicle on mount
   useEffect(() => {
@@ -291,43 +286,10 @@ export const AppExplorePlaceholder: React.FC = () => {
     return () => clearTimeout(timer);
   }, [searchQuery, activeFilter]);
 
-  // Sync OSM Kerala
-  const handleImportOsm = async () => {
-    setImportingOsm(true);
-    setImportResult(null);
-    try {
-      const res = await fetch('/api/import/osm', { method: 'POST' });
-      const data = await res.json().catch(() => null);
-      if (res.ok && data?.success) {
-        setImportResult({
-          type: 'success',
-          message: `Sync complete! Added/updated stations across Kerala.`,
-        });
-        if (nearbyMode && userLocation) {
-          fetchNearbyStations(userLocation.latitude, userLocation.longitude, radiusKm);
-        } else {
-          fetchStations('', 'all');
-        }
-      } else {
-        setImportResult({
-          type: 'error',
-          message: data?.error || 'Sync failed. Please check network connection.',
-        });
-      }
-    } catch (err: any) {
-      setImportResult({
-        type: 'error',
-        message: err.message || 'Network error communicating with backend API.',
-      });
-    } finally {
-      setImportingOsm(false);
-    }
-  };
-
   return (
     <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full">
       {/* Top Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-2.5">
             <span>Explore Charging Stations</span>
@@ -345,13 +307,20 @@ export const AppExplorePlaceholder: React.FC = () => {
           </p>
         </div>
 
-        {/* Action Controls */}
-        <div className="flex flex-wrap items-center gap-2.5 self-start md:self-auto">
-          {/* Prominent "Find Chargers Near Me" Button */}
+        {/* Action Controls - Perfectly aligned single row */}
+        <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+          <Link
+            to="/app/list-charger"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-zinc-200 hover:text-white text-xs sm:text-sm font-semibold transition whitespace-nowrap"
+          >
+            <Plus className="w-4 h-4 text-zinc-400" />
+            <span>List Charger</span>
+          </Link>
+
           <button
             onClick={handleFindNearMe}
             disabled={locating}
-            className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
+            className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer whitespace-nowrap ${
               nearbyMode && userLocation?.label.includes('Current Location')
                 ? 'bg-[#8CF06B] text-black shadow-[0_0_20px_rgba(140,240,107,0.35)]'
                 : 'bg-[#8CF06B] hover:bg-[#9ef581] text-black'
@@ -363,28 +332,8 @@ export const AppExplorePlaceholder: React.FC = () => {
             ) : (
               <MapPin className="w-3.5 h-3.5 text-black" />
             )}
-            <span>{locating ? locatingStatus : 'Find Chargers Near Me'}</span>
+            <span>{locating ? locatingStatus : 'Find Near Me'}</span>
           </button>
-
-          {/* Sync Button */}
-          <button
-            onClick={handleImportOsm}
-            disabled={importingOsm}
-            className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-xs text-zinc-300 hover:text-white font-medium transition disabled:opacity-50"
-            title="Sync charging stations"
-          >
-            <RefreshCw className={`w-3.5 h-3.5 ${importingOsm ? 'animate-spin text-[#8CF06B]' : ''}`} />
-            <span>{importingOsm ? 'Syncing...' : 'Sync'}</span>
-          </button>
-
-          {/* List Charger Button */}
-          <Link
-            to="/app/list-charger"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-white text-xs sm:text-sm font-semibold transition"
-          >
-            <span>List Charger</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
         </div>
       </div>
 
@@ -435,32 +384,6 @@ export const AppExplorePlaceholder: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-      )}
-
-      {/* Import Status Alert */}
-      {importResult && (
-        <div
-          className={`mb-6 p-4 rounded-2xl text-xs font-mono flex items-center justify-between gap-3 ${
-            importResult.type === 'success'
-              ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300'
-              : 'bg-red-500/10 border border-red-500/30 text-red-300'
-          }`}
-        >
-          <div className="flex items-center gap-2.5">
-            {importResult.type === 'success' ? (
-              <CheckCircle2 className="w-4 h-4 text-[#8CF06B] flex-shrink-0" />
-            ) : (
-              <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
-            )}
-            <span>{importResult.message}</span>
-          </div>
-          <button
-            onClick={() => setImportResult(null)}
-            className="text-zinc-500 hover:text-white transition"
-          >
-            &times;
-          </button>
         </div>
       )}
 
@@ -731,12 +654,14 @@ export const AppExplorePlaceholder: React.FC = () => {
               </button>
             ) : (
               <button
-                onClick={handleImportOsm}
-                disabled={importingOsm}
-                className="px-6 py-3 rounded-full bg-[#8CF06B] hover:bg-[#9ef581] text-black text-xs font-semibold transition flex items-center gap-2"
+                onClick={() => {
+                  setSearchQuery('');
+                  setActiveFilter('all');
+                  fetchStations('', 'all');
+                }}
+                className="px-6 py-2.5 rounded-full bg-[#8CF06B] hover:bg-[#9ef581] text-black text-xs font-semibold transition"
               >
-                <RefreshCw className={`w-3.5 h-3.5 ${importingOsm ? 'animate-spin' : ''}`} />
-                <span>{importingOsm ? 'Syncing Stations...' : 'Sync Kerala Stations'}</span>
+                Reset Filters & Search
               </button>
             )}
           </div>
